@@ -1,0 +1,40 @@
+name: altshue
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: 4.3.8
+  flutter_svg: ^0.22.0
+  flutter_keyboard_visibility: ^5.0.3
+  fluttertoast: ^8.0.8
+  image_picker: 0.8.4+2
+  percent_indicator: 3.4.0
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: ^1.0.0
+  lints: 1.0.1
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  assets: 
+    - assets/images/png/
+    - assets/images/svg/
+  fonts: 
+    - family: Montserratreg
+      fonts: 
+        - asset: assets/fonts/Montserrat-Regular.ttf
+    - family: Montserratmed
+      fonts: 
+        - asset: assets/fonts/Montserrat-Medium.ttf
+    - family: Montserratbold
+      fonts: 
+        - asset: assets/fonts/Montserrat-Bold.ttf
+  uses-material-design: true
+

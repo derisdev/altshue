@@ -11,10 +11,16 @@ class Palette {
   static const alto = Color(0xffDDDDDD);
   static const tundora = Color(0xff404040);
   static const thunderbird = Color(0xffCF1816);
+  static const mineShaft = Color(0xff282828);
+  static const dustyGray = Color(0xff989898);
+  static const wildSand = Color(0xffF4F4F4);
+  static const amber = Colors.amber;
 }
 
 class AppFontStyle {
   static const montserratReg = "Montserratreg";
   static const montserratMed = "Montserratmed";
   static const montserratBold = "Montserratbold";
+  static const montserratBoldItalic = "MontserratboldItalic";
+  static const robotoReg = "RobotoReg";
 }

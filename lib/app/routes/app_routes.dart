@@ -9,6 +9,11 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
   static const KTP_VERIF = _Paths.KTP_VERIF;
+  static const NEWS = _Paths.NEWS;
+  static const NEWS_DETAIL = _Paths.NEWS_DETAIL;
+  static const FRIENDS = _Paths.FRIENDS;
+  static const FRIENDS_ADD = _Paths.FRIENDS_ADD;
+  static const RANK = _Paths.RANK;
 }
 
 abstract class _Paths {
@@ -17,4 +22,9 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const KTP_VERIF = '/ktp-verif';
+  static const NEWS = '/news';
+  static const NEWS_DETAIL = '/news-detail';
+  static const FRIENDS = '/friends';
+  static const FRIENDS_ADD = '/friends-add';
+  static const RANK = '/rank';
 }

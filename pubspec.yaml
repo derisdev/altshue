@@ -36,5 +36,11 @@ flutter:
     - family: Montserratbold
       fonts: 
         - asset: assets/fonts/Montserrat-Bold.ttf
+    - family: MontserratboldItalic
+      fonts: 
+        - asset: assets/fonts/Montserrat-BoldItalic.ttf
+    - family: RobotoReg
+      fonts: 
+        - asset: assets/fonts/Roboto-Regular.ttf
   uses-material-design: true
 

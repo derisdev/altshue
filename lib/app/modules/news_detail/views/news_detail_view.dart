@@ -61,6 +61,7 @@ class NewsDetailView extends GetView<NewsDetailController> {
                         fontSize: 20,
                         fontFamily: AppFontStyle.montserratBold),
                   ),
+                  SizedBox(height: 5),
                   Text(
                     '22 Oct 2021',
                     style: TextStyle(

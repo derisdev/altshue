@@ -5,8 +5,19 @@ import 'package:get/get.dart';
 class ButtonGlobal extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
+  final Color primary;
+  final Color textColor;
+  final double radius;
+  final double fontSize;
 
-  const ButtonGlobal({Key? key, required this.onTap, required this.title})
+  const ButtonGlobal(
+      {Key? key,
+      required this.onTap,
+      required this.title,
+      this.primary = Palette.dixie,
+      this.textColor = Palette.white,
+      this.radius = 5,
+      this.fontSize = 16})
       : super(key: key);
 
   @override
@@ -17,16 +28,51 @@ class ButtonGlobal extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
-            primary: Palette.dixie,
+            primary: primary,
             elevation: 0,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(radius))),
         child: Text(title,
             style: TextStyle(
-                color: Palette.white,
-                fontSize: 16,
+                color: textColor,
+                fontSize: fontSize,
                 fontFamily: AppFontStyle.montserratBold)),
       ),
+    );
+  }
+}
+
+class ButtonGlobalNoChild extends StatelessWidget {
+  final VoidCallback onTap;
+  final String title;
+  final Color primary;
+  final Color textColor;
+  final double radius;
+  final Widget child;
+
+  const ButtonGlobalNoChild(
+      {Key? key,
+      required this.onTap,
+      required this.title,
+      this.primary = Palette.dixie,
+      this.textColor = Palette.white,
+      this.radius = 8,
+      required this.child})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: Get.width,
+      height: 35,
+      child: ElevatedButton(
+          onPressed: onTap,
+          style: ElevatedButton.styleFrom(
+              primary: primary,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(radius))),
+          child: child),
     );
   }
 }

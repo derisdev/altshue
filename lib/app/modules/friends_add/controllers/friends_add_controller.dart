@@ -1,20 +1,12 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class FriendsAddController extends GetxController {
-  //TODO: Implement FriendsAddController
+  TextEditingController searchC = TextEditingController();
 
-  final count = 0.obs;
   @override
-  void onInit() {
-    super.onInit();
+  void dispose() {
+    searchC.dispose();
+    super.dispose();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

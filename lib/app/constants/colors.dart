@@ -14,6 +14,10 @@ class Palette {
   static const mineShaft = Color(0xff282828);
   static const dustyGray = Color(0xff989898);
   static const wildSand = Color(0xffF4F4F4);
+  static const alabaster = Color(0xffF8F8F8);
+  static const doveGray = Color(0xff626262);
+  static const valencia = Color(0xffD62F2F);
+  static const gallery = Color(0xffEDEDED);
   static const amber = Colors.amber;
 }
 

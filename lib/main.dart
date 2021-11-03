@@ -14,6 +14,7 @@ void main() {
     GetMaterialApp(
       title: "ALT Shui",
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: Colors.red),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),

@@ -42,15 +42,61 @@ class InputField extends StatelessWidget {
           filled: true,
           hintText: hintText,
           hintStyle: TextStyle(
-              color: Palette.silverChalice,
-              fontSize: 12,
-              fontFamily: AppFontStyle.montserratReg,
-              fontWeight: FontWeight.w400),
+            color: Palette.silverChalice,
+            fontSize: 12,
+            fontFamily: AppFontStyle.montserratReg,
+          ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.transparent),
+          ),
+        ),
+        textInputAction: TextInputAction.next,
+      ),
+    );
+  }
+}
+
+class SearchField extends StatelessWidget {
+  final TextEditingController? controller;
+  final String hintText;
+
+  SearchField({
+    required this.controller,
+    required this.hintText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: TextField(
+        textCapitalization: TextCapitalization.none,
+        maxLines: 1,
+        cursorColor: Colors.black,
+        controller: controller,
+        style: TextStyle(
+            color: Palette.black,
+            fontSize: 14,
+            fontFamily: AppFontStyle.montserratReg),
+        keyboardType: TextInputType.text,
+        decoration: InputDecoration(
+          fillColor: Palette.white,
+          contentPadding: EdgeInsets.zero,
+          filled: true,
+          hintText: hintText,
+          hintStyle: TextStyle(
+              color: Palette.silverChalice,
+              fontSize: 14,
+              fontFamily: AppFontStyle.montserratReg),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Palette.alto),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Palette.alto),
           ),
         ),
         textInputAction: TextInputAction.next,

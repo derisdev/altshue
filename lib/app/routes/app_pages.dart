@@ -12,6 +12,10 @@ import 'package:altshue/app/modules/contact/bindings/contact_binding.dart';
 import 'package:altshue/app/modules/contact/views/contact_view.dart';
 import 'package:altshue/app/modules/language/bindings/language_binding.dart';
 import 'package:altshue/app/modules/language/views/language_view.dart';
+import 'package:altshue/app/modules/reedem/bindings/reedem_binding.dart';
+import 'package:altshue/app/modules/reedem/views/reedem_view.dart';
+import 'package:altshue/app/modules/reedem_detail/bindings/reedem_detail_binding.dart';
+import 'package:altshue/app/modules/reedem_detail/views/reedem_detail_view.dart';
 import 'package:altshue/app/modules/settings/bindings/settings_binding.dart';
 import 'package:altshue/app/modules/settings/views/settings_view.dart';
 import 'package:get/get.dart';
@@ -40,7 +44,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ACCOUNT;
+  static const INITIAL = Routes.BUG_ERROR;
 
   static final routes = [
     GetPage(
@@ -127,6 +131,16 @@ class AppPages {
       name: _Paths.SETTINGS,
       page: () => SettingsView(),
       binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.REEDEM,
+      page: () => ReedemView(),
+      binding: ReedemBinding(),
+    ),
+    GetPage(
+      name: _Paths.REEDEM_DETAIL,
+      page: () => ReedemDetailView(),
+      binding: ReedemDetailBinding(),
     ),
   ];
 }

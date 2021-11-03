@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class Palette {
   static const black = Colors.black;
   static const white = Colors.white;
+  static const amber = Colors.amber;
+  static const gray = Colors.grey;
   static const dixie = Color(0xffE79F1B);
   static const silverChalice = Color(0xffA0A0A0);
   static const darkTan = Color(0xff6B100E);
@@ -18,7 +20,6 @@ class Palette {
   static const doveGray = Color(0xff626262);
   static const valencia = Color(0xffD62F2F);
   static const gallery = Color(0xffEDEDED);
-  static const amber = Colors.amber;
 }
 
 class AppFontStyle {

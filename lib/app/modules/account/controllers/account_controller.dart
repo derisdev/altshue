@@ -1,20 +1,11 @@
+import 'package:altshue/app/utils/ui/show_toast.dart';
+import 'package:clipboard/clipboard.dart';
 import 'package:get/get.dart';
 
 class AccountController extends GetxController {
-  //TODO: Implement AccountController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void copyRefferal() {
+    FlutterClipboard.copy('J0HND03').then((value) {
+      showToasts(text: 'Refferal Code Copied');
+    });
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

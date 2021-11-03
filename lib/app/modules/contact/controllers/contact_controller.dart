@@ -1,20 +1,24 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ContactController extends GetxController {
-  //TODO: Implement ContactController
+  final TextEditingController? emailC = TextEditingController();
+  final TextEditingController? descC = TextEditingController();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  final isErrorEmail = false.obs;
+  final isErrorDesc = false.obs;
+  final formGlobalKey = GlobalKey<FormState>();
+
+  void send() {
+    if (formGlobalKey.currentState!.validate() &&
+        !isErrorEmail.value &&
+        !isErrorDesc.value) {}
   }
 
   @override
-  void onReady() {
-    super.onReady();
+  void dispose() {
+    emailC!.dispose();
+    descC!.dispose();
+    super.dispose();
   }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

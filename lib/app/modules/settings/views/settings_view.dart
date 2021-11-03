@@ -1,3 +1,7 @@
+import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/widgets/button_global.dart';
+import 'package:altshue/app/widgets/header_bar.dart';
+import 'package:altshue/app/widgets/tile_item.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -8,15 +12,80 @@ class SettingsView extends GetView<SettingsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('SettingsView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'SettingsView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+        backgroundColor: Palette.white,
+        body: Column(
+          children: [
+            HeaderBar(
+              title: 'Settings',
+            ),
+            SizedBox(height: 20),
+            ListSetting(),
+            SizedBox(height: 30),
+            SizedBox(
+              width: 186,
+              height: 41,
+              child: ButtonGlobal(
+                onTap: () {},
+                primary: Palette.darkTan,
+                radius: 8,
+                fontSize: 14,
+                title: 'LOGOUT',
+              ),
+            ),
+          ],
+        ));
+  }
+}
+
+class ListSetting extends StatelessWidget {
+  const ListSetting({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      child: Column(
+        children: [
+          TileItem(
+            icon: Icons.lock,
+            title: 'Change Password',
+            onTap: () {},
+          ),
+          Divider(
+            color: Palette.alto,
+          ),
+          TileItem(
+            icon: Icons.flag,
+            title: 'Language',
+            onTap: () {},
+          ),
+          Divider(
+            color: Palette.alto,
+          ),
+          TileItem(
+            icon: Icons.bug_report,
+            title: 'Bug Error Report',
+            onTap: () {},
+          ),
+          Divider(
+            color: Palette.alto,
+          ),
+          TileItem(
+            icon: Icons.warning_sharp,
+            title: 'About',
+            onTap: () {},
+          ),
+          Divider(
+            color: Palette.alto,
+          ),
+          TileItem(
+            icon: Icons.call,
+            title: 'Contact',
+            onTap: () {},
+          ),
+        ],
       ),
     );
   }

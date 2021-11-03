@@ -35,6 +35,7 @@ class KtpVerifController extends GetxController {
     if (image != null) {
       imagePath.value = image.path;
       fotoKTPC!.text = image.path.split('image_picker').last;
+      isErrorFotoKTP.value = false;
     } else {
       imagePath.value = '';
     }

@@ -104,3 +104,61 @@ class SearchField extends StatelessWidget {
     );
   }
 }
+
+class OutlineField extends StatelessWidget {
+  final TextEditingController? controller;
+  final String hintText;
+  final bool isMultiline;
+  final String? Function(String? value) validator;
+  final bool readOnly;
+
+  OutlineField({
+    required this.controller,
+    required this.hintText,
+    this.isMultiline = false,
+    required this.validator,
+    this.readOnly = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: TextFormField(
+        textCapitalization: TextCapitalization.none,
+        maxLines: isMultiline ? null : 1,
+        cursorColor: Colors.black,
+        validator: validator,
+        controller: controller,
+        readOnly: readOnly,
+        style: TextStyle(
+            color: Palette.black,
+            fontSize: 14,
+            fontFamily: AppFontStyle.montserratReg),
+        keyboardType:
+            isMultiline ? TextInputType.multiline : TextInputType.text,
+        decoration: InputDecoration(
+          fillColor: Palette.white,
+          contentPadding: EdgeInsets.only(left: 40, bottom: 10, top: 10),
+          filled: true,
+          hintText: hintText,
+          hintStyle: TextStyle(
+              color: Palette.silverChalice,
+              fontSize: 14,
+              fontFamily: AppFontStyle.montserratReg),
+          focusedBorder: UnderlineInputBorder(
+            borderSide:
+                BorderSide(color: readOnly ? Colors.transparent : Palette.alto),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide:
+                BorderSide(color: readOnly ? Colors.transparent : Palette.alto),
+          ),
+        ),
+        textInputAction:
+            isMultiline ? TextInputAction.newline : TextInputAction.next,
+      ),
+    );
+  }
+}

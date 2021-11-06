@@ -1,6 +1,10 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -76,7 +80,7 @@ class SettingsMenu extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.settings,
-                            size: 15,
+                            size: 19,
                             color: Palette.gray,
                           ),
                           SizedBox(width: 16),
@@ -86,8 +90,8 @@ class SettingsMenu extends StatelessWidget {
                                   fontSize: 14,
                                   fontFamily: AppFontStyle.montserratReg)),
                           Spacer(),
-                          Icon(Icons.chevron_right,
-                              size: 15, color: Palette.tundora),
+                          FaIcon(FontAwesomeIcons.chevronRight, size: 15, color: Palette.tundora),
+
                         ],
                       ),
                     ),
@@ -122,7 +126,7 @@ class ReedemPoint extends StatelessWidget {
             ]),
         child: Row(
           children: [
-            Icon(Icons.ac_unit, size: 40),
+           Image.asset(AssetName.ap, height: 31),
             SizedBox(width: 15),
             Text('400',
                 style: TextStyle(
@@ -148,7 +152,7 @@ class ReedemPoint extends StatelessWidget {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.ac_unit, size: 20),
+                            FaIcon(FontAwesomeIcons.gift, size: 15, color: Palette.white),
                             SizedBox(width: 9.3),
                             Text('REDEEM',
                                 style: TextStyle(
@@ -162,7 +166,7 @@ class ReedemPoint extends StatelessWidget {
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.REEDEM),
                       child: SizedBox(
                         width: 96,
                         height: 29,
@@ -238,7 +242,8 @@ class LevelPlayer extends StatelessWidget {
             Column(
               children: [
                 SizedBox(height: 30),
-                Icon(Icons.ac_unit, size: 20),
+                FaIcon(FontAwesomeIcons.infinity, size: 28, color: Palette.dixie),
+
                 SizedBox(height: 9.5),
                 Text('Max Level',
                     style: TextStyle(

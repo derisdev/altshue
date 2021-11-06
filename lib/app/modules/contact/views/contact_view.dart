@@ -1,8 +1,10 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/modules/bug_error/views/bug_error_view.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 
@@ -19,38 +21,7 @@ class ContactView extends GetView<ContactController> {
               title: 'Contact',
             ),
             SizedBox(height: 60),
-            SizedBox(
-              height: 100,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(Icons.ac_unit, size: 80),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TileContact(
-                            icon: Icons.email,
-                            title: 'ask@altshue.com',
-                          ),
-                          TileContact(
-                            icon: Icons.call,
-                            title: '08123456789',
-                          ),
-                          TileContact(
-                            icon: Icons.pin_drop,
-                            title: 'Jl. Address Here',
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            ContactDetail(),
             SizedBox(height: 53),
             ListField(
               controller: controller,
@@ -66,8 +37,93 @@ class ContactView extends GetView<ContactController> {
                 title: 'SEND',
               ),
             ),
+            Spacer(),
+            FollowUs(),
+            SizedBox(height: 150),
           ],
         ));
+  }
+}
+
+class FollowUs extends StatelessWidget {
+  const FollowUs({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.ac_unit),
+            Icon(Icons.ac_unit),
+            Icon(Icons.ac_unit),
+            Icon(Icons.ac_unit),
+          ],
+        ),
+        SizedBox(height: 6.3),
+        Text(
+          'Follow Our Social Media',
+          style: TextStyle(
+              color: Palette.mineShaft,
+              fontSize: 10,
+              fontFamily: AppFontStyle.montserratReg),
+        ),
+        SizedBox(height: 6),
+        Text(
+          '@altshue',
+          style: TextStyle(
+              color: Palette.mineShaft,
+              fontSize: 10,
+              fontFamily: AppFontStyle.montserratBold),
+        ),
+      ],
+    );
+  }
+}
+
+class ContactDetail extends StatelessWidget {
+  const ContactDetail({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(AssetName.about, height: 86),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TileContact(
+                    icon: Icons.email,
+                    title: 'ask@altshue.com',
+                  ),
+                  TileContact(
+                    icon: Icons.call,
+                    title: '08123456789',
+                  ),
+                  TileContact(
+                    icon: Icons.place,
+                    title: 'Jl. Address Here',
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -75,16 +131,18 @@ class TileContact extends StatelessWidget {
   const TileContact({
     Key? key,
     required this.title,
-    required this.icon,
+    required this.icon, this.isSVG=false,
   }) : super(key: key);
 
   final String title;
   final IconData icon;
+  final bool isSVG;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
+
         Icon(icon, color: Palette.darkTan),
         SizedBox(
           width: 11.5,
@@ -117,7 +175,7 @@ class ListField extends StatelessWidget {
         key: controller.formGlobalKey,
         child: Column(
           children: [
-            BugFieldItem(
+            BugOrContactFieldItem(
               controller: controller.emailC,
               hintText: 'Enter your email address',
               icon: Icons.email,
@@ -149,9 +207,10 @@ class ListField extends StatelessWidget {
             SizedBox(
               height: 15.6,
             ),
-            BugFieldItem(
+            BugOrContactFieldItem(
               controller: controller.descC,
-              hintText: "Tell us what's wrong ?",
+              hintText: "Any help ?",
+              isSVG: true,
               icon: Icons.chat_bubble,
               isMultiline: true,
               validator: (String? text) {

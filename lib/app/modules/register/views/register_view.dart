@@ -1,4 +1,6 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/constants/asset_path.dart';
+
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,11 @@ class RegisterView extends GetView<RegisterController> {
         backgroundColor: Palette.black,
         body: Stack(
           children: [
+            SizedBox(
+              width:double.infinity,
+              height:double.infinity,
+              child: Image.asset(AssetName.splashBg, fit: BoxFit.fill,),
+            ),
             Align(
               alignment: Alignment.center,
               child: Padding(
@@ -23,6 +30,10 @@ class RegisterView extends GetView<RegisterController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Image.asset(AssetName.shoes, height: 75),
+                      SizedBox(
+                        height: 44,
+                      ),
                       Text('REGISTER',
                           style: TextStyle(
                               color: Palette.white,
@@ -53,7 +64,7 @@ class RegisterView extends GetView<RegisterController> {
                               bottom: 5,
                               left: 19,
                               child: Icon(
-                                Icons.person,
+                                Icons.account_circle,
                                 size: 20,
                                 color: Palette.darkTan,
                               )),
@@ -147,7 +158,7 @@ class RegisterView extends GetView<RegisterController> {
                               bottom: 5,
                               left: 19,
                               child: Icon(
-                                Icons.call,
+                                Icons.local_phone,
                                 size: 20,
                                 color: Palette.darkTan,
                               )),

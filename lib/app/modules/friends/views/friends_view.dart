@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 import '../controllers/friends_controller.dart';
 
 class FriendsView extends GetView<FriendsController> {
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -15,18 +17,33 @@ class FriendsView extends GetView<FriendsController> {
       child: Scaffold(
         backgroundColor: Palette.alabaster,
         appBar: AppBar(
+            flexibleSpace: Image(
+              image: AssetImage(AssetName.headerBg),
+              fit: BoxFit.cover,
+            ),
             backgroundColor: Palette.darkTan,
+
             elevation: 0,
             bottom: TabBar(
               indicatorColor: Palette.dixie,
               indicatorWeight: 3,
               tabs: [
                 Tab(
-                  icon: Text('Friend List',
-                      style: TextStyle(
-                          color: Palette.white,
-                          fontSize: 12,
-                          fontFamily: AppFontStyle.montserratMed)),
+                  child: Container(
+                    child: Text('Friend List',
+                        style: TextStyle(
+                            color: Palette.white,
+                            fontSize: 12,
+                            fontFamily: AppFontStyle.montserratMed)),
+                    alignment: Alignment.center,
+                    height: 23,
+                    width: Get.width,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        right: BorderSide(color: Palette.white),
+                      ),
+                    ),
+                  ),
                 ),
                 Tab(
                     icon: Row(
@@ -80,7 +97,10 @@ class FriendsView extends GetView<FriendsController> {
       ),
     );
   }
+
 }
+
+
 
 class FriendRequest extends StatelessWidget {
   const FriendRequest({

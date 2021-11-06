@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,9 +14,11 @@ class HeaderMainBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Palette.darkTan,
       height: 90,
       width: Get.width,
+      decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(AssetName.headerBg))
+      ),
       child: Padding(
         padding: const EdgeInsets.only(top: 44.0, left: 31),
         child: Text(title,

@@ -1,7 +1,9 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
@@ -94,11 +96,12 @@ class ReedemItem extends StatelessWidget {
                                   fontSize: 14,
                                   fontFamily: AppFontStyle.montserratBold)),
                           SizedBox(
-                            height: 5,
+                            height: 8,
                           ),
                           Row(
                             children: [
-                              Icon(Icons.ac_unit),
+                              Image.asset(AssetName.ap, height: 19),
+
                               SizedBox(
                                 width: 3,
                               ),
@@ -128,7 +131,7 @@ class ReedemItem extends StatelessWidget {
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(Icons.ac_unit, size: 20),
+                                      FaIcon(FontAwesomeIcons.gift, size: 15, color: Palette.white),
                                       SizedBox(width: 9.3),
                                       Text('REDEEM',
                                           style: TextStyle(

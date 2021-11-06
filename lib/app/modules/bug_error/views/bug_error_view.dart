@@ -1,8 +1,10 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 
@@ -54,7 +56,7 @@ class ListField extends StatelessWidget {
         key: controller.formGlobalKey,
         child: Column(
           children: [
-            BugFieldItem(
+            BugOrContactFieldItem(
               controller: controller.emailC,
               hintText: 'Enter your email address',
               icon: Icons.email,
@@ -86,10 +88,12 @@ class ListField extends StatelessWidget {
             SizedBox(
               height: 15.6,
             ),
-            BugFieldItem(
+            BugOrContactFieldItem(
               controller: controller.descC,
               hintText: "Tell us what's wrong ?",
               icon: Icons.chat_bubble,
+              isSVG: true,
+
               isMultiline: true,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
@@ -155,7 +159,7 @@ class UploadItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BugFieldItem(
+        BugOrContactFieldItem(
           controller: controller.imageC,
           hintText: "Upload Image",
           icon: Icons.image,
@@ -187,15 +191,15 @@ class UploadItem extends StatelessWidget {
   }
 }
 
-class BugFieldItem extends StatelessWidget {
-  const BugFieldItem({
+class BugOrContactFieldItem extends StatelessWidget {
+  const BugOrContactFieldItem({
     Key? key,
     required this.controller,
     required this.hintText,
     required this.icon,
     this.isMultiline = false,
     required this.validator,
-    this.readOnly = false,
+    this.readOnly = false, this.isSVG=false,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -205,11 +209,13 @@ class BugFieldItem extends StatelessWidget {
   final bool readOnly;
   final String? Function(String? value) validator;
 
+  final bool isSVG;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        OutlineField(
+        UnderlineField(
             controller: controller,
             hintText: hintText,
             isMultiline: isMultiline,
@@ -219,7 +225,9 @@ class BugFieldItem extends StatelessWidget {
             bottom: 0,
             top: 2,
             left: 0,
-            child: Icon(icon, color: Palette.gray, size: 25)),
+            child:    isSVG?
+            SvgPicture.asset(AssetName.chatboxes, height: 20,)
+                : Icon(icon, color: Palette.gray, size: 25)),
       ],
     );
   }

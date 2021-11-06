@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +10,34 @@ class NewsDetailView extends GetView<NewsDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Palette.white,
         body: MediaQuery.removePadding(
       context: context,
       removeTop: true,
       child: ListView(
-        children: [ImageTop(), Title(), Description(), SizedBox(height: 40)],
+        children: [
+          Stack(
+            children: [
+              Container(
+                color: Palette.white,
+                height: Get.height,
+              ),
+              ImageTop(),
+              Positioned(
+                  top:295,
+                  left:0,
+                  right:0,
+                  child: Column(
+                    children:[
+                      Title(),
+                      Description(),
+                    ]
+                  )),
+            ],
+          ),
+
+          SizedBox(height: 40)
+        ],
       ),
     ));
   }
@@ -51,8 +75,10 @@ class Title extends StatelessWidget {
     return Container(
         height: 105,
         width: Get.width,
-        color: Palette.darkTan,
         padding: EdgeInsets.symmetric(horizontal: 35, vertical: 16),
+        decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(AssetName.titleBg))
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

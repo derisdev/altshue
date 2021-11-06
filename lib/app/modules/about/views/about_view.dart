@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class AboutView extends GetView<AboutController> {
               title: 'About',
             ),
             SizedBox(height: 60),
-            Icon(Icons.ac_unit, size: 80),
+            Image.asset(AssetName.about, height: 86),
             SizedBox(height: 54),
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 50, bottom: 24),

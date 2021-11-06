@@ -3,6 +3,7 @@ import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
@@ -159,10 +160,11 @@ class PeopleListItem extends StatelessWidget {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(right: 3.0),
-                child: Icon(
-                    index != 0 ? Icons.people_rounded : Icons.person_add,
-                    color: index != 0 ? Palette.silver : Palette.darkTan,
-                    size: 35),
+                child:
+                index != 0 ? FaIcon(FontAwesomeIcons.userFriends,
+                    color:Palette.silver ,
+                    size: 23.55):  Icon(Icons.person_add, color: Palette.darkTan,
+                    size: 30),
               ),
             ],
           )),

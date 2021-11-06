@@ -1,4 +1,7 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/constants/asset_path.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
@@ -15,6 +18,11 @@ class KtpVerifView extends GetView<KtpVerifController> {
         backgroundColor: Palette.black,
         body: Stack(
           children: [
+            SizedBox(
+              width:double.infinity,
+              height:double.infinity,
+              child: Image.asset(AssetName.splashBg, fit: BoxFit.fill,),
+            ),
             Align(
               alignment: Alignment.center,
               child: Padding(
@@ -24,6 +32,10 @@ class KtpVerifView extends GetView<KtpVerifController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Image.asset(AssetName.shoes, height: 75),
+                      SizedBox(
+                        height: 44,
+                      ),
                       Text('VERIFIKASI KTP',
                           style: TextStyle(
                               color: Palette.white,
@@ -53,12 +65,8 @@ class KtpVerifView extends GetView<KtpVerifController> {
                           Positioned(
                               top: 0,
                               bottom: 5,
-                              left: 19,
-                              child: Icon(
-                                Icons.card_membership_sharp,
-                                size: 20,
-                                color: Palette.darkTan,
-                              )),
+                              left: 21,
+                              child: SvgPicture.asset(AssetName.idCard)),
                         ],
                       ),
                       SizedBox(
@@ -97,7 +105,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                               left: 19,
                               child: Icon(
                                 Icons.image,
-                                size: 20,
+                                size: 25,
                                 color: Palette.darkTan,
                               )),
                           Positioned(
@@ -151,8 +159,8 @@ class KtpVerifView extends GetView<KtpVerifController> {
                               bottom: 5,
                               left: 19,
                               child: Icon(
-                                Icons.lock,
-                                size: 20,
+                                Icons.place,
+                                size: 25,
                                 color: Palette.darkTan,
                               )),
                         ],

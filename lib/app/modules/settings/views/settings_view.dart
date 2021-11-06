@@ -3,6 +3,7 @@ import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/tile_item.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
@@ -49,7 +50,8 @@ class ListSetting extends StatelessWidget {
       child: Column(
         children: [
           TileItem(
-            icon: Icons.lock,
+            icon: FontAwesomeIcons.lock,
+            isSvg: true,
             title: 'Change Password',
             onTap: () {},
           ),
@@ -73,7 +75,7 @@ class ListSetting extends StatelessWidget {
             color: Palette.alto,
           ),
           TileItem(
-            icon: Icons.warning_sharp,
+            icon: Icons.warning,
             title: 'About',
             onTap: () {},
           ),

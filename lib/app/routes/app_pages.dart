@@ -12,6 +12,8 @@ import 'package:altshue/app/modules/contact/bindings/contact_binding.dart';
 import 'package:altshue/app/modules/contact/views/contact_view.dart';
 import 'package:altshue/app/modules/language/bindings/language_binding.dart';
 import 'package:altshue/app/modules/language/views/language_view.dart';
+import 'package:altshue/app/modules/rank/bindings/rank_binding.dart';
+import 'package:altshue/app/modules/rank/views/rank_view.dart';
 import 'package:altshue/app/modules/reedem/bindings/reedem_binding.dart';
 import 'package:altshue/app/modules/reedem/views/reedem_view.dart';
 import 'package:altshue/app/modules/reedem_detail/bindings/reedem_detail_binding.dart';
@@ -44,7 +46,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.BUG_ERROR;
+  static const INITIAL = Routes.CHANGE_PASSWORD;
 
   static final routes = [
     GetPage(
@@ -141,6 +143,10 @@ class AppPages {
       name: _Paths.REEDEM_DETAIL,
       page: () => ReedemDetailView(),
       binding: ReedemDetailBinding(),
+    ), GetPage(
+      name: _Paths.RANK,
+      page: () => RankView(),
+      binding: RankBinding(),
     ),
   ];
 }

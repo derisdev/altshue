@@ -105,14 +105,14 @@ class SearchField extends StatelessWidget {
   }
 }
 
-class OutlineField extends StatelessWidget {
+class UnderlineField extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
   final bool isMultiline;
   final String? Function(String? value) validator;
   final bool readOnly;
 
-  OutlineField({
+  UnderlineField({
     required this.controller,
     required this.hintText,
     this.isMultiline = false,
@@ -158,6 +158,56 @@ class OutlineField extends StatelessWidget {
         ),
         textInputAction:
             isMultiline ? TextInputAction.newline : TextInputAction.next,
+      ),
+    );
+  }
+}
+
+class PasswordField extends StatelessWidget {
+  final TextEditingController? controller;
+  final String hintText;
+  final String? Function(String? value) validator;
+
+  PasswordField({
+    required this.controller,
+    required this.hintText,
+    required this.validator,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      alignment: Alignment.center,
+      child: TextFormField(
+        textCapitalization: TextCapitalization.none,
+        maxLines: 1,
+
+        cursorColor: Colors.black,
+        validator: validator,
+        controller: controller,
+        style: TextStyle(
+            color: Palette.black,
+            fontSize: 14,
+            fontFamily: AppFontStyle.montserratReg),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(left: 0, bottom: 10, top: 10),
+
+          fillColor: Palette.white,
+          filled: true,
+          hintText: hintText,
+          hintStyle: TextStyle(
+              color: Palette.silverChalice,
+              fontSize: 14,
+              fontFamily: AppFontStyle.montserratReg),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Palette.alto),
+          ),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Palette.alto),
+          ),
+        ),
+        textInputAction: TextInputAction.next,
       ),
     );
   }

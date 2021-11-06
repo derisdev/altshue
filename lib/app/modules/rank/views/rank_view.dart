@@ -2,6 +2,7 @@ import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -186,7 +187,8 @@ class Top100Rank extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 28.0),
       child: Row(
         children: [
-          Icon(Icons.ac_unit),
+          FaIcon(FontAwesomeIcons.trophy, size: 19, color: Palette.dixie),
+          SizedBox(width: 6),
           Text('Top 100 Rank',
               style: TextStyle(
                   color: Palette.tundora,
@@ -198,7 +200,7 @@ class Top100Rank extends StatelessWidget {
             child: RotationTransition(
                 turns:
                     Tween(begin: 0.0, end: 1.0).animate(controller.animationC),
-                child: Icon(Icons.arrow_upward)),
+                child: FaIcon(FontAwesomeIcons.arrowUp, size: 14, color: Palette.darkTan),)
           ),
         ],
       ),
@@ -267,6 +269,7 @@ class CurrentRank extends StatelessWidget {
             ]),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Icon(Icons.ac_unit, size: 70),
             Column(
@@ -288,6 +291,8 @@ class CurrentRank extends StatelessWidget {
                                 color: Palette.darkTan,
                                 fontSize: 17,
                                 fontFamily: AppFontStyle.montserratBold)),
+                        SizedBox(height: 5),
+
                         Container(
                           width: 63,
                           height: 23,
@@ -326,7 +331,7 @@ class CurrentRank extends StatelessWidget {
             ),
             Column(
               children: [
-                Icon(Icons.ac_unit, size: 20),
+                FaIcon(FontAwesomeIcons.infinity, size: 42, color: Palette.dixie),
                 SizedBox(height: 9.5),
                 Text('Max Level',
                     style: TextStyle(

@@ -1,5 +1,7 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
@@ -14,9 +16,22 @@ class ReedemDetailView extends GetView<ReedemDetailController> {
       removeTop: true,
       child: ListView(
         children: [
-          ImageTop(),
-          Title(),
+          Stack(
+            children: [
+              Container(
+                color: Palette.white,
+                height: 300+105,
+              ),
+              ImageTop(),
+              Positioned(
+                  top:295,
+                  left:0,
+                  right:0,
+                  child: Title()),
+            ],
+          ),
           Description(),
+
           SizedBox(height: 24),
           ReedemButton()
         ],
@@ -44,8 +59,9 @@ class ReedemButton extends StatelessWidget {
               child: Center(
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Icon(Icons.ac_unit, size: 20),
-                  SizedBox(width: 12),
+                      FaIcon(FontAwesomeIcons.gift, size: 17, color: Palette.white),
+
+                      SizedBox(width: 12),
                   Text('REDEEM',
                       style: TextStyle(
                           color: Palette.white,
@@ -105,8 +121,10 @@ class Title extends StatelessWidget {
     return Container(
         height: 105,
         width: Get.width,
-        color: Palette.darkTan,
         padding: EdgeInsets.symmetric(horizontal: 35),
+        decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(AssetName.titleBg))
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -124,6 +142,7 @@ class Title extends StatelessWidget {
                 CircleAvatar(
                   radius: 12,
                   backgroundColor: Palette.white,
+                  child:            Image.asset(AssetName.ap, height: 19),
                 ),
                 SizedBox(width: 7),
                 Text(

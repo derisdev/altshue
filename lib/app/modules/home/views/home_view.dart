@@ -1,7 +1,10 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -50,11 +53,14 @@ class HomeView extends GetView<HomeController> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Pair with bluetooth\nto unlock all features',
-                              style: TextStyle(
-                                  color: Palette.white,
-                                  fontSize: 14,
-                                  fontFamily: AppFontStyle.montserratBold)),
+                          SvgPicture.asset(AssetName.pairText),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          InkWell(
+                            onTap:(){},
+                              child: SvgPicture.asset(AssetName.pair)),
+
                         ],
                       ),
                     ),
@@ -82,6 +88,7 @@ class TopHome extends StatelessWidget {
         Container(
           height: Get.height * 0.35,
           color: Palette.darkTan,
+          // child: Image.asset(AssetName.splashBg),
         ),
         Positioned(
           top: 32,
@@ -98,8 +105,19 @@ class TopHome extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.add_circle_outline_sharp),
-                  Icon(Icons.battery_alert),
+                  Image.asset(AssetName.shoes, height: 34),
+                  Row(
+                    children: [
+                      FaIcon(FontAwesomeIcons.batteryFull, color: Palette.white),
+                      SizedBox(
+                        width: 7.7,),
+                      Text('100%',
+                          style: TextStyle(
+                              color: Palette.white,
+                              fontSize: 12,
+                              fontFamily: AppFontStyle.montserratBold)),
+                    ],
+                  )
                 ],
               ),
               Row(
@@ -108,7 +126,10 @@ class TopHome extends StatelessWidget {
                   SizedBox(
                       width: 68,
                       height: 24,
-                      child: ButtonUpload(onTap: () {}, title: 'PAIRED')),
+                      child: InkWell(
+                        onTap:(){},
+                        child: SvgPicture.asset(AssetName.paired)
+                      )),
                   Container(
                     height: 23,
                     width: 179,
@@ -127,7 +148,10 @@ class TopHome extends StatelessWidget {
                   SizedBox(
                       width: 68,
                       height: 24,
-                      child: ButtonUpload(onTap: () {}, title: 'NEWS'))
+                      child: InkWell(
+                          onTap:()=> Get.toNamed(Routes.NEWS),
+                          child: SvgPicture.asset(AssetName.news)
+                      )),
                 ],
               ),
             ],
@@ -189,7 +213,7 @@ class Mission extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            Icon(Icons.ac_unit, size: 50),
+                            SvgPicture.asset(AssetName.distance),
                             SizedBox(
                               height: 6,
                             ),
@@ -202,7 +226,8 @@ class Mission extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Icon(Icons.ac_unit, size: 50),
+                            SvgPicture.asset(AssetName.hours),
+
                             SizedBox(
                               height: 6,
                             ),
@@ -215,7 +240,8 @@ class Mission extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Icon(Icons.ac_unit, size: 50),
+                            SvgPicture.asset(AssetName.steps),
+
                             SizedBox(
                               height: 6,
                             ),
@@ -383,7 +409,7 @@ class TodayActivity extends StatelessWidget {
                   fontFamily: AppFontStyle.montserratBold)),
           Column(
             children: [
-              Icon(Icons.timelapse, color: Palette.silverChalice, size: 20),
+              SvgPicture.asset(AssetName.expandArrowAlt, color: Palette.silverChalice, height: 12.2),
               Row(
                 children: [
                   Text('3',
@@ -437,7 +463,8 @@ class TodayActivity extends StatelessWidget {
           ),
           Column(
             children: [
-              Icon(Icons.timelapse, color: Palette.silverChalice, size: 20),
+              SvgPicture.asset(AssetName.shoesIcon, color: Palette.silverChalice, height: 24.2),
+
               Text('500',
                   style: TextStyle(
                       color: Palette.darkTan,
@@ -528,30 +555,30 @@ class Persentase extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.percent,
-    required this.progress,
+    required this.progress
   }) : super(key: key);
 
-  final IconData icon;
+  final String icon;
   final double percent;
   final String progress;
 
   factory Persentase.km() {
     return Persentase(
-      icon: Icons.ac_unit,
+      icon: AssetName.expandArrowAlt,
       percent: 3 / 5,
       progress: '3/5 Kilometers',
     );
   }
   factory Persentase.min() {
     return Persentase(
-      icon: Icons.timelapse,
+      icon: AssetName.timelapse,
       percent: 1 / 2,
       progress: '5/10 Minutes',
     );
   }
   factory Persentase.step() {
     return Persentase(
-      icon: Icons.air,
+      icon: AssetName.shoesIcon,
       percent: 7 / 10,
       progress: '700/1000 Steps',
     );
@@ -563,10 +590,10 @@ class Persentase extends StatelessWidget {
       padding: const EdgeInsets.only(left: 3.5),
       child: Row(
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
             color: Palette.darkTan,
-            size: 15,
+            height: icon==AssetName.shoesIcon?15: 10,
           ),
           SizedBox(
             width: 10.7,
@@ -574,13 +601,14 @@ class Persentase extends StatelessWidget {
           Expanded(
             child: LinearPercentIndicator(
               lineHeight: 8.0,
+              width: Get.width/1.93,
               percent: percent,
               backgroundColor: Palette.thunderbird.withOpacity(0.25),
               progressColor: Palette.thunderbird,
             ),
           ),
           SizedBox(
-            width: 12,
+            width: 8,
           ),
           Text(progress,
               style: TextStyle(

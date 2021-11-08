@@ -163,12 +163,12 @@ class UnderlineField extends StatelessWidget {
   }
 }
 
-class PasswordField extends StatelessWidget {
+class CleanField extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
   final String? Function(String? value) validator;
 
-  PasswordField({
+  CleanField({
     required this.controller,
     required this.hintText,
     required this.validator,
@@ -182,24 +182,22 @@ class PasswordField extends StatelessWidget {
       child: TextFormField(
         textCapitalization: TextCapitalization.none,
         maxLines: 1,
-
         cursorColor: Colors.black,
         validator: validator,
         controller: controller,
         style: TextStyle(
             color: Palette.black,
             fontSize: 14,
-            fontFamily: AppFontStyle.montserratReg),
+            fontFamily: AppFontStyle.robotoReg),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 0, bottom: 10, top: 10),
-
           fillColor: Palette.white,
           filled: true,
           hintText: hintText,
           hintStyle: TextStyle(
               color: Palette.silverChalice,
               fontSize: 14,
-              fontFamily: AppFontStyle.montserratReg),
+              fontFamily: AppFontStyle.robotoReg),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Palette.alto),
           ),

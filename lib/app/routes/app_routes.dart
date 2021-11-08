@@ -25,6 +25,8 @@ abstract class Routes {
   static const ABOUT = _Paths.ABOUT;
   static const CONTACT = _Paths.CONTACT;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
+  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const MISSION = _Paths.MISSION;
 }
 
 abstract class _Paths {
@@ -49,4 +51,6 @@ abstract class _Paths {
   static const ABOUT = '/about';
   static const CONTACT = '/contact';
   static const CHANGE_PASSWORD = '/change-password';
+  static const EDIT_PROFILE = '/edit-profile';
+  static const MISSION = '/mission';
 }

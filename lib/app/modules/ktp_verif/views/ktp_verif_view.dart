@@ -1,7 +1,6 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
@@ -19,9 +18,12 @@ class KtpVerifView extends GetView<KtpVerifController> {
         body: Stack(
           children: [
             SizedBox(
-              width:double.infinity,
-              height:double.infinity,
-              child: Image.asset(AssetName.splashBg, fit: BoxFit.fill,),
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                AssetName.splashBg,
+                fit: BoxFit.fill,
+              ),
             ),
             Align(
               alignment: Alignment.center,

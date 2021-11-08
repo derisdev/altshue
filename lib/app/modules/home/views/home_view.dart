@@ -58,9 +58,8 @@ class HomeView extends GetView<HomeController> {
                             height: 10,
                           ),
                           InkWell(
-                            onTap:(){},
+                              onTap: () {},
                               child: SvgPicture.asset(AssetName.pair)),
-
                         ],
                       ),
                     ),
@@ -108,9 +107,11 @@ class TopHome extends StatelessWidget {
                   Image.asset(AssetName.shoes, height: 34),
                   Row(
                     children: [
-                      FaIcon(FontAwesomeIcons.batteryFull, color: Palette.white),
+                      FaIcon(FontAwesomeIcons.batteryFull,
+                          color: Palette.white),
                       SizedBox(
-                        width: 7.7,),
+                        width: 7.7,
+                      ),
                       Text('100%',
                           style: TextStyle(
                               color: Palette.white,
@@ -127,9 +128,8 @@ class TopHome extends StatelessWidget {
                       width: 68,
                       height: 24,
                       child: InkWell(
-                        onTap:(){},
-                        child: SvgPicture.asset(AssetName.paired)
-                      )),
+                          onTap: () {},
+                          child: SvgPicture.asset(AssetName.paired))),
                   Container(
                     height: 23,
                     width: 179,
@@ -149,9 +149,8 @@ class TopHome extends StatelessWidget {
                       width: 68,
                       height: 24,
                       child: InkWell(
-                          onTap:()=> Get.toNamed(Routes.NEWS),
-                          child: SvgPicture.asset(AssetName.news)
-                      )),
+                          onTap: () => Get.toNamed(Routes.NEWS),
+                          child: SvgPicture.asset(AssetName.news))),
                 ],
               ),
             ],
@@ -227,7 +226,6 @@ class Mission extends StatelessWidget {
                         Column(
                           children: [
                             SvgPicture.asset(AssetName.hours),
-
                             SizedBox(
                               height: 6,
                             ),
@@ -241,7 +239,6 @@ class Mission extends StatelessWidget {
                         Column(
                           children: [
                             SvgPicture.asset(AssetName.steps),
-
                             SizedBox(
                               height: 6,
                             ),
@@ -409,7 +406,8 @@ class TodayActivity extends StatelessWidget {
                   fontFamily: AppFontStyle.montserratBold)),
           Column(
             children: [
-              SvgPicture.asset(AssetName.expandArrowAlt, color: Palette.silverChalice, height: 12.2),
+              SvgPicture.asset(AssetName.expandArrowAlt,
+                  color: Palette.silverChalice, height: 12.2),
               Row(
                 children: [
                   Text('3',
@@ -463,8 +461,8 @@ class TodayActivity extends StatelessWidget {
           ),
           Column(
             children: [
-              SvgPicture.asset(AssetName.shoesIcon, color: Palette.silverChalice, height: 24.2),
-
+              SvgPicture.asset(AssetName.shoesIcon,
+                  color: Palette.silverChalice, height: 24.2),
               Text('500',
                   style: TextStyle(
                       color: Palette.darkTan,
@@ -518,7 +516,7 @@ class MissionProgress extends StatelessWidget {
                       children: [
                         Text('Mission 1',
                             style: TextStyle(
-                                color: Palette.black,
+                                color: Palette.tundora,
                                 fontSize: 10,
                                 fontFamily: AppFontStyle.montserratBold)),
                         SizedBox(
@@ -551,12 +549,12 @@ class MissionProgress extends StatelessWidget {
 }
 
 class Persentase extends StatelessWidget {
-  const Persentase({
-    Key? key,
-    required this.icon,
-    required this.percent,
-    required this.progress
-  }) : super(key: key);
+  const Persentase(
+      {Key? key,
+      required this.icon,
+      required this.percent,
+      required this.progress})
+      : super(key: key);
 
   final String icon;
   final double percent;
@@ -593,7 +591,7 @@ class Persentase extends StatelessWidget {
           SvgPicture.asset(
             icon,
             color: Palette.darkTan,
-            height: icon==AssetName.shoesIcon?15: 10,
+            height: icon == AssetName.shoesIcon ? 15 : 10,
           ),
           SizedBox(
             width: 10.7,
@@ -601,7 +599,7 @@ class Persentase extends StatelessWidget {
           Expanded(
             child: LinearPercentIndicator(
               lineHeight: 8.0,
-              width: Get.width/1.93,
+              width: Get.width / 1.93,
               percent: percent,
               backgroundColor: Palette.thunderbird.withOpacity(0.25),
               progressColor: Palette.thunderbird,

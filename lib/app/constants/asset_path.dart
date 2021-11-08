@@ -16,7 +16,7 @@ abstract class AssetName {
   static const expandArrowAlt = '$baseAssetImagesvg/expand-arrows-alt.svg';
   static const timelapse = '$baseAssetImagesvg/timelapse.svg';
   static const chatboxes = '$baseAssetImagesvg/chatboxes.svg';
-
+  static const bankIllus = '$baseAssetImagesvg/bank-illus.svg';
 
   //png
   static const appIcon = '$baseAssetImagePng/app-icon.png';
@@ -28,5 +28,4 @@ abstract class AssetName {
   static const titleBg = '$baseAssetImagePng/title-bg.png';
   static const headerBg = '$baseAssetImagePng/header-bg.png';
   static const about = '$baseAssetImagePng/about.png';
-
 }

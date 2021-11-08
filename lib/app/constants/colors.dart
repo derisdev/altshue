@@ -21,6 +21,7 @@ class Palette {
   static const valencia = Color(0xffD62F2F);
   static const gallery = Color(0xffEDEDED);
   static const chateauGreen = Color(0xff32B44B);
+  static const merkury = Color(0xffE5E5E5);
 }
 
 class AppFontStyle {

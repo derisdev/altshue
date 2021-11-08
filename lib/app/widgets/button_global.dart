@@ -135,3 +135,66 @@ class ButtonUpload extends StatelessWidget {
     );
   }
 }
+
+class ButtonDialogKTPVerif extends StatelessWidget {
+  final VoidCallback onTap;
+  final String title;
+  final Color primary;
+  final Color textColor;
+  final double bottomLeftRad;
+  final double bottomRightRad;
+  final double fontSize;
+
+  const ButtonDialogKTPVerif(
+      {Key? key,
+      required this.onTap,
+      required this.title,
+      this.primary = Palette.dixie,
+      this.textColor = Palette.white,
+      this.fontSize = 14,
+      required this.bottomLeftRad,
+      required this.bottomRightRad})
+      : super(key: key);
+
+  factory ButtonDialogKTPVerif.nantisaja() {
+    return ButtonDialogKTPVerif(
+      bottomLeftRad: 20,
+      bottomRightRad: 0,
+      onTap: () => Get.back(),
+      title: 'NANTI SAJA',
+      textColor: Palette.silverChalice,
+      primary: Palette.alto,
+    );
+  }
+  factory ButtonDialogKTPVerif.verifikasi() {
+    return ButtonDialogKTPVerif(
+      bottomLeftRad: 0,
+      bottomRightRad: 20,
+      onTap: () => Get.back(),
+      title: 'VERIFIKASI',
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: Get.width,
+      height: 46,
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+            primary: primary,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(bottomLeftRad),
+                    bottomRight: Radius.circular(bottomRightRad)))),
+        child: Text(title,
+            style: TextStyle(
+                color: textColor,
+                fontSize: fontSize,
+                fontFamily: AppFontStyle.montserratBold)),
+      ),
+    );
+  }
+}

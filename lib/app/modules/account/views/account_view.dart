@@ -3,7 +3,6 @@ import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
@@ -90,8 +89,8 @@ class SettingsMenu extends StatelessWidget {
                                   fontSize: 14,
                                   fontFamily: AppFontStyle.montserratReg)),
                           Spacer(),
-                          FaIcon(FontAwesomeIcons.chevronRight, size: 15, color: Palette.tundora),
-
+                          FaIcon(FontAwesomeIcons.chevronRight,
+                              size: 15, color: Palette.tundora),
                         ],
                       ),
                     ),
@@ -126,7 +125,7 @@ class ReedemPoint extends StatelessWidget {
             ]),
         child: Row(
           children: [
-           Image.asset(AssetName.ap, height: 31),
+            Image.asset(AssetName.ap, height: 31),
             SizedBox(width: 15),
             Text('400',
                 style: TextStyle(
@@ -152,7 +151,8 @@ class ReedemPoint extends StatelessWidget {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            FaIcon(FontAwesomeIcons.gift, size: 15, color: Palette.white),
+                            FaIcon(FontAwesomeIcons.gift,
+                                size: 15, color: Palette.white),
                             SizedBox(width: 9.3),
                             Text('REDEEM',
                                 style: TextStyle(
@@ -242,8 +242,8 @@ class LevelPlayer extends StatelessWidget {
             Column(
               children: [
                 SizedBox(height: 30),
-                FaIcon(FontAwesomeIcons.infinity, size: 28, color: Palette.dixie),
-
+                FaIcon(FontAwesomeIcons.infinity,
+                    size: 28, color: Palette.dixie),
                 SizedBox(height: 9.5),
                 Text('Max Level',
                     style: TextStyle(

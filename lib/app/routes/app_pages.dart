@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import 'package:altshue/app/modules/about/bindings/about_binding.dart';
 import 'package:altshue/app/modules/about/views/about_view.dart';
 import 'package:altshue/app/modules/account/bindings/account_binding.dart';
@@ -10,18 +12,8 @@ import 'package:altshue/app/modules/change_password/bindings/change_password_bin
 import 'package:altshue/app/modules/change_password/views/change_password_view.dart';
 import 'package:altshue/app/modules/contact/bindings/contact_binding.dart';
 import 'package:altshue/app/modules/contact/views/contact_view.dart';
-import 'package:altshue/app/modules/language/bindings/language_binding.dart';
-import 'package:altshue/app/modules/language/views/language_view.dart';
-import 'package:altshue/app/modules/rank/bindings/rank_binding.dart';
-import 'package:altshue/app/modules/rank/views/rank_view.dart';
-import 'package:altshue/app/modules/reedem/bindings/reedem_binding.dart';
-import 'package:altshue/app/modules/reedem/views/reedem_view.dart';
-import 'package:altshue/app/modules/reedem_detail/bindings/reedem_detail_binding.dart';
-import 'package:altshue/app/modules/reedem_detail/views/reedem_detail_view.dart';
-import 'package:altshue/app/modules/settings/bindings/settings_binding.dart';
-import 'package:altshue/app/modules/settings/views/settings_view.dart';
-import 'package:get/get.dart';
-
+import 'package:altshue/app/modules/edit_profile/bindings/edit_profile_binding.dart';
+import 'package:altshue/app/modules/edit_profile/views/edit_profile_view.dart';
 import 'package:altshue/app/modules/friends/bindings/friends_binding.dart';
 import 'package:altshue/app/modules/friends/views/friends_view.dart';
 import 'package:altshue/app/modules/friends_add/bindings/friends_add_binding.dart';
@@ -30,14 +22,26 @@ import 'package:altshue/app/modules/home/bindings/home_binding.dart';
 import 'package:altshue/app/modules/home/views/home_view.dart';
 import 'package:altshue/app/modules/ktp_verif/bindings/ktp_verif_binding.dart';
 import 'package:altshue/app/modules/ktp_verif/views/ktp_verif_view.dart';
+import 'package:altshue/app/modules/language/bindings/language_binding.dart';
+import 'package:altshue/app/modules/language/views/language_view.dart';
 import 'package:altshue/app/modules/login/bindings/login_binding.dart';
 import 'package:altshue/app/modules/login/views/login_view.dart';
+import 'package:altshue/app/modules/mission/bindings/mission_binding.dart';
+import 'package:altshue/app/modules/mission/views/mission_view.dart';
 import 'package:altshue/app/modules/news/bindings/news_binding.dart';
 import 'package:altshue/app/modules/news/views/news_view.dart';
 import 'package:altshue/app/modules/news_detail/bindings/news_detail_binding.dart';
 import 'package:altshue/app/modules/news_detail/views/news_detail_view.dart';
+import 'package:altshue/app/modules/rank/bindings/rank_binding.dart';
+import 'package:altshue/app/modules/rank/views/rank_view.dart';
+import 'package:altshue/app/modules/reedem/bindings/reedem_binding.dart';
+import 'package:altshue/app/modules/reedem/views/reedem_view.dart';
+import 'package:altshue/app/modules/reedem_detail/bindings/reedem_detail_binding.dart';
+import 'package:altshue/app/modules/reedem_detail/views/reedem_detail_view.dart';
 import 'package:altshue/app/modules/register/bindings/register_binding.dart';
 import 'package:altshue/app/modules/register/views/register_view.dart';
+import 'package:altshue/app/modules/settings/bindings/settings_binding.dart';
+import 'package:altshue/app/modules/settings/views/settings_view.dart';
 import 'package:altshue/app/modules/splash/bindings/splash_binding.dart';
 import 'package:altshue/app/modules/splash/views/splash_view.dart';
 
@@ -46,7 +50,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.CHANGE_PASSWORD;
+  static const INITIAL = Routes.MISSION;
 
   static final routes = [
     GetPage(
@@ -143,10 +147,21 @@ class AppPages {
       name: _Paths.REEDEM_DETAIL,
       page: () => ReedemDetailView(),
       binding: ReedemDetailBinding(),
-    ), GetPage(
+    ),
+    GetPage(
       name: _Paths.RANK,
       page: () => RankView(),
       binding: RankBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => EditProfileView(),
+      binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.MISSION,
+      page: () => MissionView(),
+      binding: MissionBinding(),
     ),
   ];
 }

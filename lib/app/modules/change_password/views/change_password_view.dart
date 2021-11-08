@@ -19,7 +19,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
               title: 'Change Password',
             ),
             SizedBox(height: 30),
-            ListField(
+            ListFieldPW(
               controller: controller,
             ),
             SizedBox(height: 50),
@@ -38,8 +38,8 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
   }
 }
 
-class ListField extends StatelessWidget {
-  const ListField({
+class ListFieldPW extends StatelessWidget {
+  const ListFieldPW({
     Key? key,
     required this.controller,
   }) : super(key: key);
@@ -54,7 +54,7 @@ class ListField extends StatelessWidget {
         key: controller.formGlobalKey,
         child: Column(
           children: [
-            PasswordField(
+            CleanField(
               controller: controller.oldPWC,
               hintText: 'Old Password',
               validator: (String? text) {
@@ -85,7 +85,7 @@ class ListField extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            PasswordField(
+            CleanField(
               controller: controller.currentPWC,
               hintText: 'Current Password',
               validator: (String? text) {
@@ -116,7 +116,7 @@ class ListField extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            PasswordField(
+            CleanField(
               controller: controller.newPWC,
               hintText: 'New Password',
               validator: (String? text) {
@@ -147,7 +147,7 @@ class ListField extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            PasswordField(
+            CleanField(
               controller: controller.newConfirmPWC,
               hintText: 'Confirm New Password',
               validator: (String? text) {

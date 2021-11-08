@@ -3,19 +3,18 @@ import 'package:altshue/app/widgets/button_global.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void showDialogPW(
+void showDialogKTPUnverif(
     {required IconData icon,
     required String text,
-    required String textButton,
     required VoidCallback onTap,
     bool isDismissible = true}) {
   Get.dialog(
       Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Container(
-          height: 190,
+          height: 250,
+          padding: EdgeInsets.only(top: 20),
           width: Get.width,
-          padding: EdgeInsets.only(top: 23, bottom: 21),
           decoration: BoxDecoration(
               color: Palette.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
@@ -23,7 +22,7 @@ void showDialogPW(
               Icon(
                 icon,
                 size: 50,
-                color: !isDismissible ? Palette.chateauGreen : Palette.darkTan,
+                color: Palette.darkTan,
               ),
               SizedBox(
                 height: 15,
@@ -34,18 +33,27 @@ void showDialogPW(
                       fontSize: 16,
                       fontFamily: AppFontStyle.montserratBold)),
               SizedBox(
-                height: 18,
+                height: 21,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Text(
+                    'Pengguna aplikasi ALT Shue yang terhormat, pastikan anda telah melkukan verifikasi KTP untuk menikmati fitur lengkap pada Aplikasi',
+                    style: TextStyle(
+                        color: Palette.mineShaft,
+                        fontSize: 12,
+                        fontFamily: AppFontStyle.montserratMed)),
               ),
               SizedBox(
-                width: 186,
-                height: 41,
-                child: ButtonGlobal(
-                  onTap: onTap,
-                  radius: 8,
-                  fontSize: 14,
-                  title: textButton,
-                ),
+                height: 18,
               ),
+              Spacer(),
+              Row(
+                children: [
+                  Expanded(child: ButtonDialogKTPVerif.nantisaja()),
+                  Expanded(child: ButtonDialogKTPVerif.verifikasi()),
+                ],
+              )
             ],
           ),
         ),

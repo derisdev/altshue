@@ -24,7 +24,7 @@ class RegisterController extends GetxController {
         !isErrorNoTelp.value &&
         !isErrorPassword.value &&
         !isErrorUlangiPassword.value) {
-      Get.offNamed(Routes.KTP_VERIF);
+      Get.offAllNamed(Routes.KTP_VERIF);
     }
   }
 

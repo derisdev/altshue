@@ -1,20 +1,37 @@
+import 'dart:io';
+
+import 'package:altshue/app/utils/ui/show_toast.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+
+  final isConnected = false.obs;
+
+  void changeConnected(){
+    isConnected.value = true;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  //close app
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  DateTime currentBackPressTime = DateTime(
+      DateTime.now().year, DateTime.now().month, DateTime.now().day - 1);
+
+  Future<bool> onWillPop() {
+    DateTime now = DateTime.now();
+    if (now.difference(currentBackPressTime) > Duration(seconds: 2)) {
+      currentBackPressTime = now;
+      showToasts(
+        text: 'Tekan sekali lagi untuk keluar',
+      );
+      return Future.value(false);
+    }
+    if (Platform.isAndroid) {
+      SystemNavigator.pop();
+    } else if (Platform.isIOS) {
+      exit(0);
+    }
+    return Future.value(false);
+  }
 }

@@ -23,12 +23,13 @@ class NavigationBar extends StatelessWidget {
           margin: EdgeInsets.only(left: 20, right: 20, bottom: 23),
           padding: EdgeInsets.symmetric(horizontal: 23),
           decoration: BoxDecoration(
-              color: Palette.darkTan,
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                    color: Palette.alto, blurRadius: 4, offset: Offset(0, 1))
-              ]),
+            color: Palette.darkTan,
+            borderRadius: BorderRadius.circular(20),
+            // boxShadow: [
+            //   BoxShadow(
+            //       color: Palette.alto, blurRadius: 4, offset: Offset(0, 1))
+            // ]
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

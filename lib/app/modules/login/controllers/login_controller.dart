@@ -15,7 +15,7 @@ class LoginController extends GetxController {
     if (formGlobalKey.currentState!.validate() &&
         !isErrorEmail.value &&
         !isErrorPassword.value) {
-      Get.offNamed(Routes.KTP_VERIF);
+      Get.offAllNamed(Routes.KTP_VERIF);
     }
   }
 

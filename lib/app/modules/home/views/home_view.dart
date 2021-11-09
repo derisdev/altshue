@@ -16,65 +16,74 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            Column(
-              children: [
-                TopHome(),
-                Expanded(
-                    child: Stack(
-                  children: [
-                    Container(
-                      color: Colors.white,
-                      child: ListView(
-                        children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          MissionProgress(),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          TodayActivity(),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          NewsHome(),
-                          SizedBox(
-                            height: 70,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Visibility(
-                      visible: false,
-                      child: Container(
-                        color: Palette.black.withOpacity(0.7),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(AssetName.pairText),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              InkWell(
-                                  onTap: () {},
-                                  child: SvgPicture.asset(AssetName.pair)),
-                            ],
-                          ),
+        body: WillPopScope(
+          onWillPop: () {
+            return controller.onWillPop();
+          },
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  TopHome(
+                    controller: controller,
+                  ),
+                  Expanded(
+                      child: Stack(
+                    children: [
+                      Container(
+                        color: Colors.white,
+                        child: ListView(
+                          children: [
+                            SizedBox(
+                              height: 30,
+                            ),
+                            MissionProgress(),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TodayActivity(),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            NewsHome(),
+                            SizedBox(
+                              height: 70,
+                            ),
+                          ],
                         ),
                       ),
-                    )
-                  ],
-                ))
-              ],
-            ),
-            Mission(),
-            NavigationBar(
-              index: 2,
-            )
-          ],
+                      Obx(
+                        () => Visibility(
+                          visible: !controller.isConnected.value,
+                          child: Container(
+                            color: Palette.black.withOpacity(0.7),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SvgPicture.asset(AssetName.pairText),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  InkWell(
+                                      onTap: () => controller.changeConnected(),
+                                      child: SvgPicture.asset(AssetName.pair)),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ))
+                ],
+              ),
+              Mission(),
+              NavigationBar(
+                index: 2,
+              )
+            ],
+          ),
         ));
   }
 }
@@ -82,7 +91,10 @@ class HomeView extends GetView<HomeController> {
 class TopHome extends StatelessWidget {
   const TopHome({
     Key? key,
+    required this.controller,
   }) : super(key: key);
+
+  final HomeController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -131,9 +143,13 @@ class TopHome extends StatelessWidget {
                   SizedBox(
                       width: 68,
                       height: 24,
-                      child: InkWell(
-                          onTap: () {},
-                          child: SvgPicture.asset(AssetName.paired))),
+                      child: Obx(
+                        () => InkWell(
+                            onTap: () {},
+                            child: SvgPicture.asset(controller.isConnected.value
+                                ? AssetName.paired
+                                : AssetName.unpair)),
+                      )),
                   Container(
                     height: 23,
                     width: 179,

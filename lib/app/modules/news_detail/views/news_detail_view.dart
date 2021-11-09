@@ -1,5 +1,6 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,36 +11,40 @@ class NewsDetailView extends GetView<NewsDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.white,
+        backgroundColor: Palette.white,
+        resizeToAvoidBottomInset: false,
         body: MediaQuery.removePadding(
-      context: context,
-      removeTop: true,
-      child: ListView(
-        children: [
-          Stack(
-            children: [
-              Container(
-                color: Palette.white,
-                height: Get.height,
-              ),
-              ImageTop(),
-              Positioned(
-                  top:295,
-                  left:0,
-                  right:0,
-                  child: Column(
-                    children:[
-                      Title(),
-                      Description(),
-                    ]
-                  )),
-            ],
-          ),
-
-          SizedBox(height: 40)
-        ],
-      ),
-    ));
+            context: context,
+            removeTop: true,
+            child: Stack(
+              children: [
+                ListView(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          color: Palette.white,
+                          height: Get.height,
+                        ),
+                        ImageTop(),
+                        Positioned(
+                            top: 295,
+                            left: 0,
+                            right: 0,
+                            child: Column(children: [
+                              Title(),
+                              Description(),
+                            ])),
+                      ],
+                    ),
+                    SizedBox(height: 40)
+                  ],
+                ),
+                NavigationBar(
+                  index: 2,
+                )
+              ],
+            )));
   }
 }
 
@@ -77,8 +82,7 @@ class Title extends StatelessWidget {
         width: Get.width,
         padding: EdgeInsets.symmetric(horizontal: 35, vertical: 16),
         decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(AssetName.titleBg))
-        ),
+            image: DecorationImage(image: AssetImage(AssetName.titleBg))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

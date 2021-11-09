@@ -18,6 +18,13 @@ abstract class AssetName {
   static const chatboxes = '$baseAssetImagesvg/chatboxes.svg';
   static const bankIllus = '$baseAssetImagesvg/bank-illus.svg';
 
+  static const friends = '$baseAssetImagesvg/friends.svg';
+  static const mission = '$baseAssetImagesvg/mission.svg';
+  static const rank = '$baseAssetImagesvg/rank.svg';
+  static const account = '$baseAssetImagesvg/account.svg';
+  static const ellipse2 = '$baseAssetImagesvg/ellipse2.svg';
+  static const ellipse3 = '$baseAssetImagesvg/ellipse3.svg';
+
   //png
   static const appIcon = '$baseAssetImagePng/app-icon.png';
   static const ap = '$baseAssetImagePng/AP.png';

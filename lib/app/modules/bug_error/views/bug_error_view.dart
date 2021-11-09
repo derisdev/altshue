@@ -3,6 +3,7 @@ import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/input_field.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -15,26 +16,34 @@ class BugErrorView extends GetView<BugErrorController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.white,
-        body: Column(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
           children: [
-            HeaderBar(
-              title: 'Bug Error Report',
+            Column(
+              children: [
+                HeaderBar(
+                  title: 'Bug Error Report',
+                ),
+                SizedBox(height: 20),
+                ListField(
+                  controller: controller,
+                ),
+                SizedBox(height: 108),
+                SizedBox(
+                  width: 186,
+                  height: 41,
+                  child: ButtonGlobal(
+                    onTap: () => controller.report(),
+                    radius: 8,
+                    fontSize: 14,
+                    title: 'REPORT',
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            ListField(
-              controller: controller,
-            ),
-            SizedBox(height: 108),
-            SizedBox(
-              width: 186,
-              height: 41,
-              child: ButtonGlobal(
-                onTap: () => controller.report(),
-                radius: 8,
-                fontSize: 14,
-                title: 'REPORT',
-              ),
-            ),
+            NavigationBar(
+              index: 4,
+            )
           ],
         ));
   }
@@ -93,7 +102,6 @@ class ListField extends StatelessWidget {
               hintText: "Tell us what's wrong ?",
               icon: Icons.chat_bubble,
               isSVG: true,
-
               isMultiline: true,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
@@ -199,7 +207,8 @@ class BugOrContactFieldItem extends StatelessWidget {
     required this.icon,
     this.isMultiline = false,
     required this.validator,
-    this.readOnly = false, this.isSVG=false,
+    this.readOnly = false,
+    this.isSVG = false,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -225,8 +234,11 @@ class BugOrContactFieldItem extends StatelessWidget {
             bottom: 0,
             top: 2,
             left: 0,
-            child:    isSVG?
-            SvgPicture.asset(AssetName.chatboxes, height: 20,)
+            child: isSVG
+                ? SvgPicture.asset(
+                    AssetName.chatboxes,
+                    height: 20,
+                  )
                 : Icon(icon, color: Palette.gray, size: 25)),
       ],
     );

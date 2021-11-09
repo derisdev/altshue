@@ -2,6 +2,7 @@ import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -14,12 +15,16 @@ class ReedemView extends GetView<ReedemController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.alabaster,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             ListReedem(),
             HeaderBar(
               title: 'Redeem',
             ),
+            NavigationBar(
+              index: 4,
+            )
           ],
         ));
   }
@@ -68,7 +73,7 @@ class ReedemItem extends StatelessWidget {
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () {},
+                onTap: () => Get.toNamed(Routes.REEDEM_DETAIL),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 19, vertical: 27),
                   child: Row(
@@ -101,7 +106,6 @@ class ReedemItem extends StatelessWidget {
                           Row(
                             children: [
                               Image.asset(AssetName.ap, height: 19),
-
                               SizedBox(
                                 width: 3,
                               ),
@@ -131,7 +135,8 @@ class ReedemItem extends StatelessWidget {
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      FaIcon(FontAwesomeIcons.gift, size: 15, color: Palette.white),
+                                      FaIcon(FontAwesomeIcons.gift,
+                                          size: 15, color: Palette.white),
                                       SizedBox(width: 9.3),
                                       Text('REDEEM',
                                           style: TextStyle(
@@ -146,7 +151,7 @@ class ReedemItem extends StatelessWidget {
                             child: Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                onTap: () => Get.toNamed(Routes.REEDEM_DETAIL),
+                                onTap: () => Get.toNamed(Routes.BANK_ACCOUNT),
                                 child: SizedBox(
                                   width: 96,
                                   height: 29,

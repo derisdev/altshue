@@ -1,5 +1,6 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/widgets/input_field.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
@@ -16,32 +17,40 @@ class BankAccountView extends GetView<BankAccountController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.white,
-        body: Column(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
           children: [
-            HeaderBar(
-              title: 'Bank Account',
+            Column(
+              children: [
+                HeaderBar(
+                  title: 'Bank Account',
+                ),
+                SizedBox(height: 30),
+                SvgPicture.asset(AssetName.bankIllus),
+                SizedBox(height: 30),
+                BankOption(
+                  controller: controller,
+                ),
+                SizedBox(height: 10),
+                ListFieldBank(
+                  controller: controller,
+                ),
+                SizedBox(height: 50),
+                SizedBox(
+                  width: 186,
+                  height: 41,
+                  child: ButtonGlobal(
+                    onTap: () => controller.submit(),
+                    radius: 8,
+                    fontSize: 14,
+                    title: 'SUBMIT',
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 30),
-            SvgPicture.asset(AssetName.bankIllus),
-            SizedBox(height: 30),
-            BankOption(
-              controller: controller,
-            ),
-            SizedBox(height: 10),
-            ListFieldBank(
-              controller: controller,
-            ),
-            SizedBox(height: 50),
-            SizedBox(
-              width: 186,
-              height: 41,
-              child: ButtonGlobal(
-                onTap: () => controller.submit(),
-                radius: 8,
-                fontSize: 14,
-                title: 'SUBMIT',
-              ),
-            ),
+            NavigationBar(
+              index: 4,
+            )
           ],
         ));
   }

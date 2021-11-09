@@ -1,6 +1,8 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:altshue/app/widgets/tile_item.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,25 +16,33 @@ class SettingsView extends GetView<SettingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.white,
-        body: Column(
+        resizeToAvoidBottomInset: false,
+        body: Stack(
           children: [
-            HeaderBar(
-              title: 'Settings',
+            Column(
+              children: [
+                HeaderBar(
+                  title: 'Settings',
+                ),
+                SizedBox(height: 20),
+                ListSetting(),
+                SizedBox(height: 30),
+                SizedBox(
+                  width: 186,
+                  height: 41,
+                  child: ButtonGlobal(
+                    onTap: () {},
+                    primary: Palette.darkTan,
+                    radius: 8,
+                    fontSize: 14,
+                    title: 'LOGOUT',
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            ListSetting(),
-            SizedBox(height: 30),
-            SizedBox(
-              width: 186,
-              height: 41,
-              child: ButtonGlobal(
-                onTap: () {},
-                primary: Palette.darkTan,
-                radius: 8,
-                fontSize: 14,
-                title: 'LOGOUT',
-              ),
-            ),
+            NavigationBar(
+              index: 4,
+            )
           ],
         ));
   }
@@ -53,7 +63,7 @@ class ListSetting extends StatelessWidget {
             icon: FontAwesomeIcons.lock,
             isSvg: true,
             title: 'Change Password',
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
           ),
           Divider(
             color: Palette.alto,
@@ -61,7 +71,7 @@ class ListSetting extends StatelessWidget {
           TileItem(
             icon: Icons.flag,
             title: 'Language',
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.LANGUAGE),
           ),
           Divider(
             color: Palette.alto,
@@ -69,7 +79,7 @@ class ListSetting extends StatelessWidget {
           TileItem(
             icon: Icons.bug_report,
             title: 'Bug Error Report',
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.BUG_ERROR),
           ),
           Divider(
             color: Palette.alto,
@@ -77,7 +87,7 @@ class ListSetting extends StatelessWidget {
           TileItem(
             icon: Icons.warning,
             title: 'About',
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.ABOUT),
           ),
           Divider(
             color: Palette.alto,
@@ -85,7 +95,7 @@ class ListSetting extends StatelessWidget {
           TileItem(
             icon: Icons.call,
             title: 'Contact',
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.CONTACT),
           ),
         ],
       ),

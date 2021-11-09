@@ -1,5 +1,7 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -11,32 +13,36 @@ class ReedemDetailView extends GetView<ReedemDetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: MediaQuery.removePadding(
-      context: context,
-      removeTop: true,
-      child: ListView(
-        children: [
-          Stack(
-            children: [
-              Container(
-                color: Palette.white,
-                height: 300+105,
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: [
+            MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: ListView(
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        color: Palette.white,
+                        height: 300 + 105,
+                      ),
+                      ImageTop(),
+                      Positioned(top: 295, left: 0, right: 0, child: Title()),
+                    ],
+                  ),
+                  Description(),
+                  SizedBox(height: 24),
+                  ReedemButton(),
+                  SizedBox(height: 150),
+                ],
               ),
-              ImageTop(),
-              Positioned(
-                  top:295,
-                  left:0,
-                  right:0,
-                  child: Title()),
-            ],
-          ),
-          Description(),
-
-          SizedBox(height: 24),
-          ReedemButton()
-        ],
-      ),
-    ));
+            ),
+            NavigationBar(
+              index: 4,
+            )
+          ],
+        ));
   }
 }
 
@@ -59,9 +65,8 @@ class ReedemButton extends StatelessWidget {
               child: Center(
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      FaIcon(FontAwesomeIcons.gift, size: 17, color: Palette.white),
-
-                      SizedBox(width: 12),
+                  FaIcon(FontAwesomeIcons.gift, size: 17, color: Palette.white),
+                  SizedBox(width: 12),
                   Text('REDEEM',
                       style: TextStyle(
                           color: Palette.white,
@@ -69,15 +74,19 @@ class ReedemButton extends StatelessWidget {
                           fontFamily: AppFontStyle.montserratBold)),
                 ]),
               )),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(5),
-            child: Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: () {},
-                child: SizedBox(
-                  width: 96,
-                  height: 29,
+          SizedBox(
+            width: 186,
+            height: 41,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: () => Get.toNamed(Routes.BANK_ACCOUNT),
+                  child: SizedBox(
+                    width: 96,
+                    height: 29,
+                  ),
                 ),
               ),
             ),
@@ -123,8 +132,7 @@ class Title extends StatelessWidget {
         width: Get.width,
         padding: EdgeInsets.symmetric(horizontal: 35),
         decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(AssetName.titleBg))
-        ),
+            image: DecorationImage(image: AssetImage(AssetName.titleBg))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -142,7 +150,7 @@ class Title extends StatelessWidget {
                 CircleAvatar(
                   radius: 12,
                   backgroundColor: Palette.white,
-                  child:            Image.asset(AssetName.ap, height: 19),
+                  child: Image.asset(AssetName.ap, height: 19),
                 ),
                 SizedBox(width: 7),
                 Text(

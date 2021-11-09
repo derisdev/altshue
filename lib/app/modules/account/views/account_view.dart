@@ -2,6 +2,7 @@ import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,6 +16,7 @@ class AccountView extends GetView<AccountController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.alabaster,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             ListView(
@@ -34,6 +36,9 @@ class AccountView extends GetView<AccountController> {
             HeaderMainBar(
               title: 'Account',
             ),
+            NavigationBar(
+              index: 4,
+            )
           ],
         ));
   }
@@ -72,7 +77,7 @@ class SettingsMenu extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () => Get.toNamed(Routes.SETTINGS),
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Row(
@@ -401,7 +406,7 @@ class TopAccount extends StatelessWidget {
                     child: Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
                         child: SizedBox(
                           width: 96,
                           height: 29,

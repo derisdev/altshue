@@ -1,6 +1,7 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -14,6 +15,7 @@ class RankView extends GetView<RankController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.alabaster,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             ListView(
@@ -31,6 +33,9 @@ class RankView extends GetView<RankController> {
             HeaderMainBar(
               title: 'Rank',
             ),
+            NavigationBar(
+              index: 3,
+            )
           ],
         ));
   }
@@ -196,12 +201,13 @@ class Top100Rank extends StatelessWidget {
                   fontFamily: AppFontStyle.montserratBold)),
           Spacer(),
           InkWell(
-            onTap: () => controller.onTapSort(),
-            child: RotationTransition(
+              onTap: () => controller.onTapSort(),
+              child: RotationTransition(
                 turns:
                     Tween(begin: 0.0, end: 1.0).animate(controller.animationC),
-                child: FaIcon(FontAwesomeIcons.arrowUp, size: 14, color: Palette.darkTan),)
-          ),
+                child: FaIcon(FontAwesomeIcons.arrowUp,
+                    size: 14, color: Palette.darkTan),
+              )),
         ],
       ),
     );
@@ -292,7 +298,6 @@ class CurrentRank extends StatelessWidget {
                                 fontSize: 17,
                                 fontFamily: AppFontStyle.montserratBold)),
                         SizedBox(height: 5),
-
                         Container(
                           width: 63,
                           height: 23,
@@ -331,7 +336,8 @@ class CurrentRank extends StatelessWidget {
             ),
             Column(
               children: [
-                FaIcon(FontAwesomeIcons.infinity, size: 42, color: Palette.dixie),
+                FaIcon(FontAwesomeIcons.infinity,
+                    size: 42, color: Palette.dixie),
                 SizedBox(height: 9.5),
                 Text('Max Level',
                     style: TextStyle(

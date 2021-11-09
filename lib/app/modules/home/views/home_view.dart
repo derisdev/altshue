@@ -1,7 +1,7 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
-import 'package:altshue/app/widgets/button_global.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,63 +15,67 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
-      children: [
-        Column(
           children: [
-            TopHome(),
-            Expanded(
-                child: Stack(
+            Column(
               children: [
-                Container(
-                  color: Colors.white,
-                  child: ListView(
-                    children: [
-                      SizedBox(
-                        height: 30,
-                      ),
-                      MissionProgress(),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      TodayActivity(),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      NewsHome(),
-                      SizedBox(
-                        height: 70,
-                      ),
-                    ],
-                  ),
-                ),
-                Visibility(
-                  visible: false,
-                  child: Container(
-                    color: Palette.black.withOpacity(0.7),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                TopHome(),
+                Expanded(
+                    child: Stack(
+                  children: [
+                    Container(
+                      color: Colors.white,
+                      child: ListView(
                         children: [
-                          SvgPicture.asset(AssetName.pairText),
                           SizedBox(
-                            height: 10,
+                            height: 30,
                           ),
-                          InkWell(
-                              onTap: () {},
-                              child: SvgPicture.asset(AssetName.pair)),
+                          MissionProgress(),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          TodayActivity(),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          NewsHome(),
+                          SizedBox(
+                            height: 70,
+                          ),
                         ],
                       ),
                     ),
-                  ),
-                )
+                    Visibility(
+                      visible: false,
+                      child: Container(
+                        color: Palette.black.withOpacity(0.7),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(AssetName.pairText),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              InkWell(
+                                  onTap: () {},
+                                  child: SvgPicture.asset(AssetName.pair)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ))
               ],
-            ))
+            ),
+            Mission(),
+            NavigationBar(
+              index: 2,
+            )
           ],
-        ),
-        Mission()
-      ],
-    ));
+        ));
   }
 }
 

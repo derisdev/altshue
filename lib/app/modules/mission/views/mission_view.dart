@@ -2,6 +2,7 @@ import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/modules/home/views/home_view.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,6 +16,7 @@ class MissionView extends GetView<MissionController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.alabaster,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             ListView(
@@ -34,6 +36,9 @@ class MissionView extends GetView<MissionController> {
             HeaderMainBar(
               title: 'Mission',
             ),
+            NavigationBar(
+              index: 1,
+            )
           ],
         ));
   }
@@ -60,7 +65,7 @@ class AchievmentProgress extends StatelessWidget {
                 BoxShadow(
                     color: Palette.alto, blurRadius: 4, offset: Offset(0, 1))
               ]),
-          duration: const Duration(milliseconds: 120),
+          duration: const Duration(milliseconds: 300),
           child: Column(
             children: [
               Row(
@@ -263,14 +268,17 @@ class MissionDaily extends StatelessWidget {
                             SizedBox(
                               width: 20,
                             ),
-                            Container(
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(3),
-                                  border: Border.all(
-                                      color: Palette.silver, width: 2)),
-                            ),
+                            index == 1
+                                ? FaIcon(FontAwesomeIcons.checkSquare,
+                                    color: Palette.chateauGreen)
+                                : Container(
+                                    width: 20,
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(3),
+                                        border: Border.all(
+                                            color: Palette.silver, width: 2)),
+                                  ),
                           ],
                         )
                       ],

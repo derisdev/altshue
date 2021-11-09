@@ -1,6 +1,7 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
+import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -12,12 +13,16 @@ class NewsView extends GetView<NewsController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.white,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
             ListNews(),
             HeaderBar(
               title: 'News',
             ),
+            NavigationBar(
+              index: 2,
+            )
           ],
         ));
   }

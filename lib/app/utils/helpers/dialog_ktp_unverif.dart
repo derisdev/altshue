@@ -1,6 +1,8 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 void showDialogKTPUnverif(
@@ -19,10 +21,8 @@ void showDialogKTPUnverif(
               color: Palette.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             children: [
-              Icon(
-                icon,
-                size: 50,
-                color: Palette.darkTan,
+              SvgPicture.asset(
+                AssetName.alertTriangle,
               ),
               SizedBox(
                 height: 15,

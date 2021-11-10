@@ -8,7 +8,10 @@ class TileItem extends StatelessWidget {
     required this.icon,
     required this.title,
     this.textColor = Palette.black,
-    required this.onTap, this.isSvg=false,
+    required this.onTap,
+    this.isSvg = false,
+    this.isImage = false,
+    this.imgSrc = '',
   }) : super(key: key);
 
   final IconData icon;
@@ -16,6 +19,8 @@ class TileItem extends StatelessWidget {
   final Color textColor;
   final VoidCallback onTap;
   final bool isSvg;
+  final bool isImage;
+  final String imgSrc;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +32,17 @@ class TileItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10.0),
           child: Row(
             children: [
-              isSvg?                            Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: FaIcon(icon, size: 20, color: Palette.gray),
-              )
-            :Icon(icon, color: Palette.gray),
+              isImage
+                  ? Image.asset(
+                      imgSrc,
+                      height: 13,
+                    )
+                  : isSvg
+                      ? Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: FaIcon(icon, size: 20, color: Palette.gray),
+                        )
+                      : Icon(icon, color: Palette.gray),
               SizedBox(
                 width: 15.6,
               ),

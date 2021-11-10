@@ -100,16 +100,16 @@ class TopHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          height: Get.height * 0.35,
-          color: Palette.darkTan,
-          // child: Image.asset(AssetName.splashBg),
-        ),
+        Image.asset(AssetName.homeBg,
+            height: Get.height * 0.35, fit: BoxFit.cover),
         Positioned(
           top: 32,
           left: 0,
           right: 0,
-          child: Icon(Icons.ac_unit, size: 150),
+          child: Image.asset(
+            AssetName.prodigious,
+            height: Get.height * 0.35 - 140,
+          ),
         ),
         Container(
           height: Get.height * 0.35,

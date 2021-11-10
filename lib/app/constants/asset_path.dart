@@ -25,6 +25,10 @@ abstract class AssetName {
   static const ellipse2 = '$baseAssetImagesvg/ellipse2.svg';
   static const ellipse3 = '$baseAssetImagesvg/ellipse3.svg';
 
+  static const alertTriangle = '$baseAssetImagesvg/alert-triangle.svg';
+  static const arrowThickTop = '$baseAssetImagesvg/arrow-thick-top.svg';
+  static const checkSquare = '$baseAssetImagesvg/check-square.svg';
+
   //png
   static const appIcon = '$baseAssetImagePng/app-icon.png';
   static const ap = '$baseAssetImagePng/AP.png';
@@ -35,4 +39,8 @@ abstract class AssetName {
   static const titleBg = '$baseAssetImagePng/title-bg.png';
   static const headerBg = '$baseAssetImagePng/header-bg.png';
   static const about = '$baseAssetImagePng/about.png';
+  static const flagIndo = '$baseAssetImagePng/flag-indo.png';
+  static const flagEnglish = '$baseAssetImagePng/flag-english.png';
+  static const homeBg = '$baseAssetImagePng/home-bg.png';
+  static const prodigious = '$baseAssetImagePng/prodigious.png';
 }

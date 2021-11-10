@@ -1,6 +1,8 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 void showDialogPW(
@@ -20,11 +22,15 @@ void showDialogPW(
               color: Palette.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             children: [
-              Icon(
-                icon,
-                size: 50,
-                color: !isDismissible ? Palette.chateauGreen : Palette.darkTan,
-              ),
+              isDismissible
+                  ? SvgPicture.asset(
+                      AssetName.alertTriangle,
+                    )
+                  : Icon(
+                      icon,
+                      size: 50,
+                      color: Palette.chateauGreen,
+                    ),
               SizedBox(
                 height: 15,
               ),

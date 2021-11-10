@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
@@ -147,7 +148,10 @@ class PeopleListItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.ac_unit),
+                      Image.asset(
+                        AssetName.prodigious,
+                        height: 20,
+                      ),
                       SizedBox(
                         width: 7,
                       ),

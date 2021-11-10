@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
@@ -85,10 +86,10 @@ class ListSetting extends StatelessWidget {
             color: Palette.alto,
           ),
           TileItem(
-            icon: Icons.warning,
-            title: 'About',
-            onTap: () => Get.toNamed(Routes.ABOUT),
-          ),
+              title: 'About',
+              onTap: () => Get.toNamed(Routes.ABOUT),
+              isSvg: true,
+              icon: FontAwesomeIcons.infoCircle),
           Divider(
             color: Palette.alto,
           ),

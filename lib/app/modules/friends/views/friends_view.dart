@@ -200,7 +200,10 @@ class FriendRequestItem extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Icon(Icons.ac_unit),
+                          Image.asset(
+                            AssetName.prodigious,
+                            height: 20,
+                          ),
                           SizedBox(
                             width: 7,
                           ),
@@ -309,7 +312,10 @@ class FriendListItem extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.ac_unit),
+                      Image.asset(
+                        AssetName.prodigious,
+                        height: 20,
+                      ),
                       SizedBox(
                         width: 7,
                       ),

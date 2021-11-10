@@ -1,8 +1,10 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
@@ -132,7 +134,10 @@ class Top100RankITem extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.ac_unit),
+                        Image.asset(
+                          AssetName.prodigious,
+                          height: 20,
+                        ),
                         SizedBox(
                           width: 7,
                         ),
@@ -205,8 +210,10 @@ class Top100Rank extends StatelessWidget {
               child: RotationTransition(
                 turns:
                     Tween(begin: 0.0, end: 1.0).animate(controller.animationC),
-                child: FaIcon(FontAwesomeIcons.arrowUp,
-                    size: 14, color: Palette.darkTan),
+                child: SvgPicture.asset(
+                  AssetName.arrowThickTop,
+                  height: 15,
+                ),
               )),
         ],
       ),
@@ -277,7 +284,10 @@ class CurrentRank extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(Icons.ac_unit, size: 70),
+            Image.asset(
+              AssetName.prodigious,
+              height: 70,
+            ),
             Column(
               children: [
                 Row(

@@ -216,7 +216,10 @@ class LevelPlayer extends StatelessWidget {
                         fontSize: 12,
                         fontFamily: AppFontStyle.montserratBold)),
                 SizedBox(height: 4.5),
-                Icon(Icons.ac_unit, size: 40),
+                Image.asset(
+                  AssetName.prodigious,
+                  height: 40,
+                ),
                 SizedBox(height: 4),
                 Text('Prodigious',
                     style: TextStyle(

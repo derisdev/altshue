@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
@@ -58,6 +59,8 @@ class ListLanguage extends StatelessWidget {
         children: [
           TileItem(
             icon: Icons.lock,
+            imgSrc: AssetName.flagIndo,
+            isImage: true,
             title: 'Bahasa Indonesia',
             onTap: () {},
           ),
@@ -66,6 +69,8 @@ class ListLanguage extends StatelessWidget {
           ),
           TileItem(
             icon: Icons.flag,
+            imgSrc: AssetName.flagEnglish,
+            isImage: true,
             title: 'English',
             onTap: () {},
           ),

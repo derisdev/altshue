@@ -4,6 +4,7 @@ import 'package:altshue/app/modules/home/views/home_view.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
@@ -260,7 +261,7 @@ class MissionDaily extends StatelessWidget {
                                 fontFamily: AppFontStyle.montserratBold)),
                         Row(
                           children: [
-                            Text('Point : 100 Exp : 100',
+                            Text('A.P : 100 Exp : 100',
                                 style: TextStyle(
                                     color: Palette.dixie,
                                     fontSize: 10,
@@ -269,8 +270,10 @@ class MissionDaily extends StatelessWidget {
                               width: 20,
                             ),
                             index == 1
-                                ? FaIcon(FontAwesomeIcons.checkSquare,
-                                    color: Palette.chateauGreen)
+                                ? SvgPicture.asset(
+                                    AssetName.checkSquare,
+                                    height: 20,
+                                  )
                                 : Container(
                                     width: 20,
                                     height: 20,
@@ -464,7 +467,10 @@ class TopColMission extends StatelessWidget {
                     fontFamily: AppFontStyle.montserratMed)),
           ],
         ),
-        Icon(Icons.ac_unit, size: 120),
+        Image.asset(
+          AssetName.prodigious,
+          height: 120,
+        ),
         Column(
           children: [
             Image.asset(AssetName.ap, height: 22),

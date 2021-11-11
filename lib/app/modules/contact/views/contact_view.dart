@@ -5,7 +5,6 @@ import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 
@@ -22,7 +21,7 @@ class ContactView extends GetView<ContactController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Contact',
+                  title: 'Contact'.tr,
                 ),
                 SizedBox(height: 60),
                 ContactDetail(),
@@ -38,7 +37,7 @@ class ContactView extends GetView<ContactController> {
                     onTap: () => controller.send(),
                     radius: 8,
                     fontSize: 14,
-                    title: 'SEND',
+                    title: 'SEND'.tr,
                   ),
                 ),
                 Spacer(),
@@ -74,7 +73,7 @@ class FollowUs extends StatelessWidget {
         ),
         SizedBox(height: 6.3),
         Text(
-          'Follow Our Social Media',
+          'Follow Our Social Media'.tr,
           style: TextStyle(
               color: Palette.mineShaft,
               fontSize: 10,
@@ -185,7 +184,7 @@ class ListField extends StatelessWidget {
           children: [
             BugOrContactFieldItem(
               controller: controller.emailC,
-              hintText: 'Enter your email address',
+              hintText: 'Enter your email address'.tr,
               icon: Icons.email,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
@@ -217,7 +216,7 @@ class ListField extends StatelessWidget {
             ),
             BugOrContactFieldItem(
               controller: controller.descC,
-              hintText: "Any help ?",
+              hintText: "Any help ?".tr,
               isSVG: true,
               icon: Icons.chat_bubble,
               isMultiline: true,

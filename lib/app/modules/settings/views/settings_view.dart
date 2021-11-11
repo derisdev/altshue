@@ -23,7 +23,7 @@ class SettingsView extends GetView<SettingsController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Settings',
+                  title: 'Settings'.tr,
                 ),
                 SizedBox(height: 20),
                 ListSetting(),
@@ -36,7 +36,7 @@ class SettingsView extends GetView<SettingsController> {
                     primary: Palette.darkTan,
                     radius: 8,
                     fontSize: 14,
-                    title: 'LOGOUT',
+                    title: 'LOGOUT'.tr,
                   ),
                 ),
               ],
@@ -63,7 +63,7 @@ class ListSetting extends StatelessWidget {
           TileItem(
             icon: FontAwesomeIcons.lock,
             isSvg: true,
-            title: 'Change Password',
+            title: 'Change Password'.tr,
             onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
           ),
           Divider(
@@ -71,7 +71,7 @@ class ListSetting extends StatelessWidget {
           ),
           TileItem(
             icon: Icons.flag,
-            title: 'Language',
+            title: 'Language'.tr,
             onTap: () => Get.toNamed(Routes.LANGUAGE),
           ),
           Divider(
@@ -79,14 +79,14 @@ class ListSetting extends StatelessWidget {
           ),
           TileItem(
             icon: Icons.bug_report,
-            title: 'Bug Error Report',
+            title: 'Bug Error Report'.tr,
             onTap: () => Get.toNamed(Routes.BUG_ERROR),
           ),
           Divider(
             color: Palette.alto,
           ),
           TileItem(
-              title: 'About',
+              title: 'About'.tr,
               onTap: () => Get.toNamed(Routes.ABOUT),
               isSvg: true,
               icon: FontAwesomeIcons.infoCircle),
@@ -95,7 +95,7 @@ class ListSetting extends StatelessWidget {
           ),
           TileItem(
             icon: Icons.call,
-            title: 'Contact',
+            title: 'Contact'.tr,
             onTap: () => Get.toNamed(Routes.CONTACT),
           ),
         ],

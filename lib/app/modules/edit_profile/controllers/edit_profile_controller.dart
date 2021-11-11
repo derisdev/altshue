@@ -25,7 +25,7 @@ class EditProfileController extends GetxController {
           onTap: () {
             Get.back();
           },
-          text: "Segera Verifikasi KTP Anda",
+          text: "Segera Verifikasi KTP Anda".tr,
           isDismissible: false);
     }
   }

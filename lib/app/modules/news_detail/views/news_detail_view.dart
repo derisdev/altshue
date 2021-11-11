@@ -135,7 +135,7 @@ class ImageTop extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
-              Text('News',
+              Text('News'.tr,
                   style: TextStyle(
                       color: Palette.white,
                       fontSize: 17,

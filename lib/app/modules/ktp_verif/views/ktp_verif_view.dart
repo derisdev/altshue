@@ -38,7 +38,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                       SizedBox(
                         height: 44,
                       ),
-                      Text('VERIFIKASI KTP',
+                      Text('VERIFIKASI KTP'.tr,
                           style: TextStyle(
                               color: Palette.white,
                               fontSize: 20,
@@ -52,7 +52,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                             height: 48,
                             child: InputField(
                               controller: controller.noKTPC,
-                              hintText: 'No. KTP',
+                              hintText: 'No. KTP'.tr,
                               isNumber: true,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
@@ -97,7 +97,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                             child: InputField(
                               controller: controller.fotoKTPC,
                               readOnly: true,
-                              hintText: 'Foto KTP',
+                              hintText: 'Foto KTP'.tr,
                               validator: (String? text) {},
                             ),
                           ),
@@ -116,7 +116,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                               right: 11,
                               child: ButtonUpload(
                                 onTap: () => controller.getImage(),
-                                title: 'UPLOAD FILE',
+                                title: 'UPLOAD FILE'.tr,
                               )),
                         ],
                       ),
@@ -145,7 +145,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                             height: 48,
                             child: InputField(
                               controller: controller.alamatC,
-                              hintText: 'Alamat Lengkap',
+                              hintText: 'Alamat Lengkap'.tr,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
                                   controller.isErrorAlamat.value = true;
@@ -186,7 +186,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                       SizedBox(height: 42),
                       ButtonGlobal(
                         onTap: () => controller.submit(),
-                        title: 'SUBMIT',
+                        title: 'SUBMIT'.tr,
                       ),
                       SizedBox(height: 59),
                       SizedBox(
@@ -195,7 +195,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
                           onTap: () {
                             Get.offNamed(Routes.HOME);
                           },
-                          title: 'LEWATI',
+                          title: 'LEWATI'.tr,
                         ),
                       )
                     ],

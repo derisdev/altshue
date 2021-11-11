@@ -17,9 +17,12 @@ class RegisterView extends GetView<RegisterController> {
         body: Stack(
           children: [
             SizedBox(
-              width:double.infinity,
-              height:double.infinity,
-              child: Image.asset(AssetName.splashBg, fit: BoxFit.fill,),
+              width: double.infinity,
+              height: double.infinity,
+              child: Image.asset(
+                AssetName.splashBg,
+                fit: BoxFit.fill,
+              ),
             ),
             Align(
               alignment: Alignment.center,
@@ -48,7 +51,7 @@ class RegisterView extends GetView<RegisterController> {
                             height: 48,
                             child: InputField(
                               controller: controller.namaC,
-                              hintText: 'Nama Lengkap',
+                              hintText: 'Nama Lengkap'.tr,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
                                   controller.isErrornama.value = true;
@@ -95,7 +98,7 @@ class RegisterView extends GetView<RegisterController> {
                             height: 48,
                             child: InputField(
                               controller: controller.emailC,
-                              hintText: 'Email',
+                              hintText: 'Email'.tr,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
                                   controller.isErrorEmail.value = true;
@@ -142,7 +145,7 @@ class RegisterView extends GetView<RegisterController> {
                             height: 48,
                             child: InputField(
                               controller: controller.notelpC,
-                              hintText: 'Nomor Telepon',
+                              hintText: 'Nomor Telepon'.tr,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
                                   controller.isErrorNoTelp.value = true;
@@ -190,7 +193,7 @@ class RegisterView extends GetView<RegisterController> {
                             child: InputField(
                               controller: controller.passwordC,
                               obscureText: true,
-                              hintText: 'Password',
+                              hintText: 'Password'.tr,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
                                   controller.isErrorPassword.value = true;
@@ -238,7 +241,7 @@ class RegisterView extends GetView<RegisterController> {
                             child: InputField(
                               controller: controller.ulangiPasswordC,
                               obscureText: true,
-                              hintText: 'Ulangi Password',
+                              hintText: 'Ulangi Password'.tr,
                               validator: (String? text) {
                                 if (text == null || text.isEmpty) {
                                   controller.isErrorUlangiPassword.value = true;
@@ -280,7 +283,7 @@ class RegisterView extends GetView<RegisterController> {
                       SizedBox(height: 36),
                       ButtonGlobal(
                         onTap: () => controller.register(),
-                        title: 'SUBMIT',
+                        title: 'SUBMIT'.tr,
                       ),
                     ],
                   ),

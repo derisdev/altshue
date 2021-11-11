@@ -1,8 +1,7 @@
-import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 
 void showDialogKTPUnverif(
@@ -14,16 +13,15 @@ void showDialogKTPUnverif(
       Dialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Container(
-          height: 250,
+          height: 240,
           padding: EdgeInsets.only(top: 20),
           width: Get.width,
           decoration: BoxDecoration(
               color: Palette.white, borderRadius: BorderRadius.circular(20)),
           child: Column(
             children: [
-              SvgPicture.asset(
-                AssetName.alertTriangle,
-              ),
+              Icon(FeatherIcons.alertTriangle,
+                  color: Palette.darkTan, size: 27),
               SizedBox(
                 height: 15,
               ),
@@ -37,8 +35,8 @@ void showDialogKTPUnverif(
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Text(
-                    'Pengguna aplikasi ALT Shue yang terhormat, pastikan anda telah melkukan verifikasi KTP untuk menikmati fitur lengkap pada Aplikasi',
+                child: Text('KTP Unverif Desc'.tr,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                         color: Palette.mineShaft,
                         fontSize: 12,

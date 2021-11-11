@@ -21,19 +21,21 @@ class LanguageView extends GetView<LanguageController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Language',
+                  title: 'Language'.tr,
                 ),
                 SizedBox(height: 20),
-                ListLanguage(),
+                ListLanguage(
+                  controller: controller,
+                ),
                 SizedBox(height: 108),
                 SizedBox(
                   width: 186,
                   height: 41,
                   child: ButtonGlobal(
-                    onTap: () {},
+                    onTap: () => controller.changeLanguage(),
                     radius: 8,
                     fontSize: 14,
-                    title: 'SAVE',
+                    title: 'SAVE'.tr,
                   ),
                 ),
               ],
@@ -49,33 +51,55 @@ class LanguageView extends GetView<LanguageController> {
 class ListLanguage extends StatelessWidget {
   const ListLanguage({
     Key? key,
+    required this.controller,
   }) : super(key: key);
+
+  final LanguageController controller;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          TileItem(
-            icon: Icons.lock,
-            imgSrc: AssetName.flagIndo,
-            isImage: true,
-            title: 'Bahasa Indonesia',
-            onTap: () {},
+          Obx(
+            () => Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              color: Palette.alto
+                  .withOpacity(controller.selectedIndo.value ? 0.5 : 0),
+              child: TileItem(
+                icon: Icons.lock,
+                imgSrc: AssetName.flagIndo,
+                isImage: true,
+                title: 'Bahasa Indonesia',
+                onTap: () => controller.selectIndo(),
+              ),
+            ),
           ),
-          Divider(
-            color: Palette.alto,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Divider(
+              color: Palette.alto,
+            ),
           ),
-          TileItem(
-            icon: Icons.flag,
-            imgSrc: AssetName.flagEnglish,
-            isImage: true,
-            title: 'English',
-            onTap: () {},
+          Obx(
+            () => Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              color: Palette.alto
+                  .withOpacity(controller.selectedEng.value ? 0.5 : 0),
+              child: TileItem(
+                  icon: Icons.flag,
+                  imgSrc: AssetName.flagEnglish,
+                  isImage: true,
+                  title: 'English',
+                  onTap: () => controller.selectEnglish()),
+            ),
           ),
-          Divider(
-            color: Palette.alto,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Divider(
+              color: Palette.alto,
+            ),
           ),
         ],
       ),

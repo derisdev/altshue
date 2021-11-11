@@ -30,7 +30,7 @@ class FriendsView extends GetView<FriendsController> {
                 tabs: [
                   Tab(
                     child: Container(
-                      child: Text('Friend List',
+                      child: Text('Friend List'.tr,
                           style: TextStyle(
                               color: Palette.white,
                               fontSize: 12,
@@ -49,7 +49,7 @@ class FriendsView extends GetView<FriendsController> {
                       icon: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Friend Request',
+                      Text('Friend Request'.tr,
                           style: TextStyle(
                               color: Palette.white,
                               fontSize: 12,
@@ -73,7 +73,7 @@ class FriendsView extends GetView<FriendsController> {
               ),
               title: Padding(
                 padding: const EdgeInsets.only(left: 10.0),
-                child: Text('Friends',
+                child: Text('Friends'.tr,
                     style: TextStyle(
                         color: Palette.white,
                         fontSize: 17,
@@ -147,7 +147,7 @@ class FriendRequestItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
       child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 19, vertical: 27),
+          padding: EdgeInsets.only(left: 19, top: 27, bottom: 27),
           decoration: BoxDecoration(
               color: Palette.white,
               borderRadius: BorderRadius.circular(20),
@@ -177,23 +177,33 @@ class FriendRequestItem extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Palette.darkTan,
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontFamily: AppFontStyle.montserratBold)),
                       ),
                       SizedBox(
                         height: 8,
                       ),
-                      SizedBox(
-                        width: Get.width / 2,
-                        child: Text(
-                          'Online Time : 08.00 - 10.00',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              color: Palette.doveGray,
-                              fontSize: 14,
-                              fontFamily: AppFontStyle.montserratMed),
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            'Online Time'.tr,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Palette.doveGray,
+                                fontSize: 13,
+                                fontFamily: AppFontStyle.montserratMed),
+                          ),
+                          Text(
+                            ' : 08.00 - 10.00',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Palette.doveGray,
+                                fontSize: 13,
+                                fontFamily: AppFontStyle.montserratMed),
+                          ),
+                        ],
                       ),
                       SizedBox(
                         height: 8,
@@ -211,7 +221,7 @@ class FriendRequestItem extends StatelessWidget {
                             'Prodigious',
                             style: TextStyle(
                                 color: Palette.doveGray,
-                                fontSize: 14,
+                                fontSize: 13,
                                 fontFamily: AppFontStyle.montserratMed),
                           ),
                         ],
@@ -231,7 +241,7 @@ class FriendRequestItem extends StatelessWidget {
                       height: 35,
                       child: ButtonGlobal(
                         onTap: () {},
-                        title: 'Confirm',
+                        title: 'Confirm'.tr,
                         radius: 8,
                       )),
                   SizedBox(
@@ -264,7 +274,7 @@ class FriendListItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
       child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 19, vertical: 27),
+          padding: EdgeInsets.only(left: 18, bottom: 26, top: 26),
           decoration: BoxDecoration(
               color: Palette.white,
               borderRadius: BorderRadius.circular(20),
@@ -286,26 +296,39 @@ class FriendListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: Get.width / 2,
+                    width: Get.width / 2.5,
                     child: Text('John Doe',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Palette.darkTan,
-                            fontSize: 17,
+                            fontSize: 16,
                             fontFamily: AppFontStyle.montserratBold)),
                   ),
                   SizedBox(
                     height: 8,
                   ),
-                  Text(
-                    'Online Time : 08.00 - 10.00',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Palette.doveGray,
-                        fontSize: 14,
-                        fontFamily: AppFontStyle.montserratMed),
+                  Row(
+                    children: [
+                      Text(
+                        'Online Time'.tr,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Palette.doveGray,
+                            fontSize: 13,
+                            fontFamily: AppFontStyle.montserratMed),
+                      ),
+                      Text(
+                        ' : 08.00 - 10.00',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Palette.doveGray,
+                            fontSize: 13,
+                            fontFamily: AppFontStyle.montserratMed),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 8,
@@ -323,7 +346,7 @@ class FriendListItem extends StatelessWidget {
                         'Prodigious',
                         style: TextStyle(
                             color: Palette.doveGray,
-                            fontSize: 14,
+                            fontSize: 13,
                             fontFamily: AppFontStyle.montserratMed),
                       ),
                     ],
@@ -346,12 +369,15 @@ class FriendListItem extends StatelessWidget {
                       '50',
                       style: TextStyle(
                           color: Palette.valencia,
-                          fontSize: 14,
+                          fontSize: 13,
                           fontFamily: AppFontStyle.montserratMed),
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                width: 23,
+              ),
             ],
           )),
     );

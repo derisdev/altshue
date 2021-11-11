@@ -50,7 +50,7 @@ class LoginView extends GetView<LoginController> {
                         height: 48,
                         child: InputField(
                           controller: controller.emailC,
-                          hintText: 'Email / Nomor Telepon',
+                          hintText: 'Email / Nomor Telepon'.tr,
                           validator: (String? text) {
                             if (text == null || text.isEmpty) {
                               controller.isErrorEmail.value = true;
@@ -97,7 +97,7 @@ class LoginView extends GetView<LoginController> {
                         height: 48,
                         child: InputField(
                           controller: controller.passwordC,
-                          hintText: 'Password',
+                          hintText: 'Password'.tr,
                           obscureText: true,
                           validator: (String? text) {
                             if (text == null || text.isEmpty) {
@@ -139,7 +139,7 @@ class LoginView extends GetView<LoginController> {
                   SizedBox(height: 29),
                   Align(
                     alignment: Alignment.bottomRight,
-                    child: Text('Lupa Password ?',
+                    child: Text('Lupa Password ?'.tr,
                         style: TextStyle(
                             color: Palette.white,
                             fontSize: 12,
@@ -148,13 +148,13 @@ class LoginView extends GetView<LoginController> {
                   SizedBox(height: 29),
                   ButtonGlobal(
                     onTap: () => controller.masuk(),
-                    title: 'MASUK',
+                    title: 'MASUK'.tr,
                   ),
                   SizedBox(height: 28),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Belum Punya Akun ?',
+                      Text('Belum Punya Akun ?'.tr,
                           style: TextStyle(
                               color: Palette.white,
                               fontSize: 12,
@@ -162,7 +162,7 @@ class LoginView extends GetView<LoginController> {
                       SizedBox(width: 10),
                       InkWell(
                         onTap: () => Get.toNamed(Routes.REGISTER),
-                        child: Text('REGISTRASI SEKARANG',
+                        child: Text('REGISTRASI SEKARANG'.tr,
                             style: TextStyle(
                                 color: Palette.dixie,
                                 fontSize: 12,

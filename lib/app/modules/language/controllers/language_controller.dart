@@ -1,20 +1,28 @@
+import 'package:altshue/app/utils/services/localization_service.dart';
 import 'package:get/get.dart';
 
 class LanguageController extends GetxController {
-  //TODO: Implement LanguageController
+  final selectedIndo = false.obs;
+  final selectedEng = false.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void selectIndo() {
+    selectedIndo.value = true;
+    selectedEng.value = false;
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void selectEnglish() {
+    selectedIndo.value = false;
+    selectedEng.value = true;
   }
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  void changeLanguage() {
+    if (selectedIndo.value) {
+      LocalizationService().changeLocale('Indonesia');
+      Get.back();
+    }
+    if (selectedEng.value) {
+      LocalizationService().changeLocale('English');
+      Get.back();
+    }
+  }
 }

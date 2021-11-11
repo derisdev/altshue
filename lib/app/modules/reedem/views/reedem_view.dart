@@ -75,7 +75,7 @@ class ReedemItem extends StatelessWidget {
               child: InkWell(
                 onTap: () => Get.toNamed(Routes.REEDEM_DETAIL),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 19, vertical: 27),
+                  padding: EdgeInsets.symmetric(horizontal: 19, vertical: 25),
                   child: Row(
                     children: [
                       ClipRRect(
@@ -83,8 +83,8 @@ class ReedemItem extends StatelessWidget {
                           child: Image.network(
                             'https://www.colorhexa.com/efdcdc.png',
                             fit: BoxFit.cover,
-                            width: 88,
-                            height: 88,
+                            width: 85,
+                            height: 85,
                           )),
                       SizedBox(
                         width: 16,
@@ -98,14 +98,14 @@ class ReedemItem extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: Palette.darkTan,
-                                  fontSize: 14,
+                                  fontSize: 13,
                                   fontFamily: AppFontStyle.montserratBold)),
                           SizedBox(
                             height: 8,
                           ),
                           Row(
                             children: [
-                              Image.asset(AssetName.ap, height: 19),
+                              Image.asset(AssetName.ap, height: 18),
                               SizedBox(
                                 width: 3,
                               ),
@@ -115,7 +115,7 @@ class ReedemItem extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                     color: Palette.tundora,
-                                    fontSize: 14,
+                                    fontSize: 13,
                                     fontFamily: AppFontStyle.montserratReg),
                               ),
                             ],
@@ -126,8 +126,8 @@ class ReedemItem extends StatelessWidget {
                       Stack(
                         children: [
                           Container(
-                              width: 103,
-                              height: 29,
+                              width: 101,
+                              height: 27,
                               decoration: BoxDecoration(
                                   color: Palette.dixie,
                                   borderRadius: BorderRadius.circular(5)),
@@ -136,12 +136,12 @@ class ReedemItem extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       FaIcon(FontAwesomeIcons.gift,
-                                          size: 15, color: Palette.white),
+                                          size: 13, color: Palette.white),
                                       SizedBox(width: 9.3),
                                       Text('REDEEM',
                                           style: TextStyle(
                                               color: Palette.white,
-                                              fontSize: 10,
+                                              fontSize: 9,
                                               fontFamily:
                                                   AppFontStyle.montserratBold)),
                                     ]),
@@ -153,8 +153,8 @@ class ReedemItem extends StatelessWidget {
                               child: InkWell(
                                 onTap: () => Get.toNamed(Routes.BANK_ACCOUNT),
                                 child: SizedBox(
-                                  width: 96,
-                                  height: 29,
+                                  width: 101,
+                                  height: 27,
                                 ),
                               ),
                             ),

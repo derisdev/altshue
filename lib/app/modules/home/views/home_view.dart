@@ -2,9 +2,9 @@ import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
+import 'package:battery_indicator/battery_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -123,16 +123,31 @@ class TopHome extends StatelessWidget {
                   Image.asset(AssetName.shoes, height: 34),
                   Row(
                     children: [
-                      FaIcon(FontAwesomeIcons.batteryFull,
-                          color: Palette.white),
+                      // FaIcon(FontAwesomeIcons.batteryFull,
+                      //     color: Palette.white),
+                      SizedBox(
+                        width: 26,
+                        height: 13,
+                        child: Obx(
+                          () => BatteryIndicator(
+                            style: BatteryIndicatorStyle.skeumorphism,
+                            showPercentNum: false,
+                            batteryLevel: controller.batteryPercent.value,
+                            mainColor: Palette.white,
+                            showPercentSlide: true,
+                          ),
+                        ),
+                      ),
                       SizedBox(
                         width: 7.7,
                       ),
-                      Text('100%',
-                          style: TextStyle(
-                              color: Palette.white,
-                              fontSize: 12,
-                              fontFamily: AppFontStyle.montserratBold)),
+                      Obx(
+                        () => Text('${controller.batteryPercent.value}%',
+                            style: TextStyle(
+                                color: Palette.white,
+                                fontSize: 12,
+                                fontFamily: AppFontStyle.montserratBold)),
+                      ),
                     ],
                   )
                 ],
@@ -217,7 +232,7 @@ class Mission extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Mission',
+                  Text('Mission'.tr,
                       style: TextStyle(
                           color: Palette.tundora,
                           fontSize: 12,
@@ -236,7 +251,7 @@ class Mission extends StatelessWidget {
                             SizedBox(
                               height: 6,
                             ),
-                            Text('Distance',
+                            Text('Distance'.tr,
                                 style: TextStyle(
                                     color: Palette.tundora,
                                     fontSize: 12,
@@ -249,7 +264,7 @@ class Mission extends StatelessWidget {
                             SizedBox(
                               height: 6,
                             ),
-                            Text('Hours',
+                            Text('Hours'.tr,
                                 style: TextStyle(
                                     color: Palette.tundora,
                                     fontSize: 12,
@@ -262,7 +277,7 @@ class Mission extends StatelessWidget {
                             SizedBox(
                               height: 6,
                             ),
-                            Text('Steps',
+                            Text('Steps'.tr,
                                 style: TextStyle(
                                     color: Palette.tundora,
                                     fontSize: 12,
@@ -419,82 +434,109 @@ class TodayActivity extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Today Activity',
+          Text('Today Activity'.tr,
               style: TextStyle(
                   color: Palette.tundora,
                   fontSize: 12,
                   fontFamily: AppFontStyle.montserratBold)),
-          Column(
-            children: [
-              SvgPicture.asset(AssetName.expandArrowAlt,
-                  color: Palette.silverChalice, height: 12.2),
-              Row(
-                children: [
-                  Text('3',
-                      style: TextStyle(
-                          color: Palette.darkTan,
-                          fontSize: 28,
-                          fontFamily: AppFontStyle.montserratBoldItalic)),
-                  SizedBox(
-                    width: 4,
+          SizedBox(
+            width: 20,
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SvgPicture.asset(AssetName.expandArrowAlt,
+                          color: Palette.silverChalice, height: 12.2),
+                      Icon(Icons.timelapse,
+                          color: Palette.silverChalice, size: 20),
+                      SvgPicture.asset(AssetName.shoesIcon,
+                          color: Palette.silverChalice, height: 24.2),
+                    ],
                   ),
-                  Text('km',
-                      style: TextStyle(
-                          color: Palette.darkTan,
-                          fontSize: 12,
-                          fontFamily: AppFontStyle.montserratBoldItalic)),
-                ],
-              ),
-              Text('DISTANCE',
-                  style: TextStyle(
-                      color: Palette.darkTan,
-                      fontSize: 8,
-                      fontFamily: AppFontStyle.montserratMed)),
-            ],
-          ),
-          Column(
-            children: [
-              Icon(Icons.timelapse, color: Palette.silverChalice, size: 20),
-              Row(
-                children: [
-                  Text('5',
-                      style: TextStyle(
-                          color: Palette.darkTan,
-                          fontSize: 28,
-                          fontFamily: AppFontStyle.montserratBoldItalic)),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text('min',
-                      style: TextStyle(
-                          color: Palette.darkTan,
-                          fontSize: 12,
-                          fontFamily: AppFontStyle.montserratBoldItalic)),
-                ],
-              ),
-              Text('HOUR',
-                  style: TextStyle(
-                      color: Palette.darkTan,
-                      fontSize: 8,
-                      fontFamily: AppFontStyle.montserratMed)),
-            ],
-          ),
-          Column(
-            children: [
-              SvgPicture.asset(AssetName.shoesIcon,
-                  color: Palette.silverChalice, height: 24.2),
-              Text('500',
-                  style: TextStyle(
-                      color: Palette.darkTan,
-                      fontSize: 28,
-                      fontFamily: AppFontStyle.montserratBoldItalic)),
-              Text('STEPS',
-                  style: TextStyle(
-                      color: Palette.darkTan,
-                      fontSize: 8,
-                      fontFamily: AppFontStyle.montserratMed)),
-            ],
-          ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text('3',
+                                style: TextStyle(
+                                    color: Palette.darkTan,
+                                    fontSize: 28,
+                                    fontFamily:
+                                        AppFontStyle.montserratBoldItalic)),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text('km',
+                                style: TextStyle(
+                                    color: Palette.darkTan,
+                                    fontSize: 12,
+                                    fontFamily:
+                                        AppFontStyle.montserratBoldItalic)),
+                          ],
+                        ),
+                        Text('DISTANCE'.tr,
+                            style: TextStyle(
+                                color: Palette.darkTan,
+                                fontSize: 8,
+                                fontFamily: AppFontStyle.montserratMed)),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text('5',
+                                style: TextStyle(
+                                    color: Palette.darkTan,
+                                    fontSize: 28,
+                                    fontFamily:
+                                        AppFontStyle.montserratBoldItalic)),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text('min',
+                                style: TextStyle(
+                                    color: Palette.darkTan,
+                                    fontSize: 12,
+                                    fontFamily:
+                                        AppFontStyle.montserratBoldItalic)),
+                          ],
+                        ),
+                        Text('HOURS'.tr,
+                            style: TextStyle(
+                                color: Palette.darkTan,
+                                fontSize: 8,
+                                fontFamily: AppFontStyle.montserratMed)),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text('500',
+                            style: TextStyle(
+                                color: Palette.darkTan,
+                                fontSize: 28,
+                                fontFamily: AppFontStyle.montserratBoldItalic)),
+                        Text('STEPS'.tr,
+                            style: TextStyle(
+                                color: Palette.darkTan,
+                                fontSize: 8,
+                                fontFamily: AppFontStyle.montserratMed)),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -573,32 +615,37 @@ class Persentase extends StatelessWidget {
       {Key? key,
       required this.icon,
       required this.percent,
-      required this.progress})
+      required this.progress,
+      required this.progressValue})
       : super(key: key);
 
   final String icon;
   final double percent;
+  final String progressValue;
   final String progress;
 
   factory Persentase.km() {
     return Persentase(
       icon: AssetName.expandArrowAlt,
       percent: 3 / 5,
-      progress: '3/5 Kilometers',
+      progress: 'Kilometers'.tr,
+      progressValue: '3/5 ',
     );
   }
   factory Persentase.min() {
     return Persentase(
       icon: AssetName.timelapse,
       percent: 1 / 2,
-      progress: '5/10 Minutes',
+      progress: 'Minutes'.tr,
+      progressValue: '5/10 ',
     );
   }
   factory Persentase.step() {
     return Persentase(
       icon: AssetName.shoesIcon,
       percent: 7 / 10,
-      progress: '700/1000 Steps',
+      progress: 'Steps'.tr,
+      progressValue: '700/1000 ',
     );
   }
 
@@ -619,7 +666,7 @@ class Persentase extends StatelessWidget {
           Expanded(
             child: LinearPercentIndicator(
               lineHeight: 8.0,
-              width: Get.width / 1.93,
+              width: Get.width / 2.1,
               percent: percent,
               backgroundColor: Palette.thunderbird.withOpacity(0.25),
               progressColor: Palette.thunderbird,
@@ -628,11 +675,20 @@ class Persentase extends StatelessWidget {
           SizedBox(
             width: 8,
           ),
-          Text(progress,
-              style: TextStyle(
-                  color: Palette.tundora,
-                  fontSize: 10,
-                  fontFamily: AppFontStyle.montserratMed)),
+          Row(
+            children: [
+              Text(progressValue,
+                  style: TextStyle(
+                      color: Palette.tundora,
+                      fontSize: 10,
+                      fontFamily: AppFontStyle.montserratMed)),
+              Text(progress,
+                  style: TextStyle(
+                      color: Palette.tundora,
+                      fontSize: 10,
+                      fontFamily: AppFontStyle.montserratMed)),
+            ],
+          )
         ],
       ),
     );

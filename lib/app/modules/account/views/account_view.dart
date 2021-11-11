@@ -34,7 +34,7 @@ class AccountView extends GetView<AccountController> {
               ],
             ),
             HeaderMainBar(
-              title: 'Account',
+              title: 'Account'.tr,
             ),
             NavigationBar(
               index: 4,
@@ -56,7 +56,7 @@ class SettingsMenu extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Other',
+          Text('Other'.tr,
               style: TextStyle(
                   color: Palette.tundora,
                   fontSize: 12,
@@ -88,7 +88,7 @@ class SettingsMenu extends StatelessWidget {
                             color: Palette.gray,
                           ),
                           SizedBox(width: 16),
-                          Text('Settings',
+                          Text('Settings'.tr,
                               style: TextStyle(
                                   color: Palette.tundora,
                                   fontSize: 14,
@@ -159,7 +159,7 @@ class ReedemPoint extends StatelessWidget {
                             FaIcon(FontAwesomeIcons.gift,
                                 size: 15, color: Palette.white),
                             SizedBox(width: 9.3),
-                            Text('REDEEM',
+                            Text('REDEEM'.tr,
                                 style: TextStyle(
                                     color: Palette.white,
                                     fontSize: 10,
@@ -301,7 +301,7 @@ class CopyRefferal extends StatelessWidget {
                     color: Palette.alto,
                     borderRadius: BorderRadius.circular(5)),
                 child: Center(
-                    child: Text('COPY REFERAL',
+                    child: Text('COPY REFERAL'.tr,
                         style: TextStyle(
                             color: Palette.white,
                             fontSize: 10,

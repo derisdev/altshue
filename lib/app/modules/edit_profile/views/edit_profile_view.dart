@@ -22,7 +22,7 @@ class EditProfileView extends GetView<EditProfileController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Edit Profile',
+                  title: 'Edit Profile'.tr,
                 ),
                 Expanded(
                   child: MediaQuery.removePadding(
@@ -53,7 +53,7 @@ class EditProfileView extends GetView<EditProfileController> {
                                   onTap: () => controller.save(),
                                   radius: 8,
                                   fontSize: 14,
-                                  title: 'SAVE',
+                                  title: 'SAVE'.tr,
                                 ),
                               ),
                               SizedBox(height: 30),
@@ -135,7 +135,7 @@ class StatusVerifKTP extends StatelessWidget {
                       fontSize: 10,
                       fontFamily: AppFontStyle.montserratMed)),
               SizedBox(height: 5),
-              Text('Belum Verifikasi KTP',
+              Text('Belum Verifikasi KTP'.tr,
                   style: TextStyle(
                       color: Palette.silverChalice,
                       fontSize: 12,
@@ -150,7 +150,7 @@ class StatusVerifKTP extends StatelessWidget {
               radius: 5,
               fontSize: 10,
               primary: Palette.darkTan,
-              title: 'ISI DATA KTP',
+              title: 'ISI DATA KTP'.tr,
             ),
           ),
         ],
@@ -177,7 +177,7 @@ class ListFieldEditProfile extends StatelessWidget {
           children: [
             CleanField(
               controller: controller.fullNameC,
-              hintText: 'Full Name',
+              hintText: 'Nama Lengkap'.tr,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorFullName.value = true;
@@ -208,7 +208,7 @@ class ListFieldEditProfile extends StatelessWidget {
             ),
             CleanField(
               controller: controller.emailC,
-              hintText: 'Email',
+              hintText: 'Email'.tr,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorEmail.value = true;
@@ -239,7 +239,7 @@ class ListFieldEditProfile extends StatelessWidget {
             ),
             CleanField(
               controller: controller.phoneC,
-              hintText: 'Phone',
+              hintText: 'Nomor Telepon'.tr,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorPhone.value = true;

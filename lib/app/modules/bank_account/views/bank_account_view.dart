@@ -23,7 +23,7 @@ class BankAccountView extends GetView<BankAccountController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Bank Account',
+                  title: 'Bank Account'.tr,
                 ),
                 SizedBox(height: 30),
                 SvgPicture.asset(AssetName.bankIllus),
@@ -43,7 +43,7 @@ class BankAccountView extends GetView<BankAccountController> {
                     onTap: () => controller.submit(),
                     radius: 8,
                     fontSize: 14,
-                    title: 'SUBMIT',
+                    title: 'SUBMIT'.tr,
                   ),
                 ),
               ],
@@ -101,7 +101,7 @@ class BankOption extends StatelessWidget {
                           isExpanded: true,
                           items: [
                             DropdownMenuItem(
-                                child: Text("Choose Bank"),
+                                child: Text("Choose Bank".tr),
                                 value: "Choose Bank"),
                             DropdownMenuItem(child: Text("BNI"), value: "BNI"),
                             DropdownMenuItem(child: Text("BRI"), value: "BRI"),
@@ -163,7 +163,7 @@ class ListFieldBank extends StatelessWidget {
           children: [
             CleanField(
               controller: controller.numberPWC,
-              hintText: 'Bank Account Number',
+              hintText: 'Bank Account Number'.tr,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorNumber.value = true;
@@ -194,7 +194,7 @@ class ListFieldBank extends StatelessWidget {
             ),
             CleanField(
               controller: controller.namePWC,
-              hintText: 'Bank Account Name',
+              hintText: 'Bank Account Name'.tr,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorName.value = true;

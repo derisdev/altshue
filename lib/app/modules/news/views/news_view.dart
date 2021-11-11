@@ -18,7 +18,7 @@ class NewsView extends GetView<NewsController> {
           children: [
             ListNews(),
             HeaderBar(
-              title: 'News',
+              title: 'News'.tr,
             ),
             NavigationBar(
               index: 2,

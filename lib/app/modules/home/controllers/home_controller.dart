@@ -1,16 +1,23 @@
 import 'dart:io';
 
 import 'package:altshue/app/utils/ui/show_toast.dart';
+import 'package:battery/battery.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-
-
   final isConnected = false.obs;
 
-  void changeConnected(){
+  void changeConnected() {
     isConnected.value = true;
+  }
+
+  //battery
+  final battery = Battery();
+  final batteryPercent = 0.obs;
+
+  void changeBattery() async {
+    batteryPercent.value = await battery.batteryLevel;
   }
 
   //close app
@@ -33,5 +40,11 @@ class HomeController extends GetxController {
       exit(0);
     }
     return Future.value(false);
+  }
+
+  @override
+  void onInit() {
+    changeBattery();
+    super.onInit();
   }
 }

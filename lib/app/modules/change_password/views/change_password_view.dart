@@ -20,7 +20,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Change Password',
+                  title: 'Change Password'.tr,
                 ),
                 SizedBox(height: 30),
                 ListFieldPW(
@@ -34,7 +34,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                     onTap: () => controller.save(),
                     radius: 8,
                     fontSize: 14,
-                    title: 'SEND',
+                    title: 'SEND'.tr,
                   ),
                 ),
               ],
@@ -65,7 +65,7 @@ class ListFieldPW extends StatelessWidget {
           children: [
             CleanField(
               controller: controller.oldPWC,
-              hintText: 'Old Password',
+              hintText: 'Old Password'.tr,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorOld.value = true;

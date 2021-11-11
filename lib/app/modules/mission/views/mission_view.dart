@@ -35,7 +35,7 @@ class MissionView extends GetView<MissionController> {
               ],
             ),
             HeaderMainBar(
-              title: 'Mission',
+              title: 'Mission'.tr,
             ),
             NavigationBar(
               index: 1,
@@ -58,7 +58,6 @@ class AchievmentProgress extends StatelessWidget {
       () => AnimatedContainer(
           height: controller.animatedHeight.value,
           margin: EdgeInsets.symmetric(horizontal: 20),
-          padding: EdgeInsets.symmetric(vertical: 24, horizontal: 21),
           decoration: BoxDecoration(
               color: Palette.white,
               borderRadius: BorderRadius.circular(20),
@@ -69,30 +68,27 @@ class AchievmentProgress extends StatelessWidget {
           duration: const Duration(milliseconds: 300),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Achievment Progress',
-                      style: TextStyle(
-                          color: Palette.tundora,
-                          fontSize: 12,
-                          fontFamily: AppFontStyle.montserratBold)),
-                  InkWell(
-                      onTap: () => controller.changeHeight(),
-                      child: Obx(
-                        () => RotationTransition(
-                            turns: controller.rotateTime.value == 0
-                                ? controller.animation2
-                                : controller.animation1,
-                            child:
-                                FaIcon(FontAwesomeIcons.chevronDown, size: 15)),
-                      )),
-                ],
-              ),
-              Visibility(
-                visible: controller.animatedHeight.value != 70,
-                child: SizedBox(
-                  height: 19,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 24, horizontal: 21),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Achievment Progress'.tr,
+                        style: TextStyle(
+                            color: Palette.tundora,
+                            fontSize: 12,
+                            fontFamily: AppFontStyle.montserratBold)),
+                    InkWell(
+                        onTap: () => controller.changeHeight(),
+                        child: Obx(
+                          () => RotationTransition(
+                              turns: controller.rotateTime.value == 0
+                                  ? controller.animation2
+                                  : controller.animation1,
+                              child: FaIcon(FontAwesomeIcons.chevronDown,
+                                  size: 15)),
+                        )),
+                  ],
                 ),
               ),
               Visibility(
@@ -105,27 +101,36 @@ class AchievmentProgress extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    Row(
-                      children: [
-                        AchievmentItem(),
-                        Spacer(),
-                        AchievmentItem(),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 21),
+                      child: Row(
+                        children: [
+                          AchievmentItem(),
+                          Spacer(),
+                          AchievmentItem(),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 28,
                     ),
-                    Row(
-                      children: [
-                        AchievmentItem(),
-                        Spacer(),
-                        AchievmentItem(),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 21),
+                      child: Row(
+                        children: [
+                          AchievmentItem(),
+                          Spacer(),
+                          AchievmentItem(),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 28,
                     ),
-                    AchievmentItem(),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 21),
+                      child: AchievmentItem(),
+                    ),
                   ],
                 ),
               ),
@@ -146,7 +151,7 @@ class AchievmentItem extends StatelessWidget {
       children: [
         TextAndDiamond(
           icon: Icons.ac_unit,
-          text: 'Steps',
+          text: 'Steps'.tr,
         ),
         SizedBox(
           width: 10,
@@ -158,7 +163,7 @@ class AchievmentItem extends StatelessWidget {
               children: [
                 LinearPercentIndicator(
                   lineHeight: 8.0,
-                  width: 79,
+                  width: 63,
                   percent: 1,
                   backgroundColor: Palette.dixie.withOpacity(0.25),
                   progressColor: Palette.dixie,
@@ -167,7 +172,7 @@ class AchievmentItem extends StatelessWidget {
                   width: 6,
                 ),
                 FaIcon(FontAwesomeIcons.infinity,
-                    color: Palette.dixie, size: 15)
+                    color: Palette.dixie, size: 13)
               ],
             ),
             SizedBox(
@@ -175,11 +180,11 @@ class AchievmentItem extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(Icons.ac_unit, size: 15),
-                Icon(Icons.ac_unit, size: 15),
-                Icon(Icons.ac_unit, size: 15),
-                Icon(Icons.ac_unit, size: 15),
-                Icon(Icons.ac_unit, size: 15),
+                Icon(Icons.ac_unit, size: 13),
+                Icon(Icons.ac_unit, size: 13),
+                Icon(Icons.ac_unit, size: 13),
+                Icon(Icons.ac_unit, size: 13),
+                Icon(Icons.ac_unit, size: 13),
               ],
             )
           ],
@@ -212,7 +217,7 @@ class MissionDaily extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Mission',
+              Text('Mission'.tr,
                   style: TextStyle(
                       color: Palette.tundora,
                       fontSize: 12,
@@ -356,11 +361,11 @@ class BottomColMission extends StatelessWidget {
       children: [
         TextAndDiamond(
           icon: Icons.ac_unit,
-          text: 'Steps',
+          text: 'Steps'.tr,
         ),
         TextAndDiamond(
           icon: Icons.ac_unit,
-          text: 'Hour',
+          text: 'Hours'.tr,
         ),
         TextAndDiamond(
           icon: Icons.ac_unit,
@@ -368,11 +373,11 @@ class BottomColMission extends StatelessWidget {
         ),
         TextAndDiamond(
           icon: Icons.ac_unit,
-          text: 'Weekly',
+          text: 'Weekly'.tr,
         ),
         TextAndDiamond(
           icon: Icons.ac_unit,
-          text: 'Friends',
+          text: 'Friends'.tr,
         ),
       ],
     );
@@ -401,7 +406,7 @@ class TextAndDiamond extends StatelessWidget {
         SizedBox(
           height: 1,
         ),
-        Icon(icon, size: 45),
+        Icon(icon, size: 40),
       ],
     );
   }

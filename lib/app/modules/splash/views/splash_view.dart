@@ -12,30 +12,33 @@ class SplashView extends GetView<SplashController> {
     controller.checkToken();
     return Scaffold(
         body: Stack(
-          children: [
-            SizedBox(
-              width:double.infinity,
-              height:double.infinity,
-              child: Image.asset(AssetName.splashBg, fit: BoxFit.fill,),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AssetName.appIcon),
-                  SizedBox(
-                    height:20,
-                  ),
-                  Text('Loading . . .',
-                      style: TextStyle(
-                          color: Palette.white,
-                          fontSize: 14,
-                          fontFamily: AppFontStyle.montserratBold)),
-                ],
+      children: [
+        SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Image.asset(
+            AssetName.splashBg,
+            fit: BoxFit.fill,
+          ),
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(AssetName.appIcon),
+              SizedBox(
+                height: 20,
               ),
-            )
-          ],
-        ));
+              Text('Loading . . .'.tr,
+                  style: TextStyle(
+                      color: Palette.white,
+                      fontSize: 14,
+                      fontFamily: AppFontStyle.montserratBold)),
+            ],
+          ),
+        )
+      ],
+    ));
   }
 }

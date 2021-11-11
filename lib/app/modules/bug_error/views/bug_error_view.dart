@@ -22,7 +22,7 @@ class BugErrorView extends GetView<BugErrorController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Bug Error Report',
+                  title: 'Bug Error Report'.tr,
                 ),
                 SizedBox(height: 20),
                 ListField(
@@ -36,7 +36,7 @@ class BugErrorView extends GetView<BugErrorController> {
                     onTap: () => controller.report(),
                     radius: 8,
                     fontSize: 14,
-                    title: 'REPORT',
+                    title: 'REPORT'.tr,
                   ),
                 ),
               ],
@@ -67,7 +67,7 @@ class ListField extends StatelessWidget {
           children: [
             BugOrContactFieldItem(
               controller: controller.emailC,
-              hintText: 'Enter your email address',
+              hintText: 'Enter your email address'.tr,
               icon: Icons.email,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
@@ -99,7 +99,7 @@ class ListField extends StatelessWidget {
             ),
             BugOrContactFieldItem(
               controller: controller.descC,
-              hintText: "Tell us what's wrong ?",
+              hintText: "Tell us what's wrong ?".tr,
               icon: Icons.chat_bubble,
               isSVG: true,
               isMultiline: true,
@@ -169,7 +169,7 @@ class UploadItem extends StatelessWidget {
       children: [
         BugOrContactFieldItem(
           controller: controller.imageC,
-          hintText: "Upload Image",
+          hintText: "Upload Image".tr,
           icon: Icons.image,
           isMultiline: true,
           readOnly: true,

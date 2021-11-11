@@ -33,7 +33,7 @@ class RankView extends GetView<RankController> {
               ],
             ),
             HeaderMainBar(
-              title: 'Rank',
+              title: 'Rank'.tr,
             ),
             NavigationBar(
               index: 3,
@@ -78,7 +78,7 @@ class Top100RankITem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 6),
         child: Container(
             decoration: BoxDecoration(
                 color: Palette.white,
@@ -90,8 +90,8 @@ class Top100RankITem extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  height: 98,
-                  width: 55,
+                  height: 96,
+                  width: 53,
                   decoration: BoxDecoration(
                       color: Palette.darkTan,
                       borderRadius: BorderRadius.only(
@@ -101,7 +101,7 @@ class Top100RankITem extends StatelessWidget {
                     child: Text('${index + 1}',
                         style: TextStyle(
                             color: Palette.white,
-                            fontSize: 30,
+                            fontSize: 27,
                             fontFamily: AppFontStyle.montserratBoldItalic)),
                   ),
                 ),
@@ -109,11 +109,11 @@ class Top100RankITem extends StatelessWidget {
                   width: 20,
                 ),
                 CircleAvatar(
-                    radius: 30,
+                    radius: 28,
                     backgroundImage: NetworkImage(
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
                 SizedBox(
-                  width: 16,
+                  width: 14,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -126,7 +126,7 @@ class Top100RankITem extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               color: Palette.darkTan,
-                              fontSize: 17,
+                              fontSize: 16,
                               fontFamily: AppFontStyle.montserratBold)),
                     ),
                     SizedBox(
@@ -145,14 +145,13 @@ class Top100RankITem extends StatelessWidget {
                           'Prodigious',
                           style: TextStyle(
                               color: Palette.doveGray,
-                              fontSize: 14,
+                              fontSize: 13,
                               fontFamily: AppFontStyle.montserratMed),
                         ),
                       ],
                     )
                   ],
                 ),
-                Spacer(),
                 Padding(
                     padding: const EdgeInsets.only(right: 18.0),
                     child: Container(
@@ -168,16 +167,16 @@ class Top100RankITem extends StatelessWidget {
                           Text('Exp : ',
                               style: TextStyle(
                                   color: Palette.white,
-                                  fontSize: 12,
+                                  fontSize: 11,
                                   fontFamily: AppFontStyle.montserratMed)),
                           Text('200',
                               style: TextStyle(
                                   color: Palette.white,
-                                  fontSize: 12,
+                                  fontSize: 11,
                                   fontFamily: AppFontStyle.montserratBold)),
                         ],
                       )),
-                    ))
+                    )),
               ],
             )));
   }
@@ -199,7 +198,7 @@ class Top100Rank extends StatelessWidget {
         children: [
           FaIcon(FontAwesomeIcons.trophy, size: 19, color: Palette.dixie),
           SizedBox(width: 6),
-          Text('Top 100 Rank',
+          Text('Top 100 Rank'.tr,
               style: TextStyle(
                   color: Palette.tundora,
                   fontSize: 12,
@@ -235,28 +234,28 @@ class RankType extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-              width: 103,
-              height: 29,
+              width: 101,
+              height: 27,
               child: ButtonGlobal(
                   onTap: () => controller.toGlobal(),
                   primary: controller.typeRank.value == 0
                       ? Palette.dixie
                       : Palette.darkTan,
                   title: 'GLOBAL',
-                  fontSize: 13)),
+                  fontSize: 12)),
           SizedBox(
             width: 14,
           ),
           SizedBox(
-              width: 103,
-              height: 29,
+              width: 101,
+              height: 27,
               child: ButtonGlobal(
                   onTap: () => controller.toFriend(),
                   primary: controller.typeRank.value == 1
                       ? Palette.dixie
                       : Palette.darkTan,
-                  title: 'FRIENDS',
-                  fontSize: 13))
+                  title: 'FRIENDS'.tr,
+                  fontSize: 12))
         ],
       ),
     );
@@ -286,14 +285,14 @@ class CurrentRank extends StatelessWidget {
           children: [
             Image.asset(
               AssetName.prodigious,
-              height: 70,
+              height: 68,
             ),
             Column(
               children: [
                 Row(
                   children: [
                     CircleAvatar(
-                        radius: 30,
+                        radius: 28,
                         backgroundImage: NetworkImage(
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
                     SizedBox(
@@ -305,12 +304,12 @@ class CurrentRank extends StatelessWidget {
                         Text('Adinda',
                             style: TextStyle(
                                 color: Palette.darkTan,
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontFamily: AppFontStyle.montserratBold)),
                         SizedBox(height: 5),
                         Container(
-                          width: 63,
-                          height: 23,
+                          width: 61,
+                          height: 21,
                           decoration: BoxDecoration(
                               color: Palette.darkTan,
                               borderRadius: BorderRadius.circular(5)),
@@ -318,7 +317,7 @@ class CurrentRank extends StatelessWidget {
                             child: Text('No.70',
                                 style: TextStyle(
                                     color: Palette.white,
-                                    fontSize: 12,
+                                    fontSize: 11,
                                     fontFamily: AppFontStyle.montserratBold)),
                           ),
                         )
@@ -328,7 +327,7 @@ class CurrentRank extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 SizedBox(
-                  width: 178,
+                  width: 176,
                   child: LinearPercentIndicator(
                     lineHeight: 8.0,
                     percent: 1,
@@ -340,19 +339,19 @@ class CurrentRank extends StatelessWidget {
                 Text('Exp : 1000 / 1000',
                     style: TextStyle(
                         color: Palette.doveGray,
-                        fontSize: 12,
+                        fontSize: 11,
                         fontFamily: AppFontStyle.montserratMed)),
               ],
             ),
             Column(
               children: [
                 FaIcon(FontAwesomeIcons.infinity,
-                    size: 42, color: Palette.dixie),
+                    size: 40, color: Palette.dixie),
                 SizedBox(height: 9.5),
-                Text('Max Level',
+                Text('Max Level'.tr,
                     style: TextStyle(
                         color: Palette.doveGray,
-                        fontSize: 10,
+                        fontSize: 11,
                         fontFamily: AppFontStyle.montserratMed)),
               ],
             )

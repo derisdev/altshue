@@ -23,7 +23,7 @@ class FriendsAddView extends GetView<FriendsAddController> {
             Column(
               children: [
                 HeaderBar(
-                  title: 'Add Friends',
+                  title: 'Add Friends'.tr,
                 ),
                 Container(
                     height: 103,
@@ -33,7 +33,7 @@ class FriendsAddView extends GetView<FriendsAddController> {
                       children: [
                         SearchField(
                           controller: controller.searchC,
-                          hintText: 'Cari..',
+                          hintText: 'Cari..'.tr,
                         ),
                         Positioned(
                           bottom: 40,
@@ -42,11 +42,11 @@ class FriendsAddView extends GetView<FriendsAddController> {
                             width: 100,
                             child: ButtonGlobalNoChild(
                               onTap: () {},
-                              title: 'SEARCH',
+                              title: 'SEARCH'.tr,
                               child: Row(
                                 children: [
                                   Icon(Icons.search),
-                                  Text('SEARCH',
+                                  Text('SEARCH'.tr,
                                       style: TextStyle(
                                           color: Palette.white,
                                           fontSize: 10,
@@ -100,7 +100,7 @@ class PeopleListItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
       child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 19, vertical: 27),
+          padding: EdgeInsets.only(left: 18, bottom: 26, top: 26),
           decoration: BoxDecoration(
               color: Palette.white,
               borderRadius: BorderRadius.circular(20),
@@ -122,26 +122,39 @@ class PeopleListItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: Get.width / 2.2,
+                    width: Get.width / 2.5,
                     child: Text('John Doe',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Palette.darkTan,
-                            fontSize: 17,
+                            fontSize: 16,
                             fontFamily: AppFontStyle.montserratBold)),
                   ),
                   SizedBox(
                     height: 8,
                   ),
-                  Text(
-                    'Online Time : 08.00 - 10.00',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Palette.doveGray,
-                        fontSize: 14,
-                        fontFamily: AppFontStyle.montserratMed),
+                  Row(
+                    children: [
+                      Text(
+                        'Online Time'.tr,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Palette.doveGray,
+                            fontSize: 13,
+                            fontFamily: AppFontStyle.montserratMed),
+                      ),
+                      Text(
+                        ' : 08.00 - 10.00',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Palette.doveGray,
+                            fontSize: 13,
+                            fontFamily: AppFontStyle.montserratMed),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 8,
@@ -159,7 +172,7 @@ class PeopleListItem extends StatelessWidget {
                         'Prodigious',
                         style: TextStyle(
                             color: Palette.doveGray,
-                            fontSize: 14,
+                            fontSize: 13,
                             fontFamily: AppFontStyle.montserratMed),
                       ),
                     ],
@@ -173,6 +186,9 @@ class PeopleListItem extends StatelessWidget {
                     ? FaIcon(FontAwesomeIcons.userFriends,
                         color: Palette.silver, size: 23.55)
                     : Icon(Icons.person_add, color: Palette.darkTan, size: 30),
+              ),
+              SizedBox(
+                width: 25,
               ),
             ],
           )),

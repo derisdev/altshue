@@ -26,7 +26,6 @@ class ChangePasswordController extends GetxController {
             icon: Icons.verified_user,
             onTap: () {
               Get.back();
-              Get.back();
             },
             text: "Password changed successfully",
             textButton: 'GO BACK',

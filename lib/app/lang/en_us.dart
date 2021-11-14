@@ -85,10 +85,13 @@ const Map<String, String> enUS = {
   'Edit Profile': 'Edit Profile',
   'SAVE': 'SAVE',
   'Belum Verifikasi KTP': 'ID Card Not Verified',
-  'ISI DATA KTP': 'FILL ID CARD DATA',
+  'ISI DATA KTP': 'ISI DATA KTP',
   'Segera Verifikasi KTP Anda': 'Immediately Verify Your ID Card',
   'KTP Unverif Desc':
       "Dear Shue ALT application users, please make sure you have verified your ID card to enjoy the full features of the Application",
+  'NANTI SAJA': 'LATER ON',
+  'VERIFIKASI': 'VERIFY',
+
   //redeem
 
   //redeem detail

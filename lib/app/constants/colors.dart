@@ -22,6 +22,7 @@ class Palette {
   static const gallery = Color(0xffEDEDED);
   static const chateauGreen = Color(0xff32B44B);
   static const merkury = Color(0xffE5E5E5);
+  static const eastSide = Color(0xff9586CB);
 }
 
 class AppFontStyle {

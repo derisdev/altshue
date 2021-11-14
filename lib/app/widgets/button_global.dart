@@ -161,7 +161,7 @@ class ButtonDialogKTPVerif extends StatelessWidget {
       bottomLeftRad: 20,
       bottomRightRad: 0,
       onTap: () => Get.back(),
-      title: 'NANTI SAJA',
+      title: 'NANTI SAJA'.tr,
       textColor: Palette.silverChalice,
       primary: Palette.alto,
     );
@@ -171,7 +171,7 @@ class ButtonDialogKTPVerif extends StatelessWidget {
       bottomLeftRad: 0,
       bottomRightRad: 20,
       onTap: () => Get.back(),
-      title: 'VERIFIKASI',
+      title: 'VERIFIKASI'.tr,
     );
   }
 

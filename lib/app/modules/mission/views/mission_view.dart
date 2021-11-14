@@ -105,9 +105,31 @@ class AchievmentProgress extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 21),
                       child: Row(
                         children: [
-                          AchievmentItem(),
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.stepBronze,
+                              AssetName.stepSilver,
+                              AssetName.stepGold,
+                              AssetName.stepPlatinum,
+                              AssetName.stepDiamond
+                            ],
+                            mainIconType: AssetName.stepDiamond,
+                            title: 'Steps',
+                            percent: 1,
+                          ),
                           Spacer(),
-                          AchievmentItem(),
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.weeklyBronze,
+                              AssetName.weeklySilver,
+                              AssetName.weeklyGold,
+                              AssetName.weeklyPlatinum,
+                              AssetName.weeklyDiamond
+                            ],
+                            mainIconType: AssetName.weeklyDiamond,
+                            title: 'Weekly',
+                            percent: 0.8,
+                          ),
                         ],
                       ),
                     ),
@@ -118,9 +140,31 @@ class AchievmentProgress extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 21),
                       child: Row(
                         children: [
-                          AchievmentItem(),
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.hourBronze,
+                              AssetName.hourSilver,
+                              AssetName.hourGold,
+                              AssetName.hourPlatinum,
+                              AssetName.hourDiamond
+                            ],
+                            mainIconType: AssetName.hourDiamond,
+                            title: 'Hour',
+                            percent: 0.8,
+                          ),
                           Spacer(),
-                          AchievmentItem(),
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.friendsBronze,
+                              AssetName.friendsSilver,
+                              AssetName.friendsGold,
+                              AssetName.friendsPlatinum,
+                              AssetName.friendsDiamond
+                            ],
+                            mainIconType: AssetName.friendsDiamond,
+                            title: 'Friends',
+                            percent: 1,
+                          ),
                         ],
                       ),
                     ),
@@ -129,7 +173,18 @@ class AchievmentProgress extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 21),
-                      child: AchievmentItem(),
+                      child: AchievmentItem(
+                        iconList: [
+                          AssetName.loginBronze,
+                          AssetName.loginSilver,
+                          AssetName.loginGold,
+                          AssetName.loginPlatinum,
+                          AssetName.loginDiamond
+                        ],
+                        mainIconType: AssetName.loginDiamond,
+                        title: 'Login',
+                        percent: 1,
+                      ),
                     ),
                   ],
                 ),
@@ -143,15 +198,24 @@ class AchievmentProgress extends StatelessWidget {
 class AchievmentItem extends StatelessWidget {
   const AchievmentItem({
     Key? key,
+    required this.mainIconType,
+    required this.iconList,
+    required this.title,
+    required this.percent,
   }) : super(key: key);
+
+  final String title;
+  final String mainIconType;
+  final List<String> iconList;
+  final double percent;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         TextAndDiamond(
-          icon: Icons.ac_unit,
-          text: 'Steps'.tr,
+          icon: mainIconType,
+          text: title.tr,
         ),
         SizedBox(
           width: 10,
@@ -163,13 +227,16 @@ class AchievmentItem extends StatelessWidget {
               children: [
                 LinearPercentIndicator(
                   lineHeight: 8.0,
-                  width: 63,
-                  percent: 1,
-                  backgroundColor: Palette.dixie.withOpacity(0.25),
-                  progressColor: Palette.dixie,
+                  width: 77,
+                  percent: percent,
+                  backgroundColor: percent != 1
+                      ? Palette.thunderbird.withOpacity(0.25)
+                      : Palette.dixie.withOpacity(0.25),
+                  progressColor:
+                      percent != 1 ? Palette.thunderbird : Palette.dixie,
                 ),
                 SizedBox(
-                  width: 6,
+                  width: 2,
                 ),
                 FaIcon(FontAwesomeIcons.infinity,
                     color: Palette.dixie, size: 13)
@@ -178,14 +245,46 @@ class AchievmentItem extends StatelessWidget {
             SizedBox(
               height: 8.5,
             ),
-            Row(
-              children: [
-                Icon(Icons.ac_unit, size: 13),
-                Icon(Icons.ac_unit, size: 13),
-                Icon(Icons.ac_unit, size: 13),
-                Icon(Icons.ac_unit, size: 13),
-                Icon(Icons.ac_unit, size: 13),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0),
+              child: SizedBox(
+                width: 72,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Visibility(
+                        visible: percent >= 0.2,
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        child: Image.asset(iconList[0], height: 13)),
+                    Visibility(
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        visible: percent >= 0.4,
+                        child: Image.asset(iconList[1], height: 13)),
+                    Visibility(
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        visible: percent >= 0.6,
+                        child: Image.asset(iconList[2], height: 13)),
+                    Visibility(
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        visible: percent >= 0.8,
+                        child: Image.asset(iconList[3], height: 13)),
+                    Visibility(
+                        maintainSize: true,
+                        maintainAnimation: true,
+                        maintainState: true,
+                        visible: percent == 1,
+                        child: Image.asset(iconList[4], height: 13)),
+                  ],
+                ),
+              ),
             )
           ],
         )
@@ -360,23 +459,23 @@ class BottomColMission extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextAndDiamond(
-          icon: Icons.ac_unit,
+          icon: AssetName.stepDiamond,
           text: 'Steps'.tr,
         ),
         TextAndDiamond(
-          icon: Icons.ac_unit,
+          icon: AssetName.hourDiamond,
           text: 'Hours'.tr,
         ),
         TextAndDiamond(
-          icon: Icons.ac_unit,
+          icon: AssetName.loginDiamond,
           text: 'Login',
         ),
         TextAndDiamond(
-          icon: Icons.ac_unit,
+          icon: AssetName.weeklyDiamond,
           text: 'Weekly'.tr,
         ),
         TextAndDiamond(
-          icon: Icons.ac_unit,
+          icon: AssetName.friendsDiamond,
           text: 'Friends'.tr,
         ),
       ],
@@ -392,7 +491,7 @@ class TextAndDiamond extends StatelessWidget {
   }) : super(key: key);
 
   final String text;
-  final IconData icon;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
@@ -404,9 +503,17 @@ class TextAndDiamond extends StatelessWidget {
                 fontSize: 8,
                 fontFamily: AppFontStyle.montserratBold)),
         SizedBox(
-          height: 1,
+          height: 5,
         ),
-        Icon(icon, size: 40),
+        Image.asset(icon, height: 38),
+        SizedBox(
+          height: 5,
+        ),
+        Text('Diamonds',
+            style: TextStyle(
+                color: Palette.eastSide,
+                fontSize: 6,
+                fontFamily: AppFontStyle.montserratMed)),
       ],
     );
   }

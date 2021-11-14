@@ -106,7 +106,7 @@ class Top100RankITem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 15,
                 ),
                 CircleAvatar(
                     radius: 28,
@@ -119,8 +119,9 @@ class Top100RankITem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: Get.width / 3.2,
+                    Container(
+                      width: Get.width / 3.5,
+                      color: Colors.amber,
                       child: Text('John Doe',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -152,8 +153,9 @@ class Top100RankITem extends StatelessWidget {
                     )
                   ],
                 ),
+                Spacer(),
                 Padding(
-                    padding: const EdgeInsets.only(right: 18.0),
+                    padding: const EdgeInsets.only(right: 15.0),
                     child: Container(
                       width: 71,
                       height: 24,

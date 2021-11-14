@@ -168,9 +168,7 @@ class ListFieldPW extends StatelessWidget {
                 return null;
               },
             ),
-            SizedBox(
-              height: 5,
-            ),
+            SizedBox(),
             Obx(
               () => Visibility(
                 visible: controller.isErrorNewConfirm.value,

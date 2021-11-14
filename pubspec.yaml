@@ -37,6 +37,8 @@ flutter:
   assets: 
     - assets/images/png/
     - assets/images/svg/
+    - assets/images/png/Badge/
+    - assets/images/png/Achievment/
   fonts: 
     - family: Montserratreg
       fonts: 

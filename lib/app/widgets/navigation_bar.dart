@@ -15,11 +15,12 @@ class NavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
+    return Positioned(
+      bottom: 23,
+      left: 20,
+      right: 20,
       child: Container(
           height: 72,
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 23),
           decoration: BoxDecoration(
             color: Palette.darkTan,
             borderRadius: BorderRadius.circular(20),

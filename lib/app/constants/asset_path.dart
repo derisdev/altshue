@@ -43,4 +43,56 @@ abstract class AssetName {
   static const flagEnglish = '$baseAssetImagePng/flag-english.png';
   static const homeBg = '$baseAssetImagePng/home-bg.png';
   static const prodigious = '$baseAssetImagePng/prodigious.png';
+
+  //badge
+  static const beginning = '$baseAssetImagePng/Badge/Beginning.png';
+  static const challenger = '$baseAssetImagePng/Badge/Challenger.png';
+  static const consistency = '$baseAssetImagePng/Badge/Consistency.png';
+  static const contender = '$baseAssetImagePng/Badge/Contender.png';
+  static const faith = '$baseAssetImagePng/Badge/Faith.png';
+  static const inceptio = '$baseAssetImagePng/Badge/Inceptio.png';
+  static const initial = '$baseAssetImagePng/Badge/Initial.png';
+  static const intensity = '$baseAssetImagePng/Badge/Intensity.png';
+  static const passion = '$baseAssetImagePng/Badge/Passion.png';
+  static const stupendous = '$baseAssetImagePng/Badge/Stupendous.png';
+  static const tremendous = '$baseAssetImagePng/Badge/Tremendous.png';
+
+  //achievment
+  static const friendsDiamond =
+      '$baseAssetImagePng/Achievment/Fiends - diamond.png';
+  static const friendsBronze =
+      '$baseAssetImagePng/Achievment/Friends - bronze.png';
+  static const friendsGold = '$baseAssetImagePng/Achievment/Friends - gold.png';
+  static const friendsPlatinum =
+      '$baseAssetImagePng/Achievment/Friends - platinum.png';
+  static const friendsSilver =
+      '$baseAssetImagePng/Achievment/Friends - silver.png';
+  static const hourBronze = '$baseAssetImagePng/Achievment/Hour - bronze.png';
+  static const hourDiamond = '$baseAssetImagePng/Achievment/Hour - diamond.png';
+  static const hourGold = '$baseAssetImagePng/Achievment/Hour - gold.png';
+  static const hourPlatinum =
+      '$baseAssetImagePng/Achievment/Hour - platinum.png';
+  static const hourSilver = '$baseAssetImagePng/Achievment/Hour - silver.png';
+  static const loginBronze = '$baseAssetImagePng/Achievment/Login - bronze.png';
+  static const loginDiamond =
+      '$baseAssetImagePng/Achievment/Login - diamond.png';
+  static const loginGold = '$baseAssetImagePng/Achievment/Login - gold.png';
+  static const loginPlatinum =
+      '$baseAssetImagePng/Achievment/Login - platinum.png';
+  static const loginSilver = '$baseAssetImagePng/Achievment/Login - silver.png';
+  static const stepBronze = '$baseAssetImagePng/Achievment/Step - bronze.png';
+  static const stepDiamond = '$baseAssetImagePng/Achievment/Step - diamond.png';
+  static const stepGold = '$baseAssetImagePng/Achievment/Step - gold.png';
+  static const stepPlatinum =
+      '$baseAssetImagePng/Achievment/Step - platinum.png';
+  static const stepSilver = '$baseAssetImagePng/Achievment/Step - silver.png';
+  static const weeklyBronze =
+      '$baseAssetImagePng/Achievment/Weekly - bronze.png';
+  static const weeklyGold = '$baseAssetImagePng/Achievment/Weekly - gold.png';
+  static const weeklyPlatinum =
+      '$baseAssetImagePng/Achievment/Weekly - platinum.png';
+  static const weeklySilver =
+      '$baseAssetImagePng/Achievment/Weekly - silver.png';
+  static const weeklyDiamond =
+      '$baseAssetImagePng/Achievment/Weekly -diamond.png';
 }

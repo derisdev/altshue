@@ -89,6 +89,9 @@ const Map<String, String> idID = {
   'Segera Verifikasi KTP Anda': 'Segera Verifikasi KTP Anda',
   'KTP Unverif Desc':
       'Pengguna aplikasi ALT Shue yang terhormat, pastikan anda telah melkukan verifikasi KTP untuk menikmati fitur lengkap pada Aplikasi',
+  'NANTI SAJA': 'NANTI SAJA',
+  'VERIFIKASI': 'VERIFIKASI',
+
   //redeem
 
   //redeem detail

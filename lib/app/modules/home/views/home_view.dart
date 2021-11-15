@@ -167,7 +167,7 @@ class TopHome extends StatelessWidget {
                       )),
                   Container(
                     height: 23,
-                    width: 179,
+                    width: 150,
                     decoration: BoxDecoration(
                         color: Color(0xffEABD6C),
                         borderRadius: BorderRadius.circular(20),
@@ -666,7 +666,7 @@ class Persentase extends StatelessWidget {
           Expanded(
             child: LinearPercentIndicator(
               lineHeight: 8.0,
-              width: Get.width / 2.1,
+              width: Get.width / 2.2,
               percent: percent,
               backgroundColor: Palette.thunderbird.withOpacity(0.25),
               progressColor: Palette.thunderbird,

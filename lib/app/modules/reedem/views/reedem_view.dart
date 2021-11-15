@@ -83,11 +83,11 @@ class ReedemItem extends StatelessWidget {
                           child: Image.network(
                             'https://www.colorhexa.com/efdcdc.png',
                             fit: BoxFit.cover,
-                            width: 85,
-                            height: 85,
+                            width: 80,
+                            height: 80,
                           )),
                       SizedBox(
-                        width: 16,
+                        width: 14,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +98,7 @@ class ReedemItem extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: Palette.darkTan,
-                                  fontSize: 13,
+                                  fontSize: 12,
                                   fontFamily: AppFontStyle.montserratBold)),
                           SizedBox(
                             height: 8,
@@ -115,7 +115,7 @@ class ReedemItem extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                     color: Palette.tundora,
-                                    fontSize: 13,
+                                    fontSize: 12,
                                     fontFamily: AppFontStyle.montserratReg),
                               ),
                             ],
@@ -126,7 +126,7 @@ class ReedemItem extends StatelessWidget {
                       Stack(
                         children: [
                           Container(
-                              width: 101,
+                              width: 95,
                               height: 27,
                               decoration: BoxDecoration(
                                   color: Palette.dixie,
@@ -137,7 +137,7 @@ class ReedemItem extends StatelessWidget {
                                     children: [
                                       FaIcon(FontAwesomeIcons.gift,
                                           size: 13, color: Palette.white),
-                                      SizedBox(width: 9.3),
+                                      SizedBox(width: 5.3),
                                       Text('REDEEM',
                                           style: TextStyle(
                                               color: Palette.white,
@@ -153,7 +153,7 @@ class ReedemItem extends StatelessWidget {
                               child: InkWell(
                                 onTap: () => Get.toNamed(Routes.BANK_ACCOUNT),
                                 child: SizedBox(
-                                  width: 101,
+                                  width: 95,
                                   height: 27,
                                 ),
                               ),

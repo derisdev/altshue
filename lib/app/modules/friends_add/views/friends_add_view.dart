@@ -98,9 +98,9 @@ class PeopleListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+      padding: EdgeInsets.symmetric(horizontal: 18, vertical: 7),
       child: Container(
-          padding: EdgeInsets.only(left: 18, bottom: 26, top: 26),
+          padding: EdgeInsets.only(left: 18, bottom: 22, top: 22),
           decoration: BoxDecoration(
               color: Palette.white,
               borderRadius: BorderRadius.circular(20),
@@ -111,18 +111,18 @@ class PeopleListItem extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                  radius: 38,
+                  radius: 33,
                   backgroundImage: NetworkImage(
                       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
               SizedBox(
-                width: 16,
+                width: 14,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: Get.width / 2.5,
+                    width: Get.width / 2.6,
                     child: Text('John Doe',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -142,7 +142,7 @@ class PeopleListItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Palette.doveGray,
-                            fontSize: 13,
+                            fontSize: 12,
                             fontFamily: AppFontStyle.montserratMed),
                       ),
                       Text(
@@ -151,7 +151,7 @@ class PeopleListItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Palette.doveGray,
-                            fontSize: 13,
+                            fontSize: 12,
                             fontFamily: AppFontStyle.montserratMed),
                       ),
                     ],
@@ -172,7 +172,7 @@ class PeopleListItem extends StatelessWidget {
                         'Prodigious',
                         style: TextStyle(
                             color: Palette.doveGray,
-                            fontSize: 13,
+                            fontSize: 12,
                             fontFamily: AppFontStyle.montserratMed),
                       ),
                     ],
@@ -184,11 +184,11 @@ class PeopleListItem extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 3.0),
                 child: index != 0
                     ? FaIcon(FontAwesomeIcons.userFriends,
-                        color: Palette.silver, size: 23.55)
-                    : Icon(Icons.person_add, color: Palette.darkTan, size: 30),
+                        color: Palette.silver, size: 20)
+                    : Icon(Icons.person_add, color: Palette.darkTan, size: 25),
               ),
               SizedBox(
-                width: 25,
+                width: 20,
               ),
             ],
           )),

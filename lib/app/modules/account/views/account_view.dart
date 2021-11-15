@@ -237,7 +237,7 @@ class LevelPlayer extends StatelessWidget {
                         fontFamily: AppFontStyle.montserratMed)),
                 SizedBox(height: 10.5),
                 SizedBox(
-                  width: 178,
+                  width: 158,
                   child: LinearPercentIndicator(
                     lineHeight: 8.0,
                     percent: 1,

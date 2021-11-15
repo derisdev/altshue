@@ -1,4 +1,5 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -170,7 +171,7 @@ class ButtonDialogKTPVerif extends StatelessWidget {
     return ButtonDialogKTPVerif(
       bottomLeftRad: 0,
       bottomRightRad: 20,
-      onTap: () => Get.back(),
+      onTap: () => Get.toNamed(Routes.KTP_VERIF),
       title: 'VERIFIKASI'.tr,
     );
   }

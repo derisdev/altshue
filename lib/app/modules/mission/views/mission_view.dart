@@ -102,7 +102,7 @@ class AchievmentProgress extends StatelessWidget {
                       height: 5,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 21),
+                      padding: EdgeInsets.symmetric(horizontal: 17),
                       child: Row(
                         children: [
                           AchievmentItem(
@@ -137,7 +137,7 @@ class AchievmentProgress extends StatelessWidget {
                       height: 28,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 21),
+                      padding: EdgeInsets.symmetric(horizontal: 17),
                       child: Row(
                         children: [
                           AchievmentItem(
@@ -172,7 +172,7 @@ class AchievmentProgress extends StatelessWidget {
                       height: 28,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 21),
+                      padding: EdgeInsets.symmetric(horizontal: 17),
                       child: AchievmentItem(
                         iconList: [
                           AssetName.loginBronze,
@@ -218,7 +218,7 @@ class AchievmentItem extends StatelessWidget {
           text: title.tr,
         ),
         SizedBox(
-          width: 10,
+          width: 5,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

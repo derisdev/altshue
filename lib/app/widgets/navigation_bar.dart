@@ -16,11 +16,13 @@ class NavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 23,
-      left: 20,
-      right: 20,
+      bottom: 20,
+      left: 23,
+      right: 23,
       child: Container(
           height: 72,
+          width: Get.width,
+          // margin: EdgeInsets.symmetric(horizontal: 23),
           decoration: BoxDecoration(
             color: Palette.darkTan,
             borderRadius: BorderRadius.circular(20),
@@ -46,7 +48,7 @@ class NavigationBar extends StatelessWidget {
                       maintainState: true,
                       maintainAnimation: true,
                       child: Container(
-                        width: 57,
+                        width: 30,
                         height: 3,
                         margin: EdgeInsets.only(bottom: 8, top: 2),
                         decoration: BoxDecoration(
@@ -69,7 +71,7 @@ class NavigationBar extends StatelessWidget {
                       maintainState: true,
                       maintainAnimation: true,
                       child: Container(
-                        width: 57,
+                        width: 30,
                         height: 3,
                         margin: EdgeInsets.only(bottom: 8, top: 2),
                         decoration: BoxDecoration(
@@ -121,7 +123,7 @@ class NavigationBar extends StatelessWidget {
                       maintainState: true,
                       maintainAnimation: true,
                       child: Container(
-                        width: 57,
+                        width: 30,
                         height: 3,
                         margin: EdgeInsets.only(bottom: 8, top: 2),
                         decoration: BoxDecoration(
@@ -144,7 +146,7 @@ class NavigationBar extends StatelessWidget {
                       maintainState: true,
                       maintainAnimation: true,
                       child: Container(
-                        width: 57,
+                        width: 30,
                         height: 3,
                         margin: EdgeInsets.only(bottom: 8, top: 2),
                         decoration: BoxDecoration(

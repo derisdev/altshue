@@ -23,26 +23,36 @@ class ContactView extends GetView<ContactController> {
                 HeaderBar(
                   title: 'Contact'.tr,
                 ),
-                SizedBox(height: 60),
-                ContactDetail(),
-                SizedBox(height: 53),
-                ListField(
-                  controller: controller,
-                ),
-                SizedBox(height: 53),
-                SizedBox(
-                  width: 186,
-                  height: 41,
-                  child: ButtonGlobal(
-                    onTap: () => controller.send(),
-                    radius: 8,
-                    fontSize: 14,
-                    title: 'SEND'.tr,
+                Expanded(
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
+                      SizedBox(height: 60),
+                      ContactDetail(),
+                      SizedBox(height: 53),
+                      ListField(
+                        controller: controller,
+                      ),
+                      SizedBox(height: 53),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                        child: SizedBox(
+                          width: 186,
+                          height: 41,
+                          child: ButtonGlobal(
+                            onTap: () => controller.send(),
+                            radius: 8,
+                            fontSize: 14,
+                            title: 'SEND'.tr,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 53),
+                      FollowUs(),
+                      SizedBox(height: 150),
+                    ],
                   ),
-                ),
-                Spacer(),
-                FollowUs(),
-                SizedBox(height: 150),
+                )
               ],
             ),
             NavigationBar(
@@ -103,7 +113,7 @@ class ContactDetail extends StatelessWidget {
       height: 100,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -152,13 +162,13 @@ class TileContact extends StatelessWidget {
       children: [
         Icon(icon, color: Palette.darkTan),
         SizedBox(
-          width: 11.5,
+          width: 10,
         ),
         Text(
           title,
           style: TextStyle(
               color: Palette.mineShaft,
-              fontSize: 14,
+              fontSize: 13,
               fontFamily: AppFontStyle.montserratReg),
         ),
       ],

@@ -90,8 +90,8 @@ class Top100RankITem extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  height: 96,
-                  width: 53,
+                  height: 94,
+                  width: 50,
                   decoration: BoxDecoration(
                       color: Palette.darkTan,
                       borderRadius: BorderRadius.only(
@@ -106,14 +106,14 @@ class Top100RankITem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 15,
+                  width: 10,
                 ),
                 CircleAvatar(
-                    radius: 28,
+                    radius: 25,
                     backgroundImage: NetworkImage(
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
                 SizedBox(
-                  width: 14,
+                  width: 10,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -127,7 +127,7 @@ class Top100RankITem extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               color: Palette.darkTan,
-                              fontSize: 16,
+                              fontSize: 15,
                               fontFamily: AppFontStyle.montserratBold)),
                     ),
                     SizedBox(
@@ -137,7 +137,7 @@ class Top100RankITem extends StatelessWidget {
                       children: [
                         Image.asset(
                           AssetName.prodigious,
-                          height: 20,
+                          height: 18,
                         ),
                         SizedBox(
                           width: 7,
@@ -146,7 +146,7 @@ class Top100RankITem extends StatelessWidget {
                           'Prodigious',
                           style: TextStyle(
                               color: Palette.doveGray,
-                              fontSize: 13,
+                              fontSize: 12,
                               fontFamily: AppFontStyle.montserratMed),
                         ),
                       ],
@@ -157,7 +157,7 @@ class Top100RankITem extends StatelessWidget {
                 Padding(
                     padding: const EdgeInsets.only(right: 15.0),
                     child: Container(
-                      width: 71,
+                      width: 66,
                       height: 24,
                       decoration: BoxDecoration(
                           color: Palette.dixie,
@@ -329,7 +329,7 @@ class CurrentRank extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 SizedBox(
-                  width: 176,
+                  width: 155,
                   child: LinearPercentIndicator(
                     lineHeight: 8.0,
                     percent: 1,

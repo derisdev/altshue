@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/input_field.dart';
@@ -146,7 +147,7 @@ class StatusVerifKTP extends StatelessWidget {
             width: 100,
             height: 29,
             child: ButtonGlobal(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.KTP_VERIF),
               radius: 5,
               fontSize: 10,
               primary: Palette.darkTan,

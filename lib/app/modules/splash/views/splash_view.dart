@@ -1,5 +1,6 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/constants/asset_path.dart';
+import 'package:altshue/app/widgets/basic_background.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,14 +14,7 @@ class SplashView extends GetView<SplashController> {
     return Scaffold(
         body: Stack(
       children: [
-        SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Image.asset(
-            AssetName.splashBg,
-            fit: BoxFit.fill,
-          ),
-        ),
+        BasicBackground(),
         Align(
           alignment: Alignment.center,
           child: Column(

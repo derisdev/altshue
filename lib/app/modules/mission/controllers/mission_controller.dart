@@ -9,22 +9,11 @@ class MissionController extends GetxController
   late Animation<double> animation1;
   late Animation<double> animation2;
   final rotateTime = 1.obs;
-  final animatedHeight = 70.0.obs;
-  void changeHeight() {
-    animatedHeight.value != 70.0
-        ? animatedHeight.value = 70.0
-        : animatedHeight.value = 350;
 
-    if (rotateTime.value == 0) {
-      animationController1.forward(from: 0);
-    } else if (rotateTime.value == 1) {
-      animationController2.forward(from: 0);
-    }
-    if (rotateTime.value == 1) {
-      rotateTime.value = 0;
-    } else {
-      rotateTime.value = 1;
-    }
+  final visible = false.obs;
+
+  void changeHeight() {
+    visible.value = !visible.value;
   }
 
   @override

@@ -16,27 +16,28 @@ class HeaderBar extends StatelessWidget {
     return Container(
       height: 90,
       width: Get.width,
-      padding: EdgeInsets.only(left: 22, top: 30),
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(AssetName.headerBg))
-      ),
-      child: Row(
-        children: [
-          InkWell(
-              onTap: () => Get.back(),
-              child: Icon(
-                Icons.arrow_back,
-                color: Palette.white,
-              )),
-          SizedBox(
-            width: 10,
-          ),
-          Text(title,
-              style: TextStyle(
+          image: DecorationImage(image: AssetImage(AssetName.headerBg))),
+      child: Padding(
+        padding: EdgeInsets.only(left: 22, top: 30),
+        child: Row(
+          children: [
+            InkWell(
+                onTap: () => Get.back(),
+                child: Icon(
+                  Icons.arrow_back,
                   color: Palette.white,
-                  fontSize: 17,
-                  fontFamily: AppFontStyle.montserratMed)),
-        ],
+                )),
+            SizedBox(
+              width: 10,
+            ),
+            Text(title,
+                style: TextStyle(
+                    color: Palette.white,
+                    fontSize: 17,
+                    fontFamily: AppFontStyle.montserratMed)),
+          ],
+        ),
       ),
     );
   }

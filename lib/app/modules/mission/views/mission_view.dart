@@ -1,4 +1,3 @@
-import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/widgets/header_bar_main.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
@@ -20,6 +19,7 @@ class MissionView extends GetView<MissionController> {
         body: Stack(
           children: [
             ListView(
+              padding: EdgeInsets.only(bottom: 150),
               children: [
                 SizedBox(height: 60),
                 CurrentMission(),

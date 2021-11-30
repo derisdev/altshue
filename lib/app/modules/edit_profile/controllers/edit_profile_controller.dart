@@ -15,19 +15,21 @@ class EditProfileController extends GetxController {
 
   final formGlobalKey = GlobalKey<FormState>();
 
+  initDialogKTPUnverif() {
+    showDialogKTPUnverif(
+        icon: Icons.warning_rounded,
+        onTap: () {
+          Get.back();
+        },
+        text: "Segera Verifikasi KTP Anda".tr,
+        isDismissible: false);
+  }
+
   void save() {
     if (formGlobalKey.currentState!.validate() &&
         !isErrorFullName.value &&
         !isErrorEmail.value &&
-        !isErrorPhone.value) {
-      showDialogKTPUnverif(
-          icon: Icons.warning_rounded,
-          onTap: () {
-            Get.back();
-          },
-          text: "Segera Verifikasi KTP Anda".tr,
-          isDismissible: false);
-    }
+        !isErrorPhone.value) {}
   }
 
   void getImage() async {
@@ -48,5 +50,11 @@ class EditProfileController extends GetxController {
     phoneC!.dispose();
     emailC!.dispose();
     super.dispose();
+  }
+
+  @override
+  void onInit() {
+    Future.delayed(Duration(seconds: 1), () => initDialogKTPUnverif());
+    super.onInit();
   }
 }

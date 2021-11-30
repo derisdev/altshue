@@ -56,9 +56,8 @@ class Top100RankITem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       width: Get.width / 3.5,
-                      color: Colors.amber,
                       child: Text('John Doe',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,

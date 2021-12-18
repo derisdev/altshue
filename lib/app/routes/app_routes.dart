@@ -27,6 +27,7 @@ abstract class Routes {
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const MISSION = _Paths.MISSION;
+  static const REDEEM_HISTORY = _Paths.REDEEM_HISTORY;
 }
 
 abstract class _Paths {
@@ -53,4 +54,5 @@ abstract class _Paths {
   static const CHANGE_PASSWORD = '/change-password';
   static const EDIT_PROFILE = '/edit-profile';
   static const MISSION = '/mission';
+  static const REDEEM_HISTORY = '/redeem-history';
 }

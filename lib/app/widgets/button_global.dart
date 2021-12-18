@@ -10,11 +10,13 @@ class ButtonGlobal extends StatelessWidget {
   final Color textColor;
   final double radius;
   final double fontSize;
+  final double? witdh;
 
   const ButtonGlobal(
       {Key? key,
       required this.onTap,
       required this.title,
+      this.witdh,
       this.primary = Palette.dixie,
       this.textColor = Palette.white,
       this.radius = 5,
@@ -24,7 +26,7 @@ class ButtonGlobal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Get.width,
+      width: witdh ?? Get.width,
       height: 46,
       child: ElevatedButton(
         onPressed: onTap,

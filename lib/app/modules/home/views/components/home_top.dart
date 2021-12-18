@@ -161,6 +161,6 @@ class HomeBg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(AssetName.homeBg,
-        height: Get.height * 0.35, fit: BoxFit.cover);
+        height: Get.height * 0.35, width: Get.width, fit: BoxFit.fill);
   }
 }

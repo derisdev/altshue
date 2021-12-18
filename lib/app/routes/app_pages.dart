@@ -34,6 +34,8 @@ import 'package:altshue/app/modules/news_detail/bindings/news_detail_binding.dar
 import 'package:altshue/app/modules/news_detail/views/news_detail_view.dart';
 import 'package:altshue/app/modules/rank/bindings/rank_binding.dart';
 import 'package:altshue/app/modules/rank/views/rank_view.dart';
+import 'package:altshue/app/modules/redeem_history/bindings/redeem_history_binding.dart';
+import 'package:altshue/app/modules/redeem_history/views/redeem_history_view.dart';
 import 'package:altshue/app/modules/reedem/bindings/reedem_binding.dart';
 import 'package:altshue/app/modules/reedem/views/reedem_view.dart';
 import 'package:altshue/app/modules/reedem_detail/bindings/reedem_detail_binding.dart';
@@ -162,6 +164,11 @@ class AppPages {
       name: _Paths.MISSION,
       page: () => MissionView(),
       binding: MissionBinding(),
+    ),
+    GetPage(
+      name: _Paths.REDEEM_HISTORY,
+      page: () => RedeemHistoryView(),
+      binding: RedeemHistoryBinding(),
     ),
   ];
 }

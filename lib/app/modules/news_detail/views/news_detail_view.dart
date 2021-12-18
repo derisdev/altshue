@@ -21,25 +21,18 @@ class NewsDetailView extends GetView<NewsDetailController> {
             child: Stack(
               children: [
                 ListView(
+                  padding: EdgeInsets.only(bottom: 200),
                   children: [
-                    Stack(
-                      children: [
-                        Container(
-                          color: Palette.white,
-                          height: Get.height,
-                        ),
-                        ImageNews(),
-                        Positioned(
-                            top: 295,
-                            left: 0,
-                            right: 0,
-                            child: Column(children: [
-                              TitleNews(),
-                              DescriptionNews(),
-                            ])),
-                      ],
-                    ),
-                    SizedBox(height: 40)
+                    Column(children: [
+                      ImageNews(),
+                      TitleNews(),
+                      SizedBox(
+                        height: 32,
+                      ),
+                      Container(
+                          margin: EdgeInsets.symmetric(horizontal: 30),
+                          child: DescriptionNews()),
+                    ])
                   ],
                 ),
                 NavigationBar(

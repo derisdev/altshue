@@ -49,7 +49,7 @@ class HomeView extends GetView<HomeController> {
                             ),
                             NewsHome(),
                             SizedBox(
-                              height: 70,
+                              height: 150,
                             ),
                           ],
                         ),

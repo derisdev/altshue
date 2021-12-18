@@ -12,7 +12,7 @@ class ListNews extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-          margin: EdgeInsets.only(left: 20, right: 20, top: 120, bottom: 20),
+          margin: EdgeInsets.only(left: 20, right: 20, top: 120, bottom: 120),
           decoration: BoxDecoration(
               color: Palette.white,
               borderRadius: BorderRadius.circular(20),

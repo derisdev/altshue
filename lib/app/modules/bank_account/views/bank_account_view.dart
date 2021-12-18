@@ -1,4 +1,5 @@
 import 'package:altshue/app/constants/asset_path.dart';
+import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:altshue/app/constants/colors.dart';
@@ -16,40 +17,84 @@ class BankAccountView extends GetView<BankAccountController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Palette.white,
+        backgroundColor: Palette.alabaster,
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
-            Column(
+            ListView(
+              shrinkWrap: true,
               children: [
-                HeaderBar(
-                  title: 'Bank Account'.tr,
-                ),
-                SizedBox(height: 30),
-                SvgPicture.asset(AssetName.bankIllus),
-                SizedBox(height: 30),
-                BankOption(
-                  controller: controller,
-                ),
-                SizedBox(height: 10),
-                ListFieldBank(
-                  controller: controller,
-                ),
-                SizedBox(height: 50),
-                SizedBox(
-                  width: 186,
-                  height: 41,
-                  child: ButtonGlobal(
-                    onTap: () => controller.submit(),
-                    radius: 8,
-                    fontSize: 14,
-                    title: 'SUBMIT'.tr,
+                Container(
+                  color: Palette.white,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        top: 90,
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: SizedBox(
+                              width: 100,
+                              height: 30,
+                              child: ButtonGlobalNoChild(
+                                onTap: () => Get.toNamed(Routes.REDEEM_HISTORY),
+                                radius: 5,
+                                title: 'History'.tr,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.history,
+                                      size: 15,
+                                    ),
+                                    Text('History'.tr,
+                                        style: TextStyle(
+                                            color: Palette.white,
+                                            fontSize: 9,
+                                            fontFamily:
+                                                AppFontStyle.montserratBold)),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SvgPicture.asset(AssetName.bankIllus),
+                        SizedBox(height: 30),
+                        BankOption(
+                          controller: controller,
+                        ),
+                        SizedBox(height: 10),
+                        ListFieldBank(
+                          controller: controller,
+                        ),
+                        SizedBox(height: 20),
+                        SizedBox(
+                          width: 186,
+                          height: 41,
+                          child: ButtonGlobal(
+                            onTap: () => controller.submit(),
+                            radius: 8,
+                            fontSize: 14,
+                            title: 'SUBMIT'.tr,
+                          ),
+                        ),
+                        SizedBox(height: 30),
+                      ],
+                    ),
                   ),
                 ),
+                SizedBox(height: 120),
               ],
             ),
             NavigationBar(
               index: 4,
+            ),
+            HeaderBar(
+              title: 'Bank Account'.tr,
             )
           ],
         ));

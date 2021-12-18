@@ -21,8 +21,8 @@ class FriendsAddView extends GetView<FriendsAddController> {
             PeopleList(),
             Column(
               children: [
-                HeaderBar(
-                  title: 'Add Friends'.tr,
+                SizedBox(
+                  height: 88,
                 ),
                 Container(
                     height: 103,
@@ -59,6 +59,9 @@ class FriendsAddView extends GetView<FriendsAddController> {
                       ],
                     )),
               ],
+            ),
+            HeaderBar(
+              title: 'Add Friends'.tr,
             ),
             NavigationBar(
               index: 0,

@@ -17,7 +17,11 @@ class HeaderBar extends StatelessWidget {
       height: 90,
       width: Get.width,
       decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(AssetName.headerBg))),
+          image: DecorationImage(
+              image: AssetImage(
+                AssetName.headerBg,
+              ),
+              fit: BoxFit.fill)),
       child: Padding(
         padding: EdgeInsets.only(left: 22, top: 30),
         child: Row(

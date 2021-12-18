@@ -11,7 +11,7 @@ class FriendList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: 10,
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: EdgeInsets.only(top: 20, bottom: 150),
         itemBuilder: (_, index) {
           return FriendListItem();
         });

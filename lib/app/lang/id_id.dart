@@ -126,4 +126,11 @@ const Map<String, String> idID = {
   'Current Password': 'Kata Sandi Saat Ini',
   'New Password': 'Kata Sandi Baru',
   'Confirm New Password': 'Konfirmasi Kata Sandi',
+
+  //redeem histori
+  'Redeem History': 'Histori Redeem',
+  'Processing': 'Sedang Diproses',
+  'History': 'Histori',
+  'Status: ': 'Status: ',
+  'Done': 'Selesai'
 };

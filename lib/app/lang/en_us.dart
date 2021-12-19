@@ -126,4 +126,11 @@ const Map<String, String> enUS = {
   'Current Password': 'Current Password',
   'New Password': 'New Password',
   'Confirm New Password': 'Confirm New Password',
+
+  //redeem histori
+  'Redeem History': 'Redeem History',
+  'Processing': 'Processing',
+  'History': 'History',
+  'Status: ': 'Status: ',
+  'Done': 'Done'
 };

@@ -50,6 +50,9 @@ class BankAccountView extends GetView<BankAccountController> {
                                       Icons.history,
                                       size: 15,
                                     ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
                                     Text('History'.tr,
                                         style: TextStyle(
                                             color: Palette.white,

@@ -75,13 +75,14 @@ class HistoryReedemItem extends StatelessWidget {
                             RichText(
                                 text: TextSpan(text: 'status', children: [
                               TextSpan(
-                                  text: 'Status: ',
+                                  text: 'Status: '.tr,
                                   style: TextStyle(
                                       color: Palette.doveGray,
                                       fontSize: 14,
                                       fontFamily: AppFontStyle.montserratMed)),
                               TextSpan(
-                                  text: index == 0 ? 'Processing' : 'Done',
+                                  text:
+                                      index == 0 ? 'Processing'.tr : 'Done'.tr,
                                   style: TextStyle(
                                       color: index == 0
                                           ? Palette.darkTan

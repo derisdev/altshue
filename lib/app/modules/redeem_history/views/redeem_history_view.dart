@@ -18,7 +18,7 @@ class RedeemHistoryView extends GetView<RedeemHistoryController> {
           children: [
             HistoryListReedem(),
             HeaderBar(
-              title: 'Redeem',
+              title: 'Redeem History'.tr,
             ),
             NavigationBar(
               index: 4,

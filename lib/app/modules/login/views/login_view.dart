@@ -10,8 +10,9 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
-      children: [BasicBackground(), FormLogin(controller: controller)],
-    ));
+          children: [BasicBackground(), FormLogin(controller: controller)],
+        ));
   }
 }

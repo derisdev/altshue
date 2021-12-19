@@ -8,12 +8,10 @@ import 'package:get/get.dart';
 
 import 'item_achievment.dart';
 
-class AchievmentProgress extends StatelessWidget {
+class AchievmentProgress extends GetView<MissionController> {
   const AchievmentProgress({
     Key? key,
-    required this.controller,
   }) : super(key: key);
-  final MissionController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -52,105 +50,102 @@ class AchievmentProgress extends StatelessWidget {
                   ],
                 ),
               ),
-              AnimatedSize(
-                duration: Duration(milliseconds: 300),
-                child: SizedBox(
-                  height: controller.visible.value ? null : 0.0,
-                  child: Column(
-                    children: [
-                      Divider(
-                        color: Palette.alto,
+              Visibility(
+                visible: controller.visible.value,
+                child: Column(
+                  children: [
+                    Divider(
+                      color: Palette.alto,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 17),
+                      child: Row(
+                        children: [
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.stepBronze,
+                              AssetName.stepSilver,
+                              AssetName.stepGold,
+                              AssetName.stepPlatinum,
+                              AssetName.stepDiamond
+                            ],
+                            mainIconType: AssetName.stepDiamond,
+                            title: 'Steps',
+                            percent: 1,
+                          ),
+                          Spacer(),
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.weeklyBronze,
+                              AssetName.weeklySilver,
+                              AssetName.weeklyGold,
+                              AssetName.weeklyPlatinum,
+                              AssetName.weeklyDiamond
+                            ],
+                            mainIconType: AssetName.weeklyDiamond,
+                            title: 'Weekly',
+                            percent: 0.8,
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 5,
+                    ),
+                    SizedBox(
+                      height: 28,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 17),
+                      child: Row(
+                        children: [
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.hourBronze,
+                              AssetName.hourSilver,
+                              AssetName.hourGold,
+                              AssetName.hourPlatinum,
+                              AssetName.hourDiamond
+                            ],
+                            mainIconType: AssetName.hourDiamond,
+                            title: 'Hour',
+                            percent: 0.8,
+                          ),
+                          Spacer(),
+                          AchievmentItem(
+                            iconList: [
+                              AssetName.friendsBronze,
+                              AssetName.friendsSilver,
+                              AssetName.friendsGold,
+                              AssetName.friendsPlatinum,
+                              AssetName.friendsDiamond
+                            ],
+                            mainIconType: AssetName.friendsDiamond,
+                            title: 'Friends',
+                            percent: 1,
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 17),
-                        child: Row(
-                          children: [
-                            AchievmentItem(
-                              iconList: [
-                                AssetName.stepBronze,
-                                AssetName.stepSilver,
-                                AssetName.stepGold,
-                                AssetName.stepPlatinum,
-                                AssetName.stepDiamond
-                              ],
-                              mainIconType: AssetName.stepDiamond,
-                              title: 'Steps',
-                              percent: 1,
-                            ),
-                            Spacer(),
-                            AchievmentItem(
-                              iconList: [
-                                AssetName.weeklyBronze,
-                                AssetName.weeklySilver,
-                                AssetName.weeklyGold,
-                                AssetName.weeklyPlatinum,
-                                AssetName.weeklyDiamond
-                              ],
-                              mainIconType: AssetName.weeklyDiamond,
-                              title: 'Weekly',
-                              percent: 0.8,
-                            ),
-                          ],
-                        ),
+                    ),
+                    SizedBox(
+                      height: 28,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 17),
+                      child: AchievmentItem(
+                        iconList: [
+                          AssetName.loginBronze,
+                          AssetName.loginSilver,
+                          AssetName.loginGold,
+                          AssetName.loginPlatinum,
+                          AssetName.loginDiamond
+                        ],
+                        mainIconType: AssetName.loginDiamond,
+                        title: 'Login',
+                        percent: 1,
                       ),
-                      SizedBox(
-                        height: 28,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 17),
-                        child: Row(
-                          children: [
-                            AchievmentItem(
-                              iconList: [
-                                AssetName.hourBronze,
-                                AssetName.hourSilver,
-                                AssetName.hourGold,
-                                AssetName.hourPlatinum,
-                                AssetName.hourDiamond
-                              ],
-                              mainIconType: AssetName.hourDiamond,
-                              title: 'Hour',
-                              percent: 0.8,
-                            ),
-                            Spacer(),
-                            AchievmentItem(
-                              iconList: [
-                                AssetName.friendsBronze,
-                                AssetName.friendsSilver,
-                                AssetName.friendsGold,
-                                AssetName.friendsPlatinum,
-                                AssetName.friendsDiamond
-                              ],
-                              mainIconType: AssetName.friendsDiamond,
-                              title: 'Friends',
-                              percent: 1,
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 28,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 17),
-                        child: AchievmentItem(
-                          iconList: [
-                            AssetName.loginBronze,
-                            AssetName.loginSilver,
-                            AssetName.loginGold,
-                            AssetName.loginPlatinum,
-                            AssetName.loginDiamond
-                          ],
-                          mainIconType: AssetName.loginDiamond,
-                          title: 'Login',
-                          percent: 1,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],

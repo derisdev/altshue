@@ -8,12 +8,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
-class MissionDaily extends StatelessWidget {
+class MissionDaily extends GetView<MissionController> {
   const MissionDaily({
     Key? key,
-    required this.controller,
   }) : super(key: key);
-  final MissionController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -47,87 +45,111 @@ class MissionDaily extends StatelessWidget {
                     width: 9,
                   ),
                   InkWell(
-                      onTap: () {},
-                      child: FaIcon(FontAwesomeIcons.chevronDown, size: 15)),
+                      onTap: () => controller.changeHeightMission(),
+                      child: Obx(
+                        () => RotationTransition(
+                            turns: !controller.visibleMission.value
+                                ? controller.animation2
+                                : controller.animation1,
+                            child:
+                                FaIcon(FontAwesomeIcons.chevronDown, size: 15)),
+                      )),
                 ],
               ),
             ],
           ),
-          SizedBox(
-            height: 9,
+          Obx(
+            () => Visibility(
+              visible: controller.visibleMission.value,
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 9,
+                  ),
+                  Divider(
+                    color: Palette.alto,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                ],
+              ),
+            ),
           ),
-          Divider(
-            color: Palette.alto,
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: 3,
-              itemBuilder: (_, index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Obx(
+            () => Visibility(
+              visible: controller.visibleMission.value,
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 3,
+                  itemBuilder: (_, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Mission 1',
-                            style: TextStyle(
-                                color: Palette.tundora,
-                                fontSize: 12,
-                                fontFamily: AppFontStyle.montserratBold)),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('A.P : 100 Exp : 100',
+                            Text('Mission 1',
                                 style: TextStyle(
-                                    color: Palette.dixie,
-                                    fontSize: 10,
+                                    color: Palette.tundora,
+                                    fontSize: 12,
                                     fontFamily: AppFontStyle.montserratBold)),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            index == 1
-                                ? SvgPicture.asset(
-                                    AssetName.checkSquare,
-                                    height: 20,
-                                  )
-                                : Container(
-                                    width: 20,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(3),
-                                        border: Border.all(
-                                            color: Palette.silver, width: 2)),
-                                  ),
+                            Row(
+                              children: [
+                                Text('A.P : 100 Exp : 100',
+                                    style: TextStyle(
+                                        color: Palette.dixie,
+                                        fontSize: 10,
+                                        fontFamily:
+                                            AppFontStyle.montserratBold)),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                index == 1
+                                    ? SvgPicture.asset(
+                                        AssetName.checkSquare,
+                                        height: 20,
+                                      )
+                                    : Container(
+                                        width: 20,
+                                        height: 20,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(3),
+                                            border: Border.all(
+                                                color: Palette.silver,
+                                                width: 2)),
+                                      ),
+                              ],
+                            )
                           ],
-                        )
+                        ),
+                        SizedBox(
+                          height: 11.5,
+                        ),
+                        Persentase.km(),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        Persentase.min(),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        Persentase.step(),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        index == 2
+                            ? SizedBox()
+                            : Divider(
+                                color: Palette.alto,
+                              )
                       ],
-                    ),
-                    SizedBox(
-                      height: 11.5,
-                    ),
-                    Persentase.km(),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Persentase.min(),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Persentase.step(),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    index == 2
-                        ? SizedBox()
-                        : Divider(
-                            color: Palette.alto,
-                          )
-                  ],
-                );
-              })
+                    );
+                  }),
+            ),
+          )
         ],
       ),
     );

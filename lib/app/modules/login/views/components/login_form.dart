@@ -20,12 +20,17 @@ class FormLogin extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+        padding: EdgeInsets.only(
+            left: 50.0,
+            right: 50,
+            bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Form(
           key: controller.formGlobalKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
             children: [
+              SizedBox(
+                height: 70,
+              ),
               Image.asset(AssetName.shoes, height: 75),
               SizedBox(
                 height: 44,

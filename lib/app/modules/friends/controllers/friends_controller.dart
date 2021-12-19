@@ -1,20 +1,13 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class FriendsController extends GetxController {
-  //TODO: Implement FriendsController
+  PageController pageC = PageController();
+  final selectedIndex = 0.obs;
 
-  final count = 0.obs;
   @override
-  void onInit() {
-    super.onInit();
+  void dispose() {
+    pageC.dispose();
+    super.dispose();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

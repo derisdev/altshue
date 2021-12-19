@@ -1,6 +1,6 @@
-import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -13,89 +13,135 @@ import 'components/friend_request.dart';
 class FriendsView extends GetView<FriendsController> {
   @override
   Widget build(BuildContext context) {
+    final heightAppbar = 90.0;
+    final heightTabbar = 61.0;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
           backgroundColor: Palette.alabaster,
           resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-              flexibleSpace: Image(
-                image: AssetImage(AssetName.headerBg),
-                fit: BoxFit.cover,
+          body: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: heightAppbar + heightTabbar),
+                child: PageView(
+                  controller: controller.pageC,
+                  onPageChanged: (index) {
+                    controller.selectedIndex.value = index;
+                  },
+                  children: [FriendList(), FriendRequest()],
+                ),
               ),
-              backgroundColor: Palette.darkTan,
-              elevation: 0,
-              bottom: TabBar(
-                indicatorColor: Palette.dixie,
-                indicatorWeight: 3,
-                tabs: [
-                  Tab(
-                    child: Container(
-                      child: Text('Friend List'.tr,
-                          style: TextStyle(
-                              color: Palette.white,
-                              fontSize: 12,
-                              fontFamily: AppFontStyle.montserratMed)),
-                      alignment: Alignment.center,
-                      height: 23,
-                      width: Get.width,
-                      decoration: const BoxDecoration(
-                        border: Border(
-                          right: BorderSide(color: Palette.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Tab(
-                      icon: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Friend Request'.tr,
-                          style: TextStyle(
-                              color: Palette.white,
-                              fontSize: 12,
-                              fontFamily: AppFontStyle.montserratMed)),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(7),
-                        decoration: BoxDecoration(
-                            color: Palette.dixie, shape: BoxShape.circle),
-                        child: Text('1',
-                            style: TextStyle(
-                                color: Palette.white,
-                                fontSize: 10,
-                                fontFamily: AppFontStyle.montserratMed)),
-                      )
-                    ],
-                  )),
-                ],
-              ),
-              title: Padding(
-                padding: const EdgeInsets.only(left: 10.0),
-                child: Text('Friends'.tr,
-                    style: TextStyle(
-                        color: Palette.white,
-                        fontSize: 17,
-                        fontFamily: AppFontStyle.montserratMed)),
-              ),
-              actions: [
-                IconButton(
+              HeaderBar(
+                title: 'Friends',
+                haveBackButton: false,
+                trailing: IconButton(
                     onPressed: () => Get.toNamed(Routes.FRIENDS_ADD),
                     icon: Icon(
                       Icons.person_add,
                       color: Palette.white,
                       size: 30,
                     )),
-                SizedBox(
-                  width: 15,
-                )
-              ]),
-          body: Stack(
-            children: [
-              TabBarView(
-                children: [FriendList(), FriendRequest()],
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: heightAppbar - 2),
+                child: Column(
+                  children: [
+                    Divider(
+                      color: Palette.white.withOpacity(0.3),
+                      thickness: 0.5,
+                      height: 0.1,
+                    ),
+                    Stack(
+                      children: [
+                        Container(
+                            color: Palette.darkTan,
+                            width: Get.width,
+                            height: heightTabbar,
+                            child: Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    controller.pageC.animateToPage(0,
+                                        curve: Curves.linear,
+                                        duration: Duration(milliseconds: 300));
+                                  },
+                                  child: SizedBox(
+                                    width: Get.width / 2 - 10,
+                                    child: Center(
+                                      child: Text('Friend List'.tr,
+                                          style: TextStyle(
+                                              color: Palette.white,
+                                              fontSize: 12,
+                                              fontFamily:
+                                                  AppFontStyle.montserratMed)),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                    height: 20,
+                                    child: VerticalDivider(
+                                      color: Palette.white,
+                                      thickness: 1.5,
+                                    )),
+                                InkWell(
+                                  onTap: () {
+                                    controller.pageC.animateToPage(1,
+                                        curve: Curves.linear,
+                                        duration: Duration(milliseconds: 300));
+                                  },
+                                  child: SizedBox(
+                                    width: Get.width / 2 - 10,
+                                    child: Center(
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text('Friend Request'.tr,
+                                                style: TextStyle(
+                                                    color: Palette.white,
+                                                    fontSize: 12,
+                                                    fontFamily: AppFontStyle
+                                                        .montserratMed)),
+                                            SizedBox(
+                                              width: 8,
+                                            ),
+                                            Container(
+                                              padding: EdgeInsets.all(7),
+                                              decoration: BoxDecoration(
+                                                  color: Palette.dixie,
+                                                  shape: BoxShape.circle),
+                                              child: Text('1',
+                                                  style: TextStyle(
+                                                      color: Palette.white,
+                                                      fontSize: 10,
+                                                      fontFamily: AppFontStyle
+                                                          .montserratMed)),
+                                            )
+                                          ]),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )),
+                        Obx(() => Positioned(
+                              bottom: 0,
+                              right: controller.selectedIndex.value == 1
+                                  ? 0
+                                  : null,
+                              left: controller.selectedIndex.value == 0
+                                  ? 0
+                                  : null,
+                              child: Container(
+                                width: Get.width / 2 + 2,
+                                height: 2,
+                                color: Palette.dixie,
+                              ),
+                            ))
+                      ],
+                    )
+                  ],
+                ),
               ),
               NavigationBar(
                 index: 0,

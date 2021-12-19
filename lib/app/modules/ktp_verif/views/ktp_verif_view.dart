@@ -11,6 +11,7 @@ class KtpVerifView extends GetView<KtpVerifController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Palette.black,
         body: Stack(
           children: [BasicBackground(), FormKTPVerif(controller: controller)],

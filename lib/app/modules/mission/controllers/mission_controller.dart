@@ -11,9 +11,14 @@ class MissionController extends GetxController
   final rotateTime = 1.obs;
 
   final visible = false.obs;
+  final visibleMission = true.obs;
 
   void changeHeight() {
     visible.value = !visible.value;
+  }
+
+  void changeHeightMission() {
+    visibleMission.value = !visibleMission.value;
   }
 
   @override

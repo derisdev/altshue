@@ -19,42 +19,40 @@ class ContactView extends GetView<ContactController> {
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
-            Column(
-              children: [
-                HeaderBar(
-                  title: 'Contact'.tr,
-                ),
-                Expanded(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      SizedBox(height: 60),
-                      ContactDetail(),
-                      SizedBox(height: 53),
-                      ListFieldContact(
-                        controller: controller,
-                      ),
-                      SizedBox(height: 53),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                        child: SizedBox(
-                          width: 186,
-                          height: 41,
-                          child: ButtonGlobal(
-                            onTap: () => controller.send(),
-                            radius: 8,
-                            fontSize: 14,
-                            title: 'SEND'.tr,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 53),
-                      FollowUs(),
-                      SizedBox(height: 150),
-                    ],
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  SizedBox(height: 100),
+                  ContactDetail(),
+                  SizedBox(height: 53),
+                  ListFieldContact(
+                    controller: controller,
                   ),
-                )
-              ],
+                  SizedBox(height: 35),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: SizedBox(
+                      width: 186,
+                      height: 41,
+                      child: ButtonGlobal(
+                        onTap: () => controller.send(),
+                        radius: 8,
+                        fontSize: 14,
+                        title: 'SEND'.tr,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 50),
+                  FollowUs(),
+                  SizedBox(height: 150),
+                ],
+              ),
+            ),
+            HeaderBar(
+              title: 'Contact'.tr,
             ),
             NavigationBar(
               index: 4,

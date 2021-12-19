@@ -24,13 +24,9 @@ class MissionView extends GetView<MissionController> {
                 SizedBox(height: 60),
                 CurrentMission(),
                 SizedBox(height: 11),
-                AchievmentProgress(
-                  controller: controller,
-                ),
+                AchievmentProgress(),
                 SizedBox(height: 11),
-                MissionDaily(
-                  controller: controller,
-                ),
+                MissionDaily(),
               ],
             ),
             HeaderMainBar(

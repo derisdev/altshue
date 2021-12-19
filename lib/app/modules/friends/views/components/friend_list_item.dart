@@ -27,7 +27,7 @@ class FriendListItem extends StatelessWidget {
               CircleAvatar(
                   radius: 33,
                   backgroundImage: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
+                      'https://cdn.iconscout.com/icon/free/png-256/avatar-373-456325.png')),
               SizedBox(
                 width: 14,
               ),

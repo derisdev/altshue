@@ -95,4 +95,8 @@ abstract class AssetName {
       '$baseAssetImagePng/Achievment/Weekly - silver.png';
   static const weeklyDiamond =
       '$baseAssetImagePng/Achievment/Weekly -diamond.png';
+  static const facebook = '$baseAssetImagePng/facebook.png';
+  static const twitter = '$baseAssetImagePng/twitter.png';
+  static const youtube = '$baseAssetImagePng/youtube.png';
+  static const instagram = '$baseAssetImagePng/instagram.png';
 }

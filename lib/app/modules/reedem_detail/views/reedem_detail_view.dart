@@ -17,40 +17,44 @@ class ReedemDetailView extends GetView<ReedemDetailController> {
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            MediaQuery.removePadding(
-              context: context,
-              removeTop: true,
-              child: ListView(
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        color: Palette.white,
-                        height: 300 + 105,
-                      ),
-                      ImageRedeem(),
-                      Positioned(
-                          top: 295, left: 0, right: 0, child: TitleRedeem()),
-                    ],
-                  ),
-                  DescriptionRedeem(),
-                  SizedBox(height: 24),
-                  Spacer(),
-                  args != null
-                      ? args['is_from_histori'] == 'true'
-                          ? SizedBox()
-                          : ReedemButton()
-                      : ReedemButton(),
-                  SizedBox(height: 150),
-                ],
+        backgroundColor: Palette.alabaster,
+        body: SizedBox(
+          height: Get.height,
+          child: Stack(
+            children: [
+              MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: ListView(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          color: Palette.white,
+                          height: 300 + 105,
+                        ),
+                        ImageRedeem(),
+                        Positioned(
+                            top: 295, left: 0, right: 0, child: TitleRedeem()),
+                      ],
+                    ),
+                    DescriptionRedeem(),
+                    SizedBox(height: 24),
+                    Spacer(),
+                    args != null
+                        ? args['is_from_histori'] == 'true'
+                            ? SizedBox()
+                            : ReedemButton()
+                        : ReedemButton(),
+                    SizedBox(height: 150),
+                  ],
+                ),
               ),
-            ),
-            NavigationBar(
-              index: 4,
-            )
-          ],
+              NavigationBar(
+                index: 4,
+              )
+            ],
+          ),
         ));
   }
 }

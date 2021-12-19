@@ -19,9 +19,8 @@ class MissionView extends GetView<MissionController> {
         body: Stack(
           children: [
             ListView(
-              padding: EdgeInsets.only(bottom: 150),
+              padding: EdgeInsets.only(bottom: 150, top: 90),
               children: [
-                SizedBox(height: 60),
                 CurrentMission(),
                 SizedBox(height: 11),
                 AchievmentProgress(),

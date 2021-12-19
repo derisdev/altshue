@@ -13,6 +13,8 @@ import 'components/redeem_title.dart';
 class ReedemDetailView extends GetView<ReedemDetailController> {
   @override
   Widget build(BuildContext context) {
+    final args = Get.arguments;
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Stack(
@@ -35,7 +37,12 @@ class ReedemDetailView extends GetView<ReedemDetailController> {
                   ),
                   DescriptionRedeem(),
                   SizedBox(height: 24),
-                  ReedemButton(),
+                  Spacer(),
+                  args != null
+                      ? args['is_from_histori'] == 'true'
+                          ? SizedBox()
+                          : ReedemButton()
+                      : ReedemButton(),
                   SizedBox(height: 150),
                 ],
               ),

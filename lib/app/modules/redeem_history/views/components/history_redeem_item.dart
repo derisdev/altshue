@@ -29,7 +29,8 @@ class HistoryReedemItem extends StatelessWidget {
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                onTap: () => Get.toNamed(Routes.REEDEM_DETAIL),
+                onTap: () => Get.toNamed(Routes.REEDEM_DETAIL,
+                    arguments: {'is_from_histori': 'true'}),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 19, vertical: 25),
                   child: Builder(builder: (context) {

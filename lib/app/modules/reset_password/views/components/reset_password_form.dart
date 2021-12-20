@@ -33,6 +33,7 @@ class FormResetPassword extends GetView<ResetPasswordController> {
                 height: 44,
               ),
               Text('RESET PASSWORD'.toUpperCase().tr,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Palette.white,
                       fontSize: 20,

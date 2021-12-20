@@ -33,6 +33,7 @@ class FormLupaPassword extends GetView<LupaPasswordController> {
                 height: 44,
               ),
               Text('LUPA PASSWORD'.toUpperCase().tr,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Palette.white,
                       fontSize: 20,

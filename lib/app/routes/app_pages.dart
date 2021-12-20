@@ -26,6 +26,8 @@ import 'package:altshue/app/modules/language/bindings/language_binding.dart';
 import 'package:altshue/app/modules/language/views/language_view.dart';
 import 'package:altshue/app/modules/login/bindings/login_binding.dart';
 import 'package:altshue/app/modules/login/views/login_view.dart';
+import 'package:altshue/app/modules/lupa_password/bindings/lupa_password_binding.dart';
+import 'package:altshue/app/modules/lupa_password/views/lupa_password_view.dart';
 import 'package:altshue/app/modules/mission/bindings/mission_binding.dart';
 import 'package:altshue/app/modules/mission/views/mission_view.dart';
 import 'package:altshue/app/modules/news/bindings/news_binding.dart';
@@ -42,6 +44,8 @@ import 'package:altshue/app/modules/reedem_detail/bindings/reedem_detail_binding
 import 'package:altshue/app/modules/reedem_detail/views/reedem_detail_view.dart';
 import 'package:altshue/app/modules/register/bindings/register_binding.dart';
 import 'package:altshue/app/modules/register/views/register_view.dart';
+import 'package:altshue/app/modules/reset_password/bindings/reset_password_binding.dart';
+import 'package:altshue/app/modules/reset_password/views/reset_password_view.dart';
 import 'package:altshue/app/modules/settings/bindings/settings_binding.dart';
 import 'package:altshue/app/modules/settings/views/settings_view.dart';
 import 'package:altshue/app/modules/splash/bindings/splash_binding.dart';
@@ -169,6 +173,16 @@ class AppPages {
       name: _Paths.REDEEM_HISTORY,
       page: () => RedeemHistoryView(),
       binding: RedeemHistoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.LUPA_PASSWORD,
+      page: () => LupaPasswordView(),
+      binding: LupaPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESET_PASSWORD,
+      page: () => ResetPasswordView(),
+      binding: ResetPasswordBinding(),
     ),
   ];
 }

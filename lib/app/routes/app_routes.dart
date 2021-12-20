@@ -28,6 +28,8 @@ abstract class Routes {
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
   static const MISSION = _Paths.MISSION;
   static const REDEEM_HISTORY = _Paths.REDEEM_HISTORY;
+  static const LUPA_PASSWORD = _Paths.LUPA_PASSWORD;
+  static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
 }
 
 abstract class _Paths {
@@ -55,4 +57,6 @@ abstract class _Paths {
   static const EDIT_PROFILE = '/edit-profile';
   static const MISSION = '/mission';
   static const REDEEM_HISTORY = '/redeem-history';
+  static const LUPA_PASSWORD = '/lupa-password';
+  static const RESET_PASSWORD = '/reset-password';
 }

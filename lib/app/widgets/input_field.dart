@@ -6,6 +6,7 @@ class InputField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final bool isNumber;
+  final bool isEmail;
   final bool readOnly;
   final String? Function(String? value) validator;
 
@@ -16,6 +17,7 @@ class InputField extends StatelessWidget {
     required this.validator,
     this.readOnly = false,
     this.isNumber = false,
+    this.isEmail = false,
   });
 
   @override
@@ -33,7 +35,11 @@ class InputField extends StatelessWidget {
             color: Palette.black,
             fontSize: 12,
             fontFamily: AppFontStyle.montserratReg),
-        keyboardType: isNumber ? TextInputType.number : TextInputType.text,
+        keyboardType: isEmail
+            ? TextInputType.emailAddress
+            : isNumber
+                ? TextInputType.number
+                : TextInputType.text,
         validator: validator,
         obscureText: obscureText,
         decoration: InputDecoration(

@@ -1,19 +1,16 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/constants/asset_path.dart';
-import 'package:altshue/app/modules/login/controllers/login_controller.dart';
+import 'package:altshue/app/modules/lupa_password/controllers/lupa_password_controller.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FormLogin extends StatelessWidget {
-  const FormLogin({
+class FormLupaPassword extends GetView<LupaPasswordController> {
+  const FormLupaPassword({
     Key? key,
-    required this.controller,
   }) : super(key: key);
-
-  final LoginController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class FormLogin extends StatelessWidget {
               SizedBox(
                 height: 44,
               ),
-              Text('LOGIN',
+              Text('LUPA PASSWORD'.toUpperCase().tr,
                   style: TextStyle(
                       color: Palette.white,
                       fontSize: 20,
@@ -49,7 +46,8 @@ class FormLogin extends StatelessWidget {
                     height: 48,
                     child: InputField(
                       controller: controller.emailC,
-                      hintText: 'Email / Nomor Telepon'.tr,
+                      hintText: 'Masukkan email yang terdaftar'.tr,
+                      isEmail: true,
                       validator: (String? text) {
                         if (text == null || text.isEmpty) {
                           controller.isErrorEmail.value = true;
@@ -79,78 +77,18 @@ class FormLogin extends StatelessWidget {
                   visible: controller.isErrorEmail.value,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Email/password is required',
+                    child: Text('Email is required',
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 10,
                             fontFamily: AppFontStyle.montserratBold)),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Stack(
-                children: [
-                  SizedBox(
-                    height: 48,
-                    child: InputField(
-                      controller: controller.passwordC,
-                      hintText: 'Password'.tr,
-                      obscureText: true,
-                      validator: (String? text) {
-                        if (text == null || text.isEmpty) {
-                          controller.isErrorPassword.value = true;
-                        } else {
-                          controller.isErrorPassword.value = false;
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  Positioned(
-                      top: 0,
-                      bottom: 5,
-                      left: 19,
-                      child: Icon(
-                        Icons.lock,
-                        size: 20,
-                        color: Palette.darkTan,
-                      )),
-                ],
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Obx(
-                () => Visibility(
-                  visible: controller.isErrorEmail.value,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text('Password is required',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 10,
-                            fontFamily: AppFontStyle.montserratBold)),
-                  ),
-                ),
-              ),
-              SizedBox(height: 29),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: InkWell(
-                  onTap: () => Get.toNamed(Routes.LUPA_PASSWORD),
-                  child: Text('Lupa Password ?'.tr,
-                      style: TextStyle(
-                          color: Palette.white,
-                          fontSize: 12,
-                          fontFamily: AppFontStyle.montserratReg)),
                 ),
               ),
               SizedBox(height: 29),
               ButtonGlobal(
                 onTap: () => controller.masuk(),
-                title: 'MASUK'.tr,
+                title: 'SEND'.tr,
               ),
               SizedBox(height: 28),
               Row(

@@ -17,6 +17,16 @@ const Map<String, String> idID = {
   'Ulangi Password': 'Ulangi Kata Sandi',
   'SUBMIT': 'SUBMIT',
 
+  //lupa password
+  'LUPA PASSWORD': 'LUPA KATA SANDI',
+  'Masukkan email yang terdaftar': 'Masukkan email yang terdaftar',
+
+  //reset password
+  'RESET PASSWORD': 'SETEL ULANG KATA SANDI',
+  'Masukkan Password Baru': 'Masukkan Password Baru',
+  'Konfirmasi Password Baru': 'Konfirmasi Password Baru',
+  'RESET': 'SETEL ULANG',
+
   //verif
   'VERIFIKASI KTP': 'VERIFIKASI KTP',
   'No. KTP': 'No. KTP',

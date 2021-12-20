@@ -1,19 +1,16 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/constants/asset_path.dart';
-import 'package:altshue/app/modules/login/controllers/login_controller.dart';
+import 'package:altshue/app/modules/reset_password/controllers/reset_password_controller.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class FormLogin extends StatelessWidget {
-  const FormLogin({
+class FormResetPassword extends GetView<ResetPasswordController> {
+  const FormResetPassword({
     Key? key,
-    required this.controller,
   }) : super(key: key);
-
-  final LoginController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,7 @@ class FormLogin extends StatelessWidget {
               SizedBox(
                 height: 44,
               ),
-              Text('LOGIN',
+              Text('RESET PASSWORD'.toUpperCase().tr,
                   style: TextStyle(
                       color: Palette.white,
                       fontSize: 20,
@@ -48,13 +45,13 @@ class FormLogin extends StatelessWidget {
                   SizedBox(
                     height: 48,
                     child: InputField(
-                      controller: controller.emailC,
-                      hintText: 'Email / Nomor Telepon'.tr,
+                      controller: controller.passwordC,
+                      hintText: 'Masukkan Password Baru'.tr,
                       validator: (String? text) {
                         if (text == null || text.isEmpty) {
-                          controller.isErrorEmail.value = true;
+                          controller.isErrorPW.value = true;
                         } else {
-                          controller.isErrorEmail.value = false;
+                          controller.isErrorPW.value = false;
                         }
                         return null;
                       },
@@ -76,10 +73,10 @@ class FormLogin extends StatelessWidget {
               ),
               Obx(
                 () => Visibility(
-                  visible: controller.isErrorEmail.value,
+                  visible: controller.isErrorPW.value,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Email/password is required',
+                    child: Text('Password is required',
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 10,
@@ -95,14 +92,14 @@ class FormLogin extends StatelessWidget {
                   SizedBox(
                     height: 48,
                     child: InputField(
-                      controller: controller.passwordC,
-                      hintText: 'Password'.tr,
-                      obscureText: true,
+                      controller: controller.passwordConfirmC,
+                      hintText: 'Konfirmasi Password Baru'.tr,
+                      isEmail: true,
                       validator: (String? text) {
                         if (text == null || text.isEmpty) {
-                          controller.isErrorPassword.value = true;
+                          controller.isErrorPWC.value = true;
                         } else {
-                          controller.isErrorPassword.value = false;
+                          controller.isErrorPWC.value = false;
                         }
                         return null;
                       },
@@ -113,7 +110,7 @@ class FormLogin extends StatelessWidget {
                       bottom: 5,
                       left: 19,
                       child: Icon(
-                        Icons.lock,
+                        Icons.email,
                         size: 20,
                         color: Palette.darkTan,
                       )),
@@ -124,10 +121,10 @@ class FormLogin extends StatelessWidget {
               ),
               Obx(
                 () => Visibility(
-                  visible: controller.isErrorEmail.value,
+                  visible: controller.isErrorPWC.value,
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Password is required',
+                    child: Text('Password Confirm is required',
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 10,
@@ -136,21 +133,9 @@ class FormLogin extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 29),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: InkWell(
-                  onTap: () => Get.toNamed(Routes.LUPA_PASSWORD),
-                  child: Text('Lupa Password ?'.tr,
-                      style: TextStyle(
-                          color: Palette.white,
-                          fontSize: 12,
-                          fontFamily: AppFontStyle.montserratReg)),
-                ),
-              ),
-              SizedBox(height: 29),
               ButtonGlobal(
                 onTap: () => controller.masuk(),
-                title: 'MASUK'.tr,
+                title: 'RESET'.tr,
               ),
               SizedBox(height: 28),
               Row(

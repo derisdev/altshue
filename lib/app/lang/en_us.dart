@@ -17,6 +17,16 @@ const Map<String, String> enUS = {
   'Ulangi Password': 'Repeat Password',
   'SUBMIT': 'SUBMIT',
 
+  //lupa password
+  'LUPA PASSWORD': 'FORGOT PASSWORD',
+  'Masukkan email yang terdaftar': 'Enter registered email',
+
+  //reset password
+  'RESET PASSWORD': 'RESET PASSWORD',
+  'Masukkan Password Baru': 'Enter New Password',
+  'Konfirmasi Password Baru': 'Confirm New Password',
+  'RESET': 'RESET',
+
   //verif
   'VERIFIKASI KTP': 'ID Card VERIFICATION',
   'No. KTP': 'ID Card Number',

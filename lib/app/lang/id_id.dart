@@ -142,5 +142,10 @@ const Map<String, String> idID = {
   'Processing': 'Sedang Diproses',
   'History': 'Histori',
   'Status: ': 'Status: ',
-  'Done': 'Selesai'
+  'Done': 'Selesai',
+
+  //etc
+  'Friends are Empty': 'Data Teman Kosong',
+  'Friend Request are Empty': 'Friend Request Kosong',
+  'Data not Found': 'Data tidak ditemukan'
 };

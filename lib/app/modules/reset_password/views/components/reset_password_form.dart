@@ -5,6 +5,7 @@ import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class FormResetPassword extends GetView<ResetPasswordController> {
@@ -134,9 +135,19 @@ class FormResetPassword extends GetView<ResetPasswordController> {
                 ),
               ),
               SizedBox(height: 29),
-              ButtonGlobal(
-                onTap: () => controller.masuk(),
-                title: 'RESET'.tr,
+              Obx(
+                () => ButtonGlobal(
+                  onTap: controller.isLoadingButton.value
+                      ? () {}
+                      : () => controller.reset(),
+                  title: 'RESET'.tr,
+                  child: controller.isLoadingButton.value
+                      ? SpinKitThreeBounce(
+                          color: Colors.white,
+                          size: 30.0,
+                        )
+                      : null,
+                ),
               ),
               SizedBox(height: 28),
               Row(

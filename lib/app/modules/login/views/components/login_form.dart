@@ -5,6 +5,7 @@ import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 class FormLogin extends StatelessWidget {
@@ -20,13 +21,15 @@ class FormLogin extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Padding(
-        padding: EdgeInsets.only(
-            left: 50.0,
-            right: 50,
-            bottom: MediaQuery.of(context).viewInsets.bottom),
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Form(
           key: controller.formGlobalKey,
           child: ListView(
+            padding: EdgeInsets.only(
+              left: 50.0,
+              right: 50,
+            ),
             children: [
               SizedBox(
                 height: 70,
@@ -124,7 +127,7 @@ class FormLogin extends StatelessWidget {
               ),
               Obx(
                 () => Visibility(
-                  visible: controller.isErrorEmail.value,
+                  visible: controller.isErrorPassword.value,
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text('Password is required',
@@ -148,9 +151,19 @@ class FormLogin extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 29),
-              ButtonGlobal(
-                onTap: () => controller.masuk(),
-                title: 'MASUK'.tr,
+              Obx(
+                () => ButtonGlobal(
+                  onTap: controller.isLoadingButton.value
+                      ? () {}
+                      : () => controller.masuk(),
+                  title: 'MASUK'.tr,
+                  child: controller.isLoadingButton.value
+                      ? SpinKitThreeBounce(
+                          color: Colors.white,
+                          size: 20.0,
+                        )
+                      : null,
+                ),
               ),
               SizedBox(height: 28),
               Row(

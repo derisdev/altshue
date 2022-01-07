@@ -1,5 +1,6 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/friends/models/friend.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -7,7 +8,9 @@ import 'package:get/get.dart';
 class FriendListItem extends StatelessWidget {
   const FriendListItem({
     Key? key,
+    required this.dataFriend,
   }) : super(key: key);
+  final DataFriend dataFriend;
 
   @override
   Widget build(BuildContext context) {

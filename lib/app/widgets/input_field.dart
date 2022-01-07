@@ -68,10 +68,12 @@ class InputField extends StatelessWidget {
 class SearchField extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
+  final Function(String) onChanged;
 
   SearchField({
     required this.controller,
     required this.hintText,
+    required this.onChanged,
   });
 
   @override
@@ -81,6 +83,7 @@ class SearchField extends StatelessWidget {
       alignment: Alignment.center,
       child: TextField(
         textCapitalization: TextCapitalization.none,
+        onChanged: onChanged,
         maxLines: 1,
         cursorColor: Colors.black,
         controller: controller,

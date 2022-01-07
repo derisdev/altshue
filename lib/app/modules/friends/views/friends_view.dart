@@ -1,4 +1,5 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/friends/controllers/friends_req_controller.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
@@ -11,6 +12,7 @@ import 'components/friend_list.dart';
 import 'components/friend_request.dart';
 
 class FriendsView extends GetView<FriendsController> {
+  final friendReqC = Get.put(FriendsReqController());
   @override
   Widget build(BuildContext context) {
     final heightAppbar = 90.0;
@@ -106,17 +108,33 @@ class FriendsView extends GetView<FriendsController> {
                                             SizedBox(
                                               width: 8,
                                             ),
-                                            Container(
-                                              padding: EdgeInsets.all(7),
-                                              decoration: BoxDecoration(
-                                                  color: Palette.dixie,
-                                                  shape: BoxShape.circle),
-                                              child: Text('1',
-                                                  style: TextStyle(
-                                                      color: Palette.white,
-                                                      fontSize: 10,
-                                                      fontFamily: AppFontStyle
-                                                          .montserratMed)),
+                                            Obx(
+                                              () => Visibility(
+                                                visible: friendReqC
+                                                        .lengthReq.value !=
+                                                    0,
+                                                child: Container(
+                                                  padding: EdgeInsets.all(7),
+                                                  decoration: BoxDecoration(
+                                                      color: Palette.dixie,
+                                                      shape: BoxShape.circle),
+                                                  child: Visibility(
+                                                    visible: friendReqC
+                                                            .lengthReq.value !=
+                                                        0,
+                                                    child: Text(
+                                                        friendReqC
+                                                            .lengthReq.value
+                                                            .toString(),
+                                                        style: TextStyle(
+                                                            color:
+                                                                Palette.white,
+                                                            fontSize: 10,
+                                                            fontFamily: AppFontStyle
+                                                                .montserratMed)),
+                                                  ),
+                                                ),
+                                              ),
                                             )
                                           ]),
                                     ),

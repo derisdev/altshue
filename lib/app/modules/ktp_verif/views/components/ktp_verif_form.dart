@@ -1,6 +1,7 @@
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/modules/ktp_verif/controllers/ktp_verif_controller.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:altshue/app/widgets/button_global.dart';
@@ -183,9 +184,17 @@ class FormKTPVerif extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 42),
-              ButtonGlobal(
-                onTap: () => controller.submit(),
-                title: 'SUBMIT'.tr,
+              Obx(
+                () => ButtonGlobal(
+                  onTap: () => controller.submit(),
+                  title: 'SUBMIT'.tr,
+                  child: controller.isLoadingButton.value
+                      ? SpinKitThreeBounce(
+                          color: Colors.white,
+                          size: 20.0,
+                        )
+                      : null,
+                ),
               ),
               SizedBox(height: 59),
               SizedBox(

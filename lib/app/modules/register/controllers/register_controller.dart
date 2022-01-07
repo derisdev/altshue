@@ -1,4 +1,7 @@
+import 'package:altshue/app/modules/register/providers/register_provider.dart';
 import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/utils/services/local_storage.dart';
+import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -17,6 +20,8 @@ class RegisterController extends GetxController {
 
   final formGlobalKey = GlobalKey<FormState>();
 
+  final isLoadingButton = false.obs;
+
   void register() {
     if (formGlobalKey.currentState!.validate() &&
         !isErrornama.value &&
@@ -24,7 +29,31 @@ class RegisterController extends GetxController {
         !isErrorNoTelp.value &&
         !isErrorPassword.value &&
         !isErrorUlangiPassword.value) {
-      Get.offAllNamed(Routes.KTP_VERIF);
+      if (passwordC!.text == ulangiPasswordC!.text) {
+        isLoadingButton.value = true;
+        Map dataRegister = {
+          'Email': emailC!.text,
+          'Phone': notelpC!.text,
+          'Fullname': namaC!.text,
+          'Password': passwordC!.text,
+        };
+
+        print(dataRegister);
+        RegisterProvider()
+            .register(dataRegister: dataRegister)
+            .then((response) {
+          isLoadingButton.value = false;
+          if (response.status == 200) {
+            print('token:: ${response.data!.Token}');
+            saveToken(response.data!.Token);
+            Get.offAllNamed(Routes.KTP_VERIF);
+          } else {
+            showToasts(text: response.message);
+          }
+        });
+      } else {
+        showToasts(text: 'Password tidak sama');
+      }
     }
   }
 

@@ -1,4 +1,6 @@
+import 'package:altshue/app/modules/lupa_password/providers/lupa_password_provider.dart';
 import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -8,10 +10,21 @@ class LupaPasswordController extends GetxController {
   final isErrorEmail = false.obs;
 
   final formGlobalKey = GlobalKey<FormState>();
+  final isLoadingButton = false.obs;
 
-  void masuk() {
+  void send() {
     if (formGlobalKey.currentState!.validate() && !isErrorEmail.value) {
-      Get.offAllNamed(Routes.RESET_PASSWORD);
+      isLoadingButton.value = true;
+
+      LupaPasswordProvider().lupaPassword(email: emailC!.text).then((response) {
+        isLoadingButton.value = false;
+
+        if (response.status == 200) {
+          Get.offNamed(Routes.RESET_PASSWORD);
+        } else {
+          showToasts(text: response.message);
+        }
+      });
     }
   }
 

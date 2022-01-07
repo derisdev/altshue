@@ -5,6 +5,7 @@ import 'package:altshue/app/modules/register/controllers/register_controller.dar
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/input_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:get/get.dart';
 
@@ -21,12 +22,19 @@ class FormRegister extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50.0),
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Form(
           key: controller.formGlobalKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: ListView(
+            padding: EdgeInsets.only(
+              left: 50.0,
+              right: 50,
+            ),
             children: [
+              SizedBox(
+                height: 30,
+              ),
               Image.asset(AssetName.shoes, height: 75),
               SizedBox(
                 height: 44,
@@ -274,9 +282,22 @@ class FormRegister extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 36),
-              ButtonGlobal(
-                onTap: () => controller.register(),
-                title: 'SUBMIT'.tr,
+              Obx(
+                () => ButtonGlobal(
+                  onTap: controller.isLoadingButton.value
+                      ? () {}
+                      : () => controller.register(),
+                  title: 'SUBMIT'.tr,
+                  child: controller.isLoadingButton.value
+                      ? SpinKitThreeBounce(
+                          color: Colors.white,
+                          size: 20.0,
+                        )
+                      : null,
+                ),
+              ),
+              SizedBox(
+                height: 30,
               ),
             ],
           ),

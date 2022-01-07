@@ -13,7 +13,7 @@ void main() {
   ));
   runApp(
     GetMaterialApp(
-      title: "ALT Shui",
+      title: "ALT Shue",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.red),
       initialRoute: AppPages.INITIAL,

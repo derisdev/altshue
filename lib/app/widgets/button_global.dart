@@ -11,6 +11,7 @@ class ButtonGlobal extends StatelessWidget {
   final double radius;
   final double fontSize;
   final double? witdh;
+  final Widget? child;
 
   const ButtonGlobal(
       {Key? key,
@@ -20,7 +21,8 @@ class ButtonGlobal extends StatelessWidget {
       this.primary = Palette.dixie,
       this.textColor = Palette.white,
       this.radius = 5,
-      this.fontSize = 16})
+      this.fontSize = 16,
+      this.child})
       : super(key: key);
 
   @override
@@ -35,11 +37,12 @@ class ButtonGlobal extends StatelessWidget {
             elevation: 0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(radius))),
-        child: Text(title,
-            style: TextStyle(
-                color: textColor,
-                fontSize: fontSize,
-                fontFamily: AppFontStyle.montserratBold)),
+        child: child ??
+            Text(title,
+                style: TextStyle(
+                    color: textColor,
+                    fontSize: fontSize,
+                    fontFamily: AppFontStyle.montserratBold)),
       ),
     );
   }

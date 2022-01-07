@@ -1,7 +1,5 @@
 import 'package:altshue/app/constants/api_path.dart';
 import 'package:altshue/app/modules/friends/models/friend.dart';
-import 'package:altshue/app/modules/friends/models/friend_confirm.dart';
-import 'package:altshue/app/modules/friends/models/friend_delete.dart';
 import 'package:altshue/app/modules/friends/models/friend_req.dart';
 import 'package:altshue/app/utils/helpers/header_api.dart';
 import 'package:get/get.dart';
@@ -13,21 +11,21 @@ class FriendProvider extends GetConnect {
     return Friend.fromJson(response.body);
   }
 
-  Future<FriendReq> friendReqList() async {
+  Future<Friend> friendReqList() async {
     final response = await get(ApiPath.friendReq, headers: headerApi());
     print(response.body);
-    return FriendReq.fromJson(response.body);
+    return Friend.fromJson(response.body);
   }
 
-  Future<FriendConfirm> friendConfirm({required String uniqueId}) async {
+  Future<FriendConfirmDelete> friendConfirm({required String uniqueId}) async {
     final response = await get(ApiPath.confirmReq + '?unique_id=$uniqueId');
     print(response.body);
-    return FriendConfirm.fromJson(response.body);
+    return FriendConfirmDelete.fromJson(response.body);
   }
 
-  Future<FriendDelete> friendDelete({required String uniqueId}) async {
+  Future<FriendConfirmDelete> friendDelete({required String uniqueId}) async {
     final response = await get(ApiPath.unfriend + '?unique_id=$uniqueId');
     print(response.body);
-    return FriendDelete.fromJson(response.body);
+    return FriendConfirmDelete.fromJson(response.body);
   }
 }

@@ -1,6 +1,6 @@
 abstract class ApiPath {
   //Global
-  static const baseUrl = '/api';
+  static const baseUrl = 'https://altshue.id/api/api';
 
   //member
   static const baseUrlMember = baseUrl + '/member';

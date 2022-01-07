@@ -1,5 +1,6 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/friends/models/friend.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,9 +10,11 @@ class PeopleListItem extends StatelessWidget {
   const PeopleListItem({
     Key? key,
     required this.index,
+    required this.dataFriend,
   }) : super(key: key);
 
   final int index;
+  final DataFriend dataFriend;
 
   @override
   Widget build(BuildContext context) {

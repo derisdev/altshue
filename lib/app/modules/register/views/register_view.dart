@@ -13,6 +13,7 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Palette.black,
+        resizeToAvoidBottomInset: false,
         body: Stack(
           children: [BasicBackground(), FormRegister(controller: controller)],
         ));

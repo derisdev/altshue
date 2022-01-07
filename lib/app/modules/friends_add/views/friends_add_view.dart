@@ -32,6 +32,9 @@ class FriendsAddView extends GetView<FriendsAddController> {
                       children: [
                         SearchField(
                           controller: controller.searchC,
+                          onChanged: (value) {
+                            controller.txtSearch.value = value;
+                          },
                           hintText: 'Cari..'.tr,
                         ),
                         Positioned(
@@ -40,7 +43,8 @@ class FriendsAddView extends GetView<FriendsAddController> {
                           child: SizedBox(
                             width: 100,
                             child: ButtonGlobalNoChild(
-                              onTap: () {},
+                              onTap: () => controller.findFriend(
+                                  keyword: controller.txtSearch.value),
                               title: 'SEARCH'.tr,
                               child: Row(
                                 children: [

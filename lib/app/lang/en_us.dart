@@ -142,5 +142,10 @@ const Map<String, String> enUS = {
   'Processing': 'Processing',
   'History': 'History',
   'Status: ': 'Status: ',
-  'Done': 'Done'
+  'Done': 'Done',
+
+  //etc
+  'Friends are Empty': 'Friends are Empty',
+  'Friend Request are Empty': 'Friend Request are Empty',
+  'Data not Found': 'Data not Found'
 };

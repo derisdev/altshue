@@ -1,13 +1,21 @@
 import 'package:altshue/app/constants/api_path.dart';
 import 'package:altshue/app/modules/ktp_verif/models/ktp_verif.dart';
-import 'package:altshue/app/utils/helpers/header_api.dart';
-import 'package:get/get.dart';
+import 'package:altshue/app/utils/services/local_storage.dart';
+import 'package:dio/dio.dart';
 
-class KTPVerifProvider extends GetConnect {
-  Future<KTPVerif> kTPVerif({required Map dataKTPVerif}) async {
-    final response =
-        await post(ApiPath.ektp, dataKTPVerif, headers: headerApi());
-    print(response.body);
-    return KTPVerif.fromJson(response.body);
+class KTPVerifProvider {
+  Future<KTPVerif> kTPVerif({required FormData dataKTPVerif}) async {
+    print(getToken());
+    Dio dio = Dio();
+    dio.options.headers['x-token'] = getToken();
+    try {
+      var response = await dio.post(ApiPath.ektp, data: dataKTPVerif);
+      print(response.statusCode);
+      print(response.data);
+      return KTPVerif.fromJson(response.data);
+    } catch (e) {
+      print('error:: ${e.toString()}');
+    }
+    return KTPVerif.fromJson({});
   }
 }

@@ -5,7 +5,7 @@ void saveToken(String token) {
   box.write('token', token);
 }
 
-String getToken() {
+String? getToken() {
   final box = GetStorage();
   return box.read('token');
 }

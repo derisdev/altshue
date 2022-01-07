@@ -1,4 +1,4 @@
-import 'package:altshue/app/utils/helpers/dialog_ktp_unverif.dart';
+import 'package:altshue/app/utils/ui/dialog_ktp_unverif.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';

@@ -1,5 +1,5 @@
 import 'package:altshue/app/constants/colors.dart';
-import 'package:altshue/app/utils/helpers/dialog_password.dart';
+import 'package:altshue/app/utils/ui/dialog_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

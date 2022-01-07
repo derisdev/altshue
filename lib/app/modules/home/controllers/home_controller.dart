@@ -1,11 +1,31 @@
 import 'dart:io';
 
+import 'package:altshue/app/modules/home/providers/beranda_provider.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:battery/battery.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+  //activity
+  void getActivity() {}
+
+  void postActivity() {
+    Map dataActivity = {
+      'Steps': '',
+      'Distance': '',
+      'Hours': '',
+    };
+    HomeProvider().acitivitySave(dataActivity: dataActivity).then((response) {
+      if (response.status == 200) {
+      } else {
+        showToasts(text: response.message);
+      }
+    });
+  }
+
+  //bluetooth
+
   final isConnected = false.obs;
 
   void changeConnected() {

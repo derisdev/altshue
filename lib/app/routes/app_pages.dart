@@ -34,8 +34,12 @@ import 'package:altshue/app/modules/news/bindings/news_binding.dart';
 import 'package:altshue/app/modules/news/views/news_view.dart';
 import 'package:altshue/app/modules/news_detail/bindings/news_detail_binding.dart';
 import 'package:altshue/app/modules/news_detail/views/news_detail_view.dart';
+import 'package:altshue/app/modules/otp_password/bindings/otp_password_binding.dart';
+import 'package:altshue/app/modules/otp_password/views/otp_password_view.dart';
 import 'package:altshue/app/modules/rank/bindings/rank_binding.dart';
 import 'package:altshue/app/modules/rank/views/rank_view.dart';
+import 'package:altshue/app/modules/rank_rewards/bindings/rank_rewards_binding.dart';
+import 'package:altshue/app/modules/rank_rewards/views/rank_rewards_view.dart';
 import 'package:altshue/app/modules/redeem_history/bindings/redeem_history_binding.dart';
 import 'package:altshue/app/modules/redeem_history/views/redeem_history_view.dart';
 import 'package:altshue/app/modules/reedem/bindings/reedem_binding.dart';
@@ -183,6 +187,16 @@ class AppPages {
       name: _Paths.RESET_PASSWORD,
       page: () => ResetPasswordView(),
       binding: ResetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.OTP_PASSWORD,
+      page: () => OtpPasswordView(),
+      binding: OtpPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.RANK_REWARDS,
+      page: () => RankRewardsView(),
+      binding: RankRewardsBinding(),
     ),
   ];
 }

@@ -97,7 +97,7 @@ class FormLupaPassword extends GetView<LupaPasswordController> {
                   child: controller.isLoadingButton.value
                       ? SpinKitThreeBounce(
                           color: Colors.white,
-                          size: 30.0,
+                          size: 20.0,
                         )
                       : null,
                 ),

@@ -27,25 +27,25 @@ class ResetPasswordController extends GetxController {
         'Password_Again': passwordConfirmC!.text,
       };
 
-      ResetPasswordProvider()
-          .resetPassword(dataResetPassword: dataResetPassword)
-          .then((response) {
-        isLoadingButton.value = false;
+      //   ResetPasswordProvider()
+      //       .resetPassword(dataResetPassword: dataResetPassword)
+      //       .then((response) {
+      //     isLoadingButton.value = false;
 
-        if (response.status == 200) {
-          //show dialog
-          showDialogPW(
-              icon: Icons.verified_user,
-              onTap: () {
-                Get.offAllNamed(Routes.LOGIN);
-              },
-              text: "Password changed successfully",
-              textButton: 'GO BACK',
-              isDismissible: false);
-        } else {
-          showToasts(text: response.message);
-        }
-      });
+      //     if (response.status == 200) {
+      //       //show dialog
+      //       showDialogPW(
+      //           icon: Icons.verified_user,
+      //           onTap: () {
+      //             Get.offAllNamed(Routes.LOGIN);
+      //           },
+      //           text: "Password changed successfully",
+      //           textButton: 'GO BACK',
+      //           isDismissible: false);
+      //     } else {
+      //       showToasts(text: response.message);
+      //     }
+      //   });
     }
   }
 

@@ -23,8 +23,9 @@ class LoginController extends GetxController {
       isLoadingButton.value = true;
       Map dataLogin = {
         'email': emailC!.text,
-        ' password': passwordC!.text,
+        'password': passwordC!.text,
       };
+      print(dataLogin);
       LoginProvider().login(dataLogin: dataLogin).then((response) {
         isLoadingButton.value = false;
 

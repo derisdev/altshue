@@ -30,6 +30,8 @@ abstract class Routes {
   static const REDEEM_HISTORY = _Paths.REDEEM_HISTORY;
   static const LUPA_PASSWORD = _Paths.LUPA_PASSWORD;
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
+  static const OTP_PASSWORD = _Paths.OTP_PASSWORD;
+  static const RANK_REWARDS = _Paths.RANK_REWARDS;
 }
 
 abstract class _Paths {
@@ -59,4 +61,6 @@ abstract class _Paths {
   static const REDEEM_HISTORY = '/redeem-history';
   static const LUPA_PASSWORD = '/lupa-password';
   static const RESET_PASSWORD = '/reset-password';
+  static const OTP_PASSWORD = '/otp-password';
+  static const RANK_REWARDS = '/rank-rewards';
 }

@@ -20,7 +20,7 @@ class LupaPasswordController extends GetxController {
         isLoadingButton.value = false;
 
         if (response.status == 200) {
-          Get.offNamed(Routes.RESET_PASSWORD);
+          Get.offNamed(Routes.OTP_PASSWORD, arguments: {'email': emailC!.text});
         } else {
           showToasts(text: response.message);
         }

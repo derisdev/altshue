@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 
 class KTPVerifProvider {
   Future<KTPVerif> kTPVerif({required FormData dataKTPVerif}) async {
-    print(getToken());
     Dio dio = Dio();
     dio.options.headers['x-token'] = getToken();
     try {

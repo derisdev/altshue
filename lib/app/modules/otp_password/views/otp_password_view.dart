@@ -1,23 +1,18 @@
+import 'package:altshue/app/widgets/basic_background.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 import '../controllers/otp_password_controller.dart';
+import 'components/otp_password_form.dart';
 
 class OtpPasswordView extends GetView<OtpPasswordController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('OtpPasswordView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'OtpPasswordView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
-    );
+        resizeToAvoidBottomInset: false,
+        body: Stack(
+          children: [BasicBackground(), FormOTPPassword()],
+        ));
   }
 }

@@ -23,6 +23,7 @@ class Palette {
   static const chateauGreen = Color(0xff32B44B);
   static const merkury = Color(0xffE5E5E5);
   static const eastSide = Color(0xff9586CB);
+  static const pearlLusta = Color(0xffFCF3E4);
 }
 
 class AppFontStyle {

@@ -1,9 +1,13 @@
+import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:altshue/app/modules/home/providers/beranda_provider.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:battery/battery.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -27,9 +31,25 @@ class HomeController extends GetxController {
   //bluetooth
 
   final isConnected = false.obs;
+  FlutterBlue flutterBlue = FlutterBlue.instance;
+  void changeConnected() async {
+    // Start scanning
+    flutterBlue.startScan(timeout: Duration(seconds: 10));
 
-  void changeConnected() {
-    isConnected.value = true;
+// Listen to scan results
+    Future.delayed(Duration(seconds: 3), () {
+      var subscription = flutterBlue.scanResults.listen((results) {
+        // do something with scan results
+        print('result ${results.length}');
+        for (ScanResult r in results) {
+          print('${r.device.name} found! rssi: ${r.rssi}');
+        }
+      });
+    });
+
+// Stop scanning
+    flutterBlue.stopScan();
+    // isConnected.value = true;
   }
 
   //battery

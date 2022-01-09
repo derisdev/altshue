@@ -72,7 +72,7 @@ class ReedemPoint extends StatelessWidget {
                     child: InkWell(
                       onTap: () => Get.toNamed(Routes.REEDEM),
                       child: SizedBox(
-                        width: 96,
+                        width: 103,
                         height: 29,
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/home/views/home_bluetooth_view.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -68,7 +69,9 @@ class HomeView extends GetView<HomeController> {
                                     height: 10,
                                   ),
                                   InkWell(
-                                      onTap: () => controller.changeConnected(),
+                                      onTap: () {
+                                        Get.to(HomeBluetoothView());
+                                      },
                                       child: SvgPicture.asset(AssetName.pair)),
                                 ],
                               ),

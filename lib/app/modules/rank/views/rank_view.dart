@@ -27,6 +27,7 @@ class RankView extends GetView<RankController> {
                 ),
                 SizedBox(height: 18),
                 Top100Rank(controller: controller),
+                SizedBox(height: 10),
                 Top100RankList()
               ],
             ),

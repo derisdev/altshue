@@ -9,3 +9,13 @@ String? getToken() {
   final box = GetStorage();
   return box.read('token');
 }
+
+void saveStep(int step) {
+  final box = GetStorage();
+  box.write('step', step);
+}
+
+String? getStep() {
+  final box = GetStorage();
+  return box.read('step');
+}

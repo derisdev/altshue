@@ -1,11 +1,12 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 
-class TodayActivity extends StatelessWidget {
+class TodayActivity extends GetView<HomeController> {
   const TodayActivity({
     Key? key,
   }) : super(key: key);
@@ -110,11 +111,14 @@ class TodayActivity extends StatelessWidget {
                     ),
                     Column(
                       children: [
-                        Text('500',
-                            style: TextStyle(
-                                color: Palette.darkTan,
-                                fontSize: 28,
-                                fontFamily: AppFontStyle.montserratBoldItalic)),
+                        Obx(
+                          () => Text(controller.steps.value.toString(),
+                              style: TextStyle(
+                                  color: Palette.darkTan,
+                                  fontSize: 28,
+                                  fontFamily:
+                                      AppFontStyle.montserratBoldItalic)),
+                        ),
                         Text('STEPS'.tr,
                             style: TextStyle(
                                 color: Palette.darkTan,

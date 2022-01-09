@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:altshue/app/modules/home/providers/beranda_provider.dart';
+import 'package:altshue/app/utils/services/local_storage.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:battery/battery.dart';
 import 'package:flutter/services.dart';
@@ -11,10 +12,15 @@ import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+  final steps = 0.obs;
+  final currentTime = 0.obs;
   //activity
   void getActivity() {}
 
-  void postActivity() {
+  void postActivity(
+      {required String steps,
+      required String distance,
+      required String hours}) {
     Map dataActivity = {
       'Steps': '',
       'Distance': '',
@@ -31,25 +37,40 @@ class HomeController extends GetxController {
   //bluetooth
 
   final isConnected = false.obs;
-  FlutterBlue flutterBlue = FlutterBlue.instance;
-  void changeConnected() async {
-    // Start scanning
-    flutterBlue.startScan(timeout: Duration(seconds: 10));
 
-// Listen to scan results
-    Future.delayed(Duration(seconds: 3), () {
-      var subscription = flutterBlue.scanResults.listen((results) {
-        // do something with scan results
-        print('result ${results.length}');
-        for (ScanResult r in results) {
-          print('${r.device.name} found! rssi: ${r.rssi}');
+  void changeConnected(BluetoothDevice device) async {
+    device.connect();
+    // isConnected.value = true;
+
+    List<BluetoothService> services = await device.discoverServices();
+    BluetoothCharacteristic bluetoothCharacteristic =
+        services[2].characteristics[0];
+    await bluetoothCharacteristic.setNotifyValue(true);
+    bluetoothCharacteristic.value.listen((value) {
+      print('value:: $value');
+      if (value.isNotEmpty) {
+        if (value[0] > steps.value) {
+          steps.value = value[0];
         }
-      });
+        saveStep(steps.value);
+      }
+
+      //cek untuk setiap 20 menit kirim ke server
+      // if (currentTime.value > 20 * 60) {
+      //   postActivity(distance: '', hours: '', steps: steps.value.toString());
+      //   saveStep(0);
+      //   //get activity today
+      // }
     });
 
-// Stop scanning
-    flutterBlue.stopScan();
-    // isConnected.value = true;
+    device.state.listen((event) {
+      print('event ${event.index}');
+      if (event.index == 0) {
+        isConnected.value = false;
+      } else {
+        isConnected.value = true;
+      }
+    });
   }
 
   //battery

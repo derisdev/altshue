@@ -35,25 +35,8 @@ class HomeView extends GetView<HomeController> {
                     children: [
                       Container(
                         color: Colors.white,
-                        child: ListView(
-                          children: [
-                            SizedBox(
-                              height: 30,
-                            ),
-                            MissionProgress(),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            TodayActivity(),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            NewsHome(),
-                            SizedBox(
-                              height: 150,
-                            ),
-                          ],
-                        ),
+                        padding: EdgeInsets.only(top: 30),
+                        child: MissionProgress(),
                       ),
                       Obx(
                         () => Visibility(
@@ -70,7 +53,7 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                   InkWell(
                                       onTap: () {
-                                        Get.to(HomeBluetoothView());
+                                        controller.toBluetoothList();
                                       },
                                       child: SvgPicture.asset(AssetName.pair)),
                                 ],
@@ -84,6 +67,7 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
               Mission(),
+              TodayActivity(),
               NavigationBar(
                 index: 2,
               )

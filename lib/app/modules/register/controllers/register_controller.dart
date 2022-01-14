@@ -44,8 +44,8 @@ class RegisterController extends GetxController {
             .then((response) {
           isLoadingButton.value = false;
           if (response.status == 200) {
-            print('token:: ${response.data!.Token}');
             saveToken(response.data!.Token);
+            print(getToken());
             Get.offAllNamed(Routes.KTP_VERIF);
           } else {
             showToasts(text: response.message);

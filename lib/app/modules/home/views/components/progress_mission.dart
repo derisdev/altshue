@@ -15,6 +15,7 @@ class MissionProgress extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Container(
           width: Get.width,
+          height: Get.height - 240 - Get.height * 0.35,
           padding: EdgeInsets.only(left: 24.5, right: 17.5),
           decoration: BoxDecoration(
             color: Palette.blueMarguerite.withOpacity(0.10),
@@ -26,7 +27,7 @@ class MissionProgress extends StatelessWidget {
           ),
           child: ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: BouncingScrollPhysics(),
               itemCount: 3,
               itemBuilder: (_, index) {
                 return Column(
@@ -37,7 +38,7 @@ class MissionProgress extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Mission 1',
+                        Text('Mission ${index + 1}',
                             style: TextStyle(
                                 color: Palette.tundora,
                                 fontSize: 10,

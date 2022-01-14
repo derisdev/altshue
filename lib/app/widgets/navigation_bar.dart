@@ -17,8 +17,8 @@ class NavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 20,
-      left: 23,
-      right: 23,
+      left: 20,
+      right: 20,
       child: Container(
           height: 72,
           width: Get.width,

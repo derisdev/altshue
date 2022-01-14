@@ -73,6 +73,7 @@ class FindDevicesScreen extends StatelessWidget {
                           Get.find<HomeController>()
                               .changeConnected(result.device);
                           Navigator.pop(context);
+                          // Get.to(DeviceScreen(device: result.device));
                         }))
                     .toList(),
               ),
@@ -112,23 +113,28 @@ class DeviceScreen extends StatelessWidget {
         .map((e) => Column(
               children: [
                 ListTile(
-                  title: Text("${e.characteristics[0]}"),
+                  title:
+                      Text("Service dengan uuid ${e.characteristics[0].uuid}"),
+                  onTap: () {
+                    // print('karakter 1 ${e.characteristics}');
+                  },
+                ),
+                ListTile(
+                  title: StreamBuilder<List<int>>(
+                    stream: e.characteristics[0].value,
+                    initialData: [0],
+                    builder: (c, snapshot) {
+                      return Text('${snapshot.data}');
+                    },
+                  ),
                   onTap: () async {
-                    // print('karakter 0 ${e.characteristics}');
-                    // e.characteristics[0].write([0]);
+                    print('karakter 0 ${e.characteristics}');
+                    e.characteristics[0].write([0]);
                     var sub = e.characteristics[0].value.listen((value) {
                       print('value $value');
                     });
                     await e.characteristics[0].read();
                     sub.cancel();
-                  },
-                ),
-                ListTile(
-                  title: Text("ON"),
-                  onTap: () {
-                    // print('karakter 1 ${e.characteristics}');
-
-                    e.characteristics[0].write([1]);
                   },
                 ),
               ],

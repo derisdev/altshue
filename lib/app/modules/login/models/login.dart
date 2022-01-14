@@ -24,17 +24,19 @@ class Login {
 
 class Data {
   Data({
-    required this.Token,
+    required this.token,
   });
-  late final String Token;
+  late final String token;
+  late final bool ektpVerified;
 
   Data.fromJson(Map<String, dynamic> json) {
-    Token = json['Token'];
+    token = json['Token'];
+    ektpVerified = json['EktpVerified'];
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
-    _data['Token'] = Token;
+    _data['Token'] = token;
     return _data;
   }
 }

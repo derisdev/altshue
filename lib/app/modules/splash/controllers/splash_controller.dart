@@ -8,7 +8,15 @@ class SplashController extends GetxController {
       String? token = getToken();
       print('token:: $token');
       if (token != null) {
-        Get.offNamed(Routes.HOME);
+        if (getKtpVerified() != null) {
+          if (getKtpVerified()!) {
+            Get.offNamed(Routes.HOME);
+          } else {
+            Get.offNamed(Routes.KTP_VERIF);
+          }
+        } else {
+          Get.offNamed(Routes.KTP_VERIF);
+        }
       } else {
         Get.offNamed(Routes.LOGIN);
       }

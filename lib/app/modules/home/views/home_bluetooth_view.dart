@@ -1,3 +1,4 @@
+import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';

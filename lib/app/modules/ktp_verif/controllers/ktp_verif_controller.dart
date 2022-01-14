@@ -1,10 +1,10 @@
 import 'package:altshue/app/modules/ktp_verif/providers/ktp_verif_provider.dart';
 import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/utils/services/local_storage.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:dio/dio.dart' as dio;
 
 class KtpVerifController extends GetxController {
   final TextEditingController? noKTPC = TextEditingController();
@@ -30,19 +30,17 @@ class KtpVerifController extends GetxController {
         !isErrorAlamat.value &&
         imagePath.value.isNotEmpty) {
       isLoadingButton.value = true;
-      dio.FormData dataKTP = dio.FormData.fromMap({
-        "Ektp": await dio.MultipartFile.fromFile(
-          imagePath.value,
-          filename: fotoKTPC!.text,
-        ),
-        ' EktpId': noKTPC!.text,
-        ' Address': alamatC!.text,
-      });
 
-      KTPVerifProvider().kTPVerif(dataKTPVerif: dataKTP).then((response) {
+      KTPVerifProvider()
+          .kTPVerif(
+              address: alamatC!.text,
+              eKtpId: noKTPC!.text,
+              filePath: imagePath.value)
+          .then((response) {
         isLoadingButton.value = false;
 
         if (response.status == 200) {
+          saveKtpVerified(true);
           Get.offAllNamed(Routes.HOME);
         } else {
           showToasts(text: response.message);

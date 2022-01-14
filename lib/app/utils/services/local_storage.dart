@@ -19,3 +19,13 @@ String? getStep() {
   final box = GetStorage();
   return box.read('step');
 }
+
+void saveKtpVerified(bool verified) {
+  final box = GetStorage();
+  box.write('ktp_verified', verified);
+}
+
+bool? getKtpVerified() {
+  final box = GetStorage();
+  return box.read('ktp_verified');
+}

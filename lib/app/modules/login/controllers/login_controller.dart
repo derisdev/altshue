@@ -30,9 +30,14 @@ class LoginController extends GetxController {
         isLoadingButton.value = false;
 
         if (response.status == 200) {
-          print('token:: ${response.data!.Token}');
-          saveToken(response.data!.Token);
-          Get.offAllNamed(Routes.KTP_VERIF);
+          print('token:: ${response.data!.token}');
+          saveToken(response.data!.token);
+          if (!response.data!.ektpVerified) {
+            saveKtpVerified(false);
+            Get.offAllNamed(Routes.KTP_VERIF);
+          } else {
+            Get.offAllNamed(Routes.HOME);
+          }
         } else {
           showToasts(text: response.message);
         }

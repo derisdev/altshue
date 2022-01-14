@@ -39,6 +39,7 @@ class FormKTPVerif extends StatelessWidget {
                 height: 44,
               ),
               Text('VERIFIKASI KTP'.tr,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Palette.white,
                       fontSize: 20,

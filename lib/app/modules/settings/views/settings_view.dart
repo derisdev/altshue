@@ -29,7 +29,7 @@ class SettingsView extends GetView<SettingsController> {
                   width: 186,
                   height: 41,
                   child: ButtonGlobal(
-                    onTap: () {},
+                    onTap: () => controller.logout(),
                     primary: Palette.darkTan,
                     radius: 8,
                     fontSize: 14,

@@ -50,7 +50,12 @@ class EditProfileController extends GetxController {
       });
 
       EditProfileProvider()
-          .editProfile(dataEditProfile: dataEditProfile)
+          .editProfile(
+        email: emailC!.text,
+        filePath: imagePath.value,
+        fullName: fullNameC!.text,
+        phone: phoneC!.text,
+      )
           .then((response) {
         isLoadingButton.value = false;
 

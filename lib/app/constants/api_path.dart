@@ -8,10 +8,11 @@ abstract class ApiPath {
   static const ektp = baseUrlMember + '/ektp';
   static const dataUpdate = baseUrlMember + '/data_update';
   static const login = baseUrlMember + '/login';
-  static const password = baseUrlMember + '/password';
+  static const updatePassword = baseUrlMember + '/password';
   static const activityAdd = baseUrlMember + '/activity_add';
-  static const resetPassword = baseUrlMember + '/reset_password';
-  static const confirmPassword = baseUrlMember + '/confirm_password';
+  static const lupaPassword = baseUrlMember + '/reset_password';
+  static const otpVerify = baseUrlMember + '/confirm_otp';
+  static const resetNewPassword = baseUrlMember + '/confirm_password';
 
   //mission
   static const baseUrlMission = baseUrl + '/mission';

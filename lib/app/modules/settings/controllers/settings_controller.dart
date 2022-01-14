@@ -1,20 +1,10 @@
+import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/utils/services/local_storage.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController {
-  //TODO: Implement SettingsController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void logout() {
+    clearStorage();
+    Get.offAllNamed(Routes.SPLASH);
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

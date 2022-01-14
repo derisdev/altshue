@@ -29,3 +29,8 @@ bool? getKtpVerified() {
   final box = GetStorage();
   return box.read('ktp_verified');
 }
+
+void clearStorage() {
+  final box = GetStorage();
+  box.erase();
+}

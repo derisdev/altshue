@@ -1,4 +1,5 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/account/models/account.dart';
 import 'package:altshue/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,10 @@ import 'package:get/get.dart';
 class TopAccount extends StatelessWidget {
   const TopAccount({
     Key? key,
+    required this.dataAccount,
   }) : super(key: key);
+
+  final DataAccount? dataAccount;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,9 @@ class TopAccount extends StatelessWidget {
           ),
           CircleAvatar(
               radius: 35,
-              backgroundImage: NetworkImage(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
+              backgroundImage: NetworkImage(dataAccount!.Photo.isNotEmpty
+                  ? dataAccount!.Photo
+                  : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU')),
           SizedBox(
             width: 16,
           ),
@@ -32,7 +37,7 @@ class TopAccount extends StatelessWidget {
             children: [
               SizedBox(
                 width: Get.width / 3.2,
-                child: Text('Adinda',
+                child: Text(dataAccount!.Fullname,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -44,7 +49,7 @@ class TopAccount extends StatelessWidget {
                 height: 8,
               ),
               Text(
-                'adinda@gmail.com',
+                dataAccount!.Email,
                 style: TextStyle(
                     color: Palette.doveGray,
                     fontSize: 12,
@@ -54,7 +59,7 @@ class TopAccount extends StatelessWidget {
                 height: 7,
               ),
               Text(
-                '08123456789',
+                dataAccount!.Phone,
                 style: TextStyle(
                     color: Palette.doveGray,
                     fontSize: 12,
@@ -85,7 +90,13 @@ class TopAccount extends StatelessWidget {
                     child: Material(
                       color: Colors.transparent,
                       child: InkWell(
-                        onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
+                        onTap: () =>
+                            Get.toNamed(Routes.EDIT_PROFILE, arguments: {
+                          'full_name': dataAccount!.Fullname,
+                          'email': dataAccount!.Email,
+                          'phone': dataAccount!.Phone,
+                          'foto': dataAccount!.Photo,
+                        }),
                         child: SizedBox(
                           width: 96,
                           height: 29,

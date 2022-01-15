@@ -15,7 +15,7 @@ class FriendRequest extends GetView<FriendsReqController> {
     return controller.obx(
       (state) => ListView.builder(
           itemCount: state!.length,
-          padding: EdgeInsets.symmetric(vertical: 200),
+          padding: EdgeInsets.only(top: 10, bottom: 150),
           itemBuilder: (_, index) {
             return FriendRequestItem(
               index,

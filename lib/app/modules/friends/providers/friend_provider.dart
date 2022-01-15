@@ -12,8 +12,8 @@ class FriendProvider extends GetConnect {
   }
 
   Future<Friend> friendReqList() async {
-    final response = await get(ApiPath.friendReq, headers: headerApi());
-    print(response.body);
+    final response = await get(ApiPath.friendReqList, headers: headerApi());
+    print('friend req ${response.body}');
     return Friend.fromJson(response.body);
   }
 

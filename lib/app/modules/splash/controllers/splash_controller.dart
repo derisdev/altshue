@@ -6,7 +6,7 @@ class SplashController extends GetxController {
   void checkToken() {
     Future.delayed(Duration(seconds: 2), () {
       String? token = getToken();
-      // print(token);
+      print(token);
       // eraseDataActivity();
       if (token != null) {
         if (getKtpVerified() != null) {

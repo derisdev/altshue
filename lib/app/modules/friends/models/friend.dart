@@ -35,7 +35,7 @@ class DataFriend {
 
   DataFriend.fromJson(Map<String, dynamic> json) {
     Id = json['Id'];
-    Fullname = null;
+    Fullname = json['Fullname'];
     MemberLevel = json['MemberLevel'];
   }
 

@@ -40,7 +40,7 @@ class FriendListItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: Get.width / 2.6,
-                    child: Text('John Doe',
+                    child: Text(dataFriend.Fullname.toString(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -86,7 +86,7 @@ class FriendListItem extends StatelessWidget {
                         width: 7,
                       ),
                       Text(
-                        'Prodigious',
+                        dataFriend.MemberLevel,
                         style: TextStyle(
                             color: Palette.doveGray,
                             fontSize: 12,

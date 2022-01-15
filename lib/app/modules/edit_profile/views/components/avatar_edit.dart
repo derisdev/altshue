@@ -29,7 +29,14 @@ class AvatarEdit extends StatelessWidget {
                       backgroundColor: Palette.merkury,
                       backgroundImage:
                           FileImage(File(controller.imagePath.value)))
-                  : CircleAvatar(radius: 40, backgroundColor: Palette.merkury),
+                  : controller.defaultImage.isNotEmpty
+                      ? CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Palette.merkury,
+                          backgroundImage:
+                              NetworkImage(controller.defaultImage.value))
+                      : CircleAvatar(
+                          radius: 40, backgroundColor: Palette.merkury),
             ),
             Positioned(
                 bottom: 5,

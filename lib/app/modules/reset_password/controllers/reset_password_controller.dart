@@ -17,35 +17,41 @@ class ResetPasswordController extends GetxController {
 
   final isLoadingButton = false.obs;
 
+  final arg = Get.arguments;
+
   void reset() {
     if (formGlobalKey.currentState!.validate() &&
         !isErrorPW.value &&
         !isErrorPWC.value) {
-      isLoadingButton.value = true;
-      Map dataResetPassword = {
-        'Password': passwordC!.text,
-        'Password_Again': passwordConfirmC!.text,
-      };
+      if (passwordC!.text == passwordConfirmC!.text) {
+        isLoadingButton.value = true;
+        Map dataResetPassword = {
+          'MemberId': arg['member_id'],
+          'password': passwordC!.text,
+        };
 
-      //   ResetPasswordProvider()
-      //       .resetPassword(dataResetPassword: dataResetPassword)
-      //       .then((response) {
-      //     isLoadingButton.value = false;
+        ResetPasswordProvider()
+            .resetPassword(dataResetPassword: dataResetPassword)
+            .then((response) {
+          isLoadingButton.value = false;
 
-      //     if (response.status == 200) {
-      //       //show dialog
-      //       showDialogPW(
-      //           icon: Icons.verified_user,
-      //           onTap: () {
-      //             Get.offAllNamed(Routes.LOGIN);
-      //           },
-      //           text: "Password changed successfully",
-      //           textButton: 'GO BACK',
-      //           isDismissible: false);
-      //     } else {
-      //       showToasts(text: response.message);
-      //     }
-      //   });
+          if (response.status == 200) {
+            //show dialog
+            showDialogPW(
+                icon: Icons.verified_user,
+                onTap: () {
+                  Get.offAllNamed(Routes.LOGIN);
+                },
+                text: "Password changed successfully",
+                textButton: 'GO BACK',
+                isDismissible: false);
+          } else {
+            showToasts(text: response.message);
+          }
+        });
+      } else {
+        showToasts(text: 'Password tidak sama');
+      }
     }
   }
 

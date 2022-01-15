@@ -23,6 +23,7 @@ abstract class ApiPath {
   //friend req
   static const baseUrlReq = baseUrl + '/request';
   static const friendReq = baseUrlReq + '/friend';
+  static const friendReqList = baseUrlReq + '/list';
   static const confirmReq = baseUrlReq + '/confirm';
   static const unfriend = baseUrlReq + '/unfriend';
   static const findFriend = baseUrl + '/find/friend';

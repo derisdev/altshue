@@ -36,6 +36,7 @@ class LoginController extends GetxController {
             saveKtpVerified(false);
             Get.offAllNamed(Routes.KTP_VERIF);
           } else {
+            saveKtpVerified(true);
             Get.offAllNamed(Routes.HOME);
           }
         } else {

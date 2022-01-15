@@ -20,20 +20,43 @@ class AccountView extends GetView<AccountController> {
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
-            ListView(
-              children: [
-                SizedBox(height: 60),
-                TopAccount(),
-                SizedBox(height: 13),
-                CopyRefferal(controller: controller),
-                SizedBox(height: 12),
-                LevelPlayer(),
-                SizedBox(height: 15),
-                ReedemPoint(controller: controller),
-                SizedBox(height: 22),
-                SettingsMenu()
-              ],
-            ),
+            controller.obx(
+                (state) => ListView(
+                      children: [
+                        SizedBox(height: 60),
+                        TopAccount(
+                          dataAccount: state,
+                        ),
+                        SizedBox(height: 13),
+                        CopyRefferal(controller: controller),
+                        SizedBox(height: 12),
+                        LevelPlayer(),
+                        SizedBox(height: 15),
+                        ReedemPoint(controller: controller),
+                        SizedBox(height: 22),
+                        SettingsMenu()
+                      ],
+                    ),
+                onEmpty: SizedBox(
+                  height: Get.height,
+                  child: Center(
+                    child: Text('Data is Empty'),
+                  ),
+                ),
+                onError: (message) => SizedBox(
+                      height: Get.height,
+                      child: Center(
+                        child: Text(message.toString()),
+                      ),
+                    ),
+                onLoading: SizedBox(
+                  height: Get.height,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(Palette.dixie),
+                    ),
+                  ),
+                )),
             HeaderMainBar(
               title: 'Account'.tr,
             ),

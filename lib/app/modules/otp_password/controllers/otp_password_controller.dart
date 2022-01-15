@@ -17,12 +17,13 @@ class OtpPasswordController extends GetxController {
       isLoadingButton.value = true;
 
       OTPPasswordProvider()
-          .oTPPassword(email: arg['email'], pin: otpC.text)
+          .oTPPassword(email: arg['email'], otp: otpC.text)
           .then((response) {
         isLoadingButton.value = false;
 
         if (response.status == 200) {
-          Get.offNamed(Routes.RESET_PASSWORD);
+          Get.offNamed(Routes.RESET_PASSWORD,
+              arguments: {'member_id': response.data.MemberId});
         } else {
           showToasts(text: response.message);
         }

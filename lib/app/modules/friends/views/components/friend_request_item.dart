@@ -47,7 +47,7 @@ class FriendRequestItem extends GetView<FriendsReqController> {
                     children: [
                       SizedBox(
                         width: Get.width / 2,
-                        child: Text('John Doe',
+                        child: Text(dataFriend.Fullname.toString(),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -93,7 +93,7 @@ class FriendRequestItem extends GetView<FriendsReqController> {
                             width: 7,
                           ),
                           Text(
-                            'Prodigious',
+                            dataFriend.MemberLevel,
                             style: TextStyle(
                                 color: Palette.doveGray,
                                 fontSize: 13,
@@ -123,7 +123,8 @@ class FriendRequestItem extends GetView<FriendsReqController> {
                                 uniqueId: dataFriend.Id, index: index),
                         title: 'Confirm'.tr,
                         radius: 8,
-                        child: controller.isLoadingConfirm.value
+                        child: controller.isLoadingConfirm.value &&
+                                controller.selectedIndex.value == index
                             ? SpinKitThreeBounce(
                                 color: Colors.white,
                                 size: 20.0,
@@ -149,7 +150,8 @@ class FriendRequestItem extends GetView<FriendsReqController> {
                           radius: 8,
                           primary: Palette.gallery,
                           textColor: Palette.darkTan,
-                          child: controller.isLoadingConfirm.value
+                          child: controller.isLoadingDelete.value &&
+                                  controller.selectedIndex.value == index
                               ? SpinKitThreeBounce(
                                   color: Palette.darkTan,
                                   size: 20.0,

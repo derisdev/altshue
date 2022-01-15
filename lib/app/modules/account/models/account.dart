@@ -6,12 +6,12 @@ class Account {
   });
   late final int status;
   late final String message;
-  late final Data data;
+  late final DataAccount data;
 
   Account.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = Data.fromJson(json['data']);
+    data = DataAccount.fromJson(json['data']);
   }
 
   Map<String, dynamic> toJson() {
@@ -23,8 +23,8 @@ class Account {
   }
 }
 
-class Data {
-  Data({
+class DataAccount {
+  DataAccount({
     required this.Email,
     required this.Fullname,
     required this.Phone,
@@ -35,7 +35,7 @@ class Data {
   late final String Phone;
   late final String Photo;
 
-  Data.fromJson(Map<String, dynamic> json) {
+  DataAccount.fromJson(Map<String, dynamic> json) {
     Email = json['Email'];
     Fullname = json['Fullname'];
     Phone = json['Phone'];

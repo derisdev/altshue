@@ -49,6 +49,7 @@ class FormResetPassword extends GetView<ResetPasswordController> {
                     child: InputField(
                       controller: controller.passwordC,
                       hintText: 'Masukkan Password Baru'.tr,
+                      obscureText: true,
                       validator: (String? text) {
                         if (text == null || text.isEmpty) {
                           controller.isErrorPW.value = true;
@@ -95,6 +96,7 @@ class FormResetPassword extends GetView<ResetPasswordController> {
                     height: 48,
                     child: InputField(
                       controller: controller.passwordConfirmC,
+                      obscureText: true,
                       hintText: 'Konfirmasi Password Baru'.tr,
                       isEmail: true,
                       validator: (String? text) {

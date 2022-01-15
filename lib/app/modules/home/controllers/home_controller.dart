@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:altshue/app/modules/home/providers/beranda_provider.dart';
-import 'package:altshue/app/modules/home/views/home_bluetooth_view.dart';
+import 'package:altshue/app/modules/home/views/home_view.dart';
+import 'package:altshue/app/utils/services/local_storage.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:battery/battery.dart';
 import 'package:flutter/services.dart';
@@ -19,25 +20,62 @@ class HomeController extends GetxController {
   final durationDisplay = '0'.obs;
   final distance = 0.0.obs;
 
+  //default activity
+  int stepDefault = 0;
+  int durationDefault = 0;
+  double distanceDefault = 0.0;
+
   bool callcontroller = false;
+
   //activity
   void getActivity() {}
 
-  void postActivity(
-      {required String steps,
-      required String distance,
-      required String hours}) {
+  void postActivity() {
     Map dataActivity = {
-      'Steps': '',
-      'Distance': '',
-      'Hours': '',
+      'Steps': steps.value.toString(),
+      'Distance': distance.value.toString(),
+      'Hours': (duration / 3600).toString()
     };
+    print(dataActivity);
     HomeProvider().acitivitySave(dataActivity: dataActivity).then((response) {
       if (response.status == 200) {
+        getActivity();
       } else {
         showToasts(text: response.message);
       }
     });
+  }
+
+  bool isFirstGet = false;
+
+  void getDefaultActivity() {
+    final now = DateTime.now();
+    if (now.day == getCurrentDay()) {
+      isFirstGet = true;
+
+      if (getStep() != null) {
+        stepDefault = getStep()!.toInt();
+        steps.value = stepDefault;
+      }
+      if (getDuration() != null) {
+        durationDefault = getDuration()!.toInt() * 1000;
+        print('durationDefault $durationDefault');
+        final displayTime =
+            StopWatchTimer.getDisplayTimeMinute(durationDefault);
+        if (displayTime[0] == '0') {
+          durationDisplay.value = displayTime.substring(1);
+        } else {
+          durationDisplay.value = displayTime;
+        }
+      }
+      if (getDistance() != null) {
+        distanceDefault = getDistance()!.toDouble();
+        distance.value = distanceDefault;
+      }
+    } else {
+      saveCurrentDay(now.day);
+      eraseDataActivity();
+    }
   }
 
   //bluetooth
@@ -54,10 +92,12 @@ class HomeController extends GetxController {
       if (event.index == 0) {
         isConnected.value = false;
         _stopWatchTimer.onExecute.add(StopWatchExecute.stop);
+        locationSubscription.cancel();
         changeConnected(device);
       } else {
         if (callcontroller) {
           isConnected.value = true;
+          getDefaultActivity();
           discoverService(device);
           startTimer();
           setDistance();
@@ -82,26 +122,23 @@ class HomeController extends GetxController {
               if (value.isNotEmpty) {
                 if (value[0] > steps.value) {
                   final step = int.parse(utf8.decode(value));
-                  if (step == 1 || step == 0) {
+                  if ((step == 1 || step == 0) && stepDefault == 0) {
                     steps.value = step;
                     currentStep = step;
                   } else {
                     if (step != currentStep) {
-                      steps.value = step + stepCounter;
-                      stepCounter += 1;
+                      steps.value += 2;
                       currentStep = step;
+
+                      if (isFirstGet) {
+                        steps.value -= 2;
+                        isFirstGet = false;
+                      }
                     }
                   }
                 }
-                // saveStep(steps.value);
-
+                saveStep(steps.value);
               }
-              //cek untuk setiap 20 menit kirim ke server
-              // if (currentTime.value > 20 * 60) {
-              //   postActivity(distance: '', hours: '', steps: steps.value.toString());
-              //   saveStep(0);
-              //   //get activity today
-              // }
             });
           }
         }
@@ -114,7 +151,8 @@ class HomeController extends GetxController {
   void startTimer() {
     _stopWatchTimer = StopWatchTimer(
       onChange: (value) {
-        final displayTime = StopWatchTimer.getDisplayTimeMinute(value);
+        final displayTime =
+            StopWatchTimer.getDisplayTimeMinute(value + durationDefault);
         if (displayTime[0] == '0') {
           durationDisplay.value = displayTime.substring(1);
         } else {
@@ -125,19 +163,26 @@ class HomeController extends GetxController {
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
 
     _stopWatchTimer.secondTime.listen((value) {
-      duration = value;
+      duration = value + durationDefault ~/ 1000;
+      saveDuration(duration);
+
+      if (duration % 60 * 20 == 0 && steps.value != 0) {
+        postActivity();
+      }
     });
   }
 
   //distance
 
   Location location = Location();
-
+  late StreamSubscription<LocationData> locationSubscription;
   setDistance() {
-    location.onLocationChanged.listen((LocationData currentLocation) {
+    locationSubscription =
+        location.onLocationChanged.listen((LocationData currentLocation) {
       // Use current location
       print('heading:: ${currentLocation.verticalAccuracy}');
       distance.value += (2 / 1000);
+      saveDistance(distance.value);
     });
   }
 
@@ -170,10 +215,10 @@ class HomeController extends GetxController {
       _permissionGranted = await location.requestPermission();
       if (_permissionGranted != PermissionStatus.granted) {
       } else {
-        Get.to(HomeBluetoothView());
+        showDialogBluetooth();
       }
     } else {
-      Get.to(HomeBluetoothView());
+      showDialogBluetooth();
     }
   }
 
@@ -210,6 +255,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     changeBattery();
+    getDefaultActivity();
     super.onInit();
   }
 }

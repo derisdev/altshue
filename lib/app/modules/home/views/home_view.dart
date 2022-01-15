@@ -4,7 +4,6 @@ import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
@@ -53,8 +52,8 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                   InkWell(
                                       onTap: () {
-                                        // controller.toBluetoothList();
-                                        showDialogBluetooth();
+                                        controller.toBluetoothList();
+                                        // showDialogBluetooth();
                                       },
                                       child: SvgPicture.asset(AssetName.pair)),
                                   SizedBox(
@@ -151,7 +150,7 @@ class FindDevicesScreen extends StatelessWidget {
                 return InkWell(
                   onTap: () => FlutterBlue.instance
                       .startScan(timeout: Duration(seconds: 4)),
-                  child: Text('Pindai',
+                  child: Text('Scan',
                       style: TextStyle(
                           color: Palette.dixie,
                           fontSize: 14,
@@ -238,11 +237,7 @@ class BluetoothOffScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Icon(
-              Icons.bluetooth_disabled,
-              size: 50.0,
-              color: Colors.black,
-            ),
+            SvgPicture.asset(AssetName.bluetooth),
             SizedBox(
               height: 20,
             ),

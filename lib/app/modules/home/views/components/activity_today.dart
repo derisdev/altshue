@@ -71,7 +71,7 @@ class TodayActivity extends GetView<HomeController> {
                                         controller.distance.value == 0.0
                                             ? '0'
                                             : controller.distance.value
-                                                .toStringAsFixed(2),
+                                                .toStringAsFixed(0),
                                         style: TextStyle(
                                             color: Palette.darkTan,
                                             fontSize: 28,

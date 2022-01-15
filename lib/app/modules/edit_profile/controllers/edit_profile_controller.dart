@@ -4,7 +4,6 @@ import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:dio/dio.dart' as dio;
 
 class EditProfileController extends GetxController {
   final TextEditingController? fullNameC = TextEditingController();
@@ -36,18 +35,6 @@ class EditProfileController extends GetxController {
         !isErrorEmail.value &&
         !isErrorPhone.value) {
       isLoadingButton.value = true;
-
-      dio.FormData dataEditProfile = dio.FormData.fromMap({
-        if (imagePath.value.isNotEmpty) ...{
-          "Foto": await dio.MultipartFile.fromFile(
-            imagePath.value,
-            filename: imagePath.value.split('/').last,
-          ),
-        },
-        'Email': emailC!.text,
-        'Phone': phoneC!.text,
-        'Fullname': fullNameC!.text,
-      });
 
       EditProfileProvider()
           .editProfile(

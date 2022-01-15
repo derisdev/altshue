@@ -4,10 +4,11 @@ abstract class ApiPath {
 
   //member
   static const baseUrlMember = baseUrl + '/member';
+  static const login = baseUrlMember + '/login';
   static const register = baseUrlMember + '/add';
   static const ektp = baseUrlMember + '/ektp';
+  static const memberData = baseUrlMember + '/profile';
   static const dataUpdate = baseUrlMember + '/data_update';
-  static const login = baseUrlMember + '/login';
   static const updatePassword = baseUrlMember + '/password';
   static const activityAdd = baseUrlMember + '/activity_add';
   static const lupaPassword = baseUrlMember + '/reset_password';
@@ -29,4 +30,7 @@ abstract class ApiPath {
   //friend
   static const baseUrlFriend = baseUrl + '/friend';
   static const listFriend = baseUrlFriend + '/list';
+
+  //news
+  static const news = baseUrl + '/article/list';
 }

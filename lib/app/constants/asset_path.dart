@@ -29,7 +29,7 @@ abstract class AssetName {
   static const arrowThickTop = '$baseAssetImagesvg/arrow-thick-top.svg';
   static const checkSquare = '$baseAssetImagesvg/check-square.svg';
 
-  static const bluetooth = '$baseAssetImagePng/bluetooth.png';
+  static const bluetooth = '$baseAssetImagesvg/bluetooth.svg';
 
   //png
   static const appIcon = '$baseAssetImagePng/app-icon.png';

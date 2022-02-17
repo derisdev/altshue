@@ -11,9 +11,11 @@ class ReedemPoint extends StatelessWidget {
   const ReedemPoint({
     Key? key,
     required this.controller,
+    required this.apTotal,
   }) : super(key: key);
 
   final AccountController controller;
+  final String apTotal;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class ReedemPoint extends StatelessWidget {
           children: [
             Image.asset(AssetName.ap, height: 31),
             SizedBox(width: 15),
-            Text('400',
+            Text(apTotal,
                 style: TextStyle(
                     color: Palette.darkTan,
                     fontSize: 25,

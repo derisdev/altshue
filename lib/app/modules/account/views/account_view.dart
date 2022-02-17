@@ -28,11 +28,17 @@ class AccountView extends GetView<AccountController> {
                           dataAccount: state,
                         ),
                         SizedBox(height: 13),
-                        CopyRefferal(controller: controller),
+                        CopyRefferal(
+                          controller: controller,
+                          refferalCode: state!.ReferralCode,
+                        ),
                         SizedBox(height: 12),
                         LevelPlayer(),
                         SizedBox(height: 15),
-                        ReedemPoint(controller: controller),
+                        ReedemPoint(
+                          controller: controller,
+                          apTotal: state.gift.AP,
+                        ),
                         SizedBox(height: 22),
                         SettingsMenu()
                       ],

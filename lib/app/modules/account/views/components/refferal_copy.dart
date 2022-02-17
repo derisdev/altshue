@@ -8,9 +8,11 @@ class CopyRefferal extends StatelessWidget {
   const CopyRefferal({
     Key? key,
     required this.controller,
+    required this.refferalCode,
   }) : super(key: key);
 
   final AccountController controller;
+  final String refferalCode;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class CopyRefferal extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Palette.dixie, borderRadius: BorderRadius.circular(5)),
             child: Center(
-                child: Text('J0HND03',
+                child: Text(refferalCode,
                     style: TextStyle(
                         color: Palette.white,
                         fontSize: 16,

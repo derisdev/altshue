@@ -16,6 +16,9 @@ class RedeemHistoryView extends GetView<RedeemHistoryController> {
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
+            SizedBox(
+              height: Get.height,
+            ),
             HistoryListReedem(),
             HeaderBar(
               title: 'Redeem History'.tr,

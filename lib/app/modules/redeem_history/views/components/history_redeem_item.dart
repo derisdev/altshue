@@ -1,6 +1,8 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/redeem_history/models/redeem_history.dart';
 import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/utils/helpers/data_format.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +10,11 @@ class HistoryReedemItem extends StatelessWidget {
   const HistoryReedemItem({
     Key? key,
     required this.index,
+    required this.dataHistory,
   }) : super(key: key);
 
   final int index;
+  final DataHistory dataHistory;
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +86,9 @@ class HistoryReedemItem extends StatelessWidget {
                                       fontSize: 14,
                                       fontFamily: AppFontStyle.montserratMed)),
                               TextSpan(
-                                  text:
-                                      index == 0 ? 'Processing'.tr : 'Done'.tr,
+                                  text: index == 0
+                                      ? dataHistory.RedeemStatus.tr
+                                      : 'Done'.tr,
                                   style: TextStyle(
                                       color: index == 0
                                           ? Palette.darkTan
@@ -94,7 +99,8 @@ class HistoryReedemItem extends StatelessWidget {
                             SizedBox(
                               height: 12,
                             ),
-                            Text('8/12/21',
+                            Text(
+                                dateFormatHistoryRedeem(dataHistory.RedeemDate),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(

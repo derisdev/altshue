@@ -96,6 +96,7 @@ class TopAccount extends StatelessWidget {
                           'email': dataAccount!.Email,
                           'phone': dataAccount!.Phone,
                           'foto': dataAccount!.Photo,
+                          'is_verified': dataAccount!.IsVerified,
                         }),
                         child: SizedBox(
                           width: 96,

@@ -17,8 +17,9 @@ abstract class ApiPath {
 
   //mission
   static const baseUrlMission = baseUrl + '/mission';
-  static const check = baseUrlMission + '/check';
-  static const listMission = baseUrlMission + '/list?mission_type=3';
+  static const missionList = baseUrlMission + '/list';
+  static const missionAchievmentCheck = baseUrl + '/achievement/check';
+  static const missionCheck = baseUrlMission + '/check';
 
   //friend req
   static const baseUrlReq = baseUrl + '/request';
@@ -34,4 +35,18 @@ abstract class ApiPath {
 
   //news
   static const news = baseUrl + '/article/list';
+  static const newsDetail = baseUrl + '/article/detail';
+
+  //contact
+  static const getContact = baseUrl + '/get/contact';
+  static const sendContact = baseUrl + '/send/contact';
+
+  //redeem_history
+  static const redeemHistory = baseUrl + '/gift/redeem_hist';
+
+  //bug report
+  static const bugError = baseUrl + '/bug/report';
+
+  //bank account
+  static const bankAccount = baseUrl + '/bank/account';
 }

@@ -26,6 +26,7 @@ dependencies:
   bluetooth_enable: 0.1.1
   stop_watch_timer: 1.1.0
   http: 0.13.4
+  intl: ^0.17.0
   flutter: 
     sdk: flutter
 

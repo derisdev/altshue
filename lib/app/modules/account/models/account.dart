@@ -29,6 +29,7 @@ class DataAccount {
   late final String Phone;
   late final String Photo;
   late final String ReferralCode;
+  late final String IsVerified;
   late final Gift gift;
 
   DataAccount.fromJson(Map<String, dynamic> json) {
@@ -38,6 +39,7 @@ class DataAccount {
     Photo = json['Photo'];
     ReferralCode = json['ReferralCode'];
     gift = Gift.fromJson(json['Gift']);
+    IsVerified = json['IsVerified'];
   }
 }
 

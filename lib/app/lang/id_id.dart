@@ -49,6 +49,7 @@ const Map<String, String> idID = {
 
   //news
   'News': 'Berita',
+  'News are Empty': 'Berita kosong',
 
   //news detail
 
@@ -130,6 +131,8 @@ const Map<String, String> idID = {
   'SEND': 'KIRIM',
   'Any help ?': 'Butuh Bantuan ?',
   'Follow Our Social Media': 'Ikuti Media Sosial Kami',
+  'Terima kasih!':
+      'Terima kasih! harap tunggu balasan selanjutnya di email anda',
 
   //change password
   'Old Password': 'Kata Sandi Lama',
@@ -139,13 +142,13 @@ const Map<String, String> idID = {
 
   //redeem histori
   'Redeem History': 'Histori Redeem',
-  'Processing': 'Sedang Diproses',
+  'Diproses': 'Sedang Diproses',
   'History': 'Histori',
   'Status: ': 'Status: ',
-  'Done': 'Selesai',
+  'Selesai': 'Selesai',
 
   //etc
   'Friends are Empty': 'Data Teman Kosong',
   'Friend Request are Empty': 'Friend Request Kosong',
-  'Data not Found': 'Data tidak ditemukan'
+  'Data not Found': 'Data tidak ditemukan',
 };

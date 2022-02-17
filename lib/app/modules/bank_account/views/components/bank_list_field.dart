@@ -24,6 +24,7 @@ class ListFieldBank extends StatelessWidget {
             CleanField(
               controller: controller.numberPWC,
               hintText: 'Bank Account Number'.tr,
+              textInputType: TextInputType.number,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorNumber.value = true;
@@ -55,6 +56,7 @@ class ListFieldBank extends StatelessWidget {
             CleanField(
               controller: controller.namePWC,
               hintText: 'Bank Account Name'.tr,
+              textInputAction: TextInputAction.done,
               validator: (String? text) {
                 if (text == null || text.isEmpty) {
                   controller.isErrorName.value = true;

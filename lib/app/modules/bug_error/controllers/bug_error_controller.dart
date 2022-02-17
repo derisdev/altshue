@@ -1,3 +1,5 @@
+import 'package:altshue/app/modules/bug_error/providers/bug_error_provider.dart';
+import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,6 +15,8 @@ class BugErrorController extends GetxController {
   final imagePath = ''.obs;
   final formGlobalKey = GlobalKey<FormState>();
 
+  final isLoadingButton = false.obs;
+
   void report() {
     if (imagePath.value.isNotEmpty) {
       isErrorImage.value = true;
@@ -22,7 +26,27 @@ class BugErrorController extends GetxController {
     if (formGlobalKey.currentState!.validate() &&
         !isErrorImage.value &&
         !isErrorEmail.value &&
-        !isErrorDesc.value) {}
+        !isErrorDesc.value) {
+      isLoadingButton.value = true;
+
+      BugErrorProvider()
+          .bugError(
+              userEmail: emailC!.text,
+              bugNote: descC!.text,
+              filePath: imagePath.value)
+          .then((response) {
+        isLoadingButton.value = false;
+
+        if (response.status == 200) {
+          showToasts(
+              text:
+                  'Terima kasih! laporan akan diteruskan ke pihak developer.');
+          Get.back();
+        } else {
+          showToasts(text: response.message);
+        }
+      });
+    }
   }
 
   void getImage() async {

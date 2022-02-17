@@ -5,7 +5,6 @@ import 'package:altshue/app/modules/home/providers/beranda_provider.dart';
 import 'package:altshue/app/modules/home/views/home_view.dart';
 import 'package:altshue/app/utils/services/local_storage.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
-import 'package:battery/battery.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:get/get.dart';
@@ -79,8 +78,10 @@ class HomeController extends GetxController {
   }
 
   //bluetooth
-  final String SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
-  final String CHARACTERISTIC_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
+  // final String SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+  // final String CHARACTERISTIC_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
+  final String SERVICE_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
+  final String CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
   final isConnected = false.obs;
 
   void changeConnected(BluetoothDevice device) async {
@@ -112,31 +113,39 @@ class HomeController extends GetxController {
     List<BluetoothService> services = await device.discoverServices();
 
     for (var service in services) {
+      print('uuid is ${service.uuid.toString()}');
+
       if (service.uuid.toString() == SERVICE_UUID) {
         for (var characteristic in service.characteristics) {
+          print('uuid is ${characteristic.uuid.toString()}');
           if (characteristic.uuid.toString() == CHARACTERISTIC_UUID) {
             await characteristic.setNotifyValue(true);
-            print('uuid is ${services[2].uuid}');
             characteristic.value.listen((value) {
+              // print('value dari service ketiga:: ${utf8.decode(value)},');
               print('value dari service ketiga:: ${utf8.decode(value)},');
+              final newValue = utf8.decode(value);
+              print('data step is ${newValue.split('#')[0].split('@')[1]}');
+              final dataStepNew = newValue.split('#')[0].split('@')[1];
               if (value.isNotEmpty) {
-                if (value[0] > steps.value) {
-                  final step = int.parse(utf8.decode(value));
-                  if ((step == 1 || step == 0) && stepDefault == 0) {
-                    steps.value = step;
+                batteryPercent.value =
+                    int.parse(newValue.split('#')[0].split('@')[1]);
+                // if (int.parse(dataStepNew) > steps.value) {
+                final step = int.parse(newValue.split('#')[0].split('@')[1]);
+                if ((step == 1 || step == 0) && stepDefault == 0) {
+                  steps.value = step;
+                  currentStep = step;
+                } else {
+                  if (step != currentStep) {
+                    steps.value += 2;
                     currentStep = step;
-                  } else {
-                    if (step != currentStep) {
-                      steps.value += 2;
-                      currentStep = step;
 
-                      if (isFirstGet) {
-                        steps.value -= 2;
-                        isFirstGet = false;
-                      }
+                    if (isFirstGet) {
+                      steps.value -= 2;
+                      isFirstGet = false;
                     }
                   }
                 }
+                // }
                 saveStep(steps.value);
               }
             });
@@ -223,12 +232,7 @@ class HomeController extends GetxController {
   }
 
   //battery
-  final battery = Battery();
   final batteryPercent = 0.obs;
-
-  void changeBattery() async {
-    batteryPercent.value = await battery.batteryLevel;
-  }
 
   //close app
 
@@ -254,7 +258,6 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    changeBattery();
     getDefaultActivity();
     super.onInit();
   }

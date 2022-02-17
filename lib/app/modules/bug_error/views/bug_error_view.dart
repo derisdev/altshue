@@ -3,6 +3,7 @@ import 'package:altshue/app/widgets/button_global.dart';
 import 'package:altshue/app/widgets/header_bar.dart';
 import 'package:altshue/app/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:get/get.dart';
 
@@ -30,11 +31,21 @@ class BugErrorView extends GetView<BugErrorController> {
                 SizedBox(
                   width: 186,
                   height: 41,
-                  child: ButtonGlobal(
-                    onTap: () => controller.report(),
-                    radius: 8,
-                    fontSize: 14,
-                    title: 'REPORT'.tr,
+                  child: Obx(
+                    () => ButtonGlobal(
+                      onTap: controller.isLoadingButton.value
+                          ? () {}
+                          : () => controller.report(),
+                      radius: 8,
+                      fontSize: 14,
+                      title: 'REPORT'.tr,
+                      child: controller.isLoadingButton.value
+                          ? SpinKitThreeBounce(
+                              color: Colors.white,
+                              size: 20.0,
+                            )
+                          : null,
+                    ),
                   ),
                 ),
               ],

@@ -40,7 +40,6 @@ class ReedemDetailView extends GetView<ReedemDetailController> {
                     ),
                     DescriptionRedeem(),
                     SizedBox(height: 24),
-                    Spacer(),
                     args != null
                         ? args['is_from_histori'] == 'true'
                             ? SizedBox()

@@ -1,5 +1,7 @@
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/news/models/news.dart';
 import 'package:altshue/app/routes/app_pages.dart';
+import 'package:altshue/app/utils/helpers/data_format.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -8,9 +10,11 @@ class NewsItem extends StatelessWidget {
   const NewsItem({
     Key? key,
     required this.index,
+    required this.dataNews,
   }) : super(key: key);
 
   final int index;
+  final DataNews dataNews;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class NewsItem extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           onTap: () {
-            Get.toNamed(Routes.NEWS_DETAIL);
+            Get.toNamed(Routes.NEWS_DETAIL, arguments: {'id': dataNews.Id});
           },
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -38,7 +42,7 @@ class NewsItem extends StatelessWidget {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.network(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdRmhKAoSeP_y915jup2ol3qgi1qLa0i2Hbg&usqp=CAU',
+                          dataNews.BannerImage,
                           fit: BoxFit.cover,
                           width: 88,
                           height: 88,
@@ -52,8 +56,7 @@ class NewsItem extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: Get.width / 2,
-                          child: Text(
-                              'Daftar Area dengan Jaringan 5G di Indonesia',
+                          child: Text(dataNews.Title,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: TextStyle(
@@ -67,7 +70,7 @@ class NewsItem extends StatelessWidget {
                         SizedBox(
                           width: Get.width / 2,
                           child: Text(
-                            'Lorem Ipsum dolor sit amet, lorem ipsum sit amet dolor...',
+                            dataNews.Excerpt,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -80,7 +83,7 @@ class NewsItem extends StatelessWidget {
                           height: 9,
                         ),
                         Text(
-                          '22 Oct 2021',
+                          dateFormat(dataNews.Created),
                           style: TextStyle(
                               color: Palette.dustyGray,
                               fontSize: 10,

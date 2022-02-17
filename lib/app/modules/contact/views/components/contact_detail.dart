@@ -6,7 +6,14 @@ import 'contact_tile.dart';
 class ContactDetail extends StatelessWidget {
   const ContactDetail({
     Key? key,
+    required this.email,
+    required this.phone,
+    required this.adress,
   }) : super(key: key);
+
+  final String email;
+  final String phone;
+  final String adress;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +21,7 @@ class ContactDetail extends StatelessWidget {
       height: 100,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -25,15 +32,15 @@ class ContactDetail extends StatelessWidget {
                 children: [
                   TileContact(
                     icon: Icons.email,
-                    title: 'ask@altshue.com',
+                    title: email,
                   ),
                   TileContact(
                     icon: Icons.call,
-                    title: '08123456789',
+                    title: phone,
                   ),
                   TileContact(
                     icon: Icons.place,
-                    title: 'Jl. Address Here',
+                    title: adress,
                   ),
                 ],
               ),

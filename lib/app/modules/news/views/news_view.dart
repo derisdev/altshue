@@ -16,6 +16,7 @@ class NewsView extends GetView<NewsController> {
         resizeToAvoidBottomInset: false,
         body: Stack(
           children: [
+            SizedBox(height: Get.height),
             ListNews(),
             HeaderBar(
               title: 'News'.tr,

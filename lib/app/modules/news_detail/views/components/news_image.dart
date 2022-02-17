@@ -5,14 +5,17 @@ import 'package:get/get.dart';
 class ImageNews extends StatelessWidget {
   const ImageNews({
     Key? key,
+    required this.url,
   }) : super(key: key);
+
+  final String url;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Image.network(
-          'https://blog.spoongraphics.co.uk/wp-content/uploads/2015/11/thumbnail9.jpg',
+          url,
           fit: BoxFit.cover,
           width: Get.width,
           height: 300,

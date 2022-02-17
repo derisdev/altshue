@@ -33,13 +33,15 @@ class EditProfileController extends GetxController {
   }
 
   initDialogKTPUnverif() {
-    showDialogKTPUnverif(
-        icon: Icons.warning_rounded,
-        onTap: () {
-          Get.back();
-        },
-        text: "Segera Verifikasi KTP Anda".tr,
-        isDismissible: false);
+    if (Get.arguments['is_verified'] == '0') {
+      showDialogKTPUnverif(
+          icon: Icons.warning_rounded,
+          onTap: () {
+            Get.back();
+          },
+          text: "Segera Verifikasi KTP Anda".tr,
+          isDismissible: false);
+    }
   }
 
   void save() async {

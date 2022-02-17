@@ -175,12 +175,16 @@ class UnderlineField extends StatelessWidget {
 class CleanField extends StatelessWidget {
   final TextEditingController? controller;
   final String hintText;
+  final TextInputType textInputType;
+  final TextInputAction textInputAction;
   final String? Function(String? value) validator;
 
   CleanField({
     required this.controller,
     required this.hintText,
     required this.validator,
+    this.textInputType = TextInputType.text,
+    this.textInputAction = TextInputAction.next,
   });
 
   @override
@@ -191,6 +195,7 @@ class CleanField extends StatelessWidget {
       child: TextFormField(
         textCapitalization: TextCapitalization.none,
         maxLines: 1,
+        keyboardType: textInputType,
         cursorColor: Colors.black,
         validator: validator,
         controller: controller,
@@ -214,7 +219,7 @@ class CleanField extends StatelessWidget {
             borderSide: BorderSide(color: Palette.alto),
           ),
         ),
-        textInputAction: TextInputAction.next,
+        textInputAction: textInputAction,
       ),
     );
   }

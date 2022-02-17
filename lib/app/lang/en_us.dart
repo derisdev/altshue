@@ -49,6 +49,7 @@ const Map<String, String> enUS = {
 
   //news
   'News': 'News',
+  'News are Empty': 'News are Empty',
 
   //news detail
 
@@ -130,6 +131,7 @@ const Map<String, String> enUS = {
   'SEND': 'SEND',
   'Any help ?': 'Any help ?',
   'Follow Our Social Media': 'Follow Our Social Media',
+  'Terima kasih!': 'Thank You! please wait for the next reply in your email',
 
   //change password
   'Old Password': 'Old Password',
@@ -139,13 +141,13 @@ const Map<String, String> enUS = {
 
   //redeem histori
   'Redeem History': 'Redeem History',
-  'Processing': 'Processing',
+  'Diproses': 'Processing',
   'History': 'History',
   'Status: ': 'Status: ',
-  'Done': 'Done',
+  'Selesai': 'Done',
 
   //etc
   'Friends are Empty': 'Friends are Empty',
   'Friend Request are Empty': 'Friend Request are Empty',
-  'Data not Found': 'Data not Found'
+  'Data not Found': 'Data not Found',
 };

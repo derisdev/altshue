@@ -114,6 +114,7 @@ class ShoesAndBattery extends StatelessWidget {
                   batteryLevel: controller.batteryPercent.value,
                   mainColor: Palette.white,
                   showPercentSlide: true,
+                  batteryFromPhone: false,
                 ),
               ),
             ),

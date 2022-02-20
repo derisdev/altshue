@@ -1,7 +1,7 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
 import 'package:altshue/app/modules/friends/controllers/friends_req_controller.dart';
-import 'package:altshue/app/modules/friends/models/friend.dart';
+import 'package:altshue/app/modules/friends/models/friend_req.dart';
 import 'package:altshue/app/widgets/button_global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -14,7 +14,7 @@ class FriendRequestItem extends GetView<FriendsReqController> {
     Key? key,
     required this.dataFriend,
   }) : super(key: key);
-  final DataFriend dataFriend;
+  final DataFriendReq dataFriend;
   final int index;
 
   @override

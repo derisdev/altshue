@@ -1,11 +1,11 @@
-import 'package:altshue/app/modules/friends/models/friend.dart';
+import 'package:altshue/app/modules/friends_add/models/friend_find.dart';
 import 'package:altshue/app/modules/friends_add/providers/friend_add_provider.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class FriendsAddController extends GetxController
-    with StateMixin<List<DataFriend>> {
+    with StateMixin<List<DataFriendFind>> {
   TextEditingController searchC = TextEditingController();
   final txtSearch = ''.obs;
 
@@ -25,6 +25,8 @@ class FriendsAddController extends GetxController
   }
 
   void addFriend({required String requestedMemberId}) {
+    showToasts(text: 'Menambahkan ke teman...');
+
     FriendAddProvider()
         .friendAdd(requestedMemberId: requestedMemberId)
         .then((response) {

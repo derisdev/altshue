@@ -1,12 +1,13 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
-import 'package:altshue/app/modules/friends/models/friend.dart';
+import 'package:altshue/app/modules/friends_add/controllers/friends_add_controller.dart';
+import 'package:altshue/app/modules/friends_add/models/friend_find.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
-class PeopleListItem extends StatelessWidget {
+class PeopleListItem extends GetView<FriendsAddController> {
   const PeopleListItem({
     Key? key,
     required this.index,
@@ -14,7 +15,7 @@ class PeopleListItem extends StatelessWidget {
   }) : super(key: key);
 
   final int index;
-  final DataFriend dataFriend;
+  final DataFriendFind dataFriend;
 
   @override
   Widget build(BuildContext context) {
@@ -103,9 +104,13 @@ class PeopleListItem extends StatelessWidget {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(right: 3.0),
-                child: index != 0
-                    ? FaIcon(FontAwesomeIcons.userFriends,
-                        color: Palette.silver, size: 20)
+                child: dataFriend.IsFriend
+                    ? InkWell(
+                        onTap: () => controller.addFriend(
+                            requestedMemberId: dataFriend.Id),
+                        child: FaIcon(FontAwesomeIcons.userFriends,
+                            color: Palette.silver, size: 20),
+                      )
                     : Icon(Icons.person_add, color: Palette.darkTan, size: 25),
               ),
               SizedBox(

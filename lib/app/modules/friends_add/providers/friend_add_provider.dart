@@ -1,17 +1,17 @@
 import 'dart:convert';
 
 import 'package:altshue/app/constants/api_path.dart';
-import 'package:altshue/app/modules/friends/models/friend.dart';
 import 'package:altshue/app/modules/friends/models/friend_req.dart';
+import 'package:altshue/app/modules/friends_add/models/friend_find.dart';
 import 'package:altshue/app/utils/helpers/header_api.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class FriendAddProvider extends GetConnect {
-  Future<Friend> friendFind({required String keyword}) async {
+  Future<FriendFind> friendFind({required String keyword}) async {
     final response = await get(ApiPath.findFriend + '?term=$keyword');
     print(response.body);
-    return Friend.fromJson(response.body);
+    return FriendFind.fromJson(response.body);
   }
 
   Future<FriendConfirmDelete> friendAdd(

@@ -1,5 +1,6 @@
 import 'package:altshue/app/modules/friends/models/friend.dart';
 import 'package:altshue/app/modules/friends/providers/friend_provider.dart';
+import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +23,20 @@ class FriendsController extends GetxController
         change(null, status: RxStatus.error(response.message));
       }
     });
+  }
+
+  void friendFollow(
+      {required String followedMemberId, required bool isFollowed}) {
+    if (!isFollowed) {
+      showToasts(text: 'Diikuti');
+      FriendProvider()
+          .friendFollow(followedMemberId: followedMemberId)
+          .then((response) {
+        if (response.status == 200) {
+          getFriend();
+        } else {}
+      });
+    } else {}
   }
 
   @override

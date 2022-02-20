@@ -1,10 +1,11 @@
 import 'package:altshue/app/modules/friends/models/friend.dart';
+import 'package:altshue/app/modules/friends/models/friend_req.dart';
 import 'package:altshue/app/modules/friends/providers/friend_provider.dart';
 import 'package:altshue/app/utils/ui/show_toast.dart';
 import 'package:get/get.dart';
 
 class FriendsReqController extends GetxController
-    with StateMixin<List<DataFriend>> {
+    with StateMixin<List<DataFriendReq>> {
   final lengthReq = 0.obs;
 
   void getFriendReq() {

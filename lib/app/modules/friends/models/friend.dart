@@ -25,25 +25,33 @@ class Friend {
 
 class DataFriend {
   DataFriend({
-    required this.Id,
-    this.Fullname,
-    required this.MemberLevel,
+    required this.UniqueId,
+    required this.FriendFollowerCount,
+    required this.FriendLevel,
+    required this.FriendFullname,
+    required this.FriendPhoto,
   });
-  late final String Id;
-  late final String? Fullname;
-  late final String MemberLevel;
+  late final String UniqueId;
+  late final String FriendFollowerCount;
+  late final String FriendLevel;
+  late final String FriendFullname;
+  late final String FriendPhoto;
 
   DataFriend.fromJson(Map<String, dynamic> json) {
-    Id = json['Id'];
-    Fullname = json['Fullname'];
-    MemberLevel = json['MemberLevel'];
+    UniqueId = json['UniqueId'];
+    FriendFollowerCount = json['FriendFollowerCount'];
+    FriendLevel = json['FriendLevel'];
+    FriendFullname = json['FriendFullname'];
+    FriendPhoto = json['FriendPhoto'];
   }
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
-    _data['Id'] = Id;
-    _data['Fullname'] = Fullname;
-    _data['MemberLevel'] = MemberLevel;
+    _data['UniqueId'] = UniqueId;
+    _data['FriendFollowerCount'] = FriendFollowerCount;
+    _data['FriendLevel'] = FriendLevel;
+    _data['FriendFullname'] = FriendFullname;
+    _data['FriendPhoto'] = FriendPhoto;
     return _data;
   }
 }

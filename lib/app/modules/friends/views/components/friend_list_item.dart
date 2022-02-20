@@ -1,11 +1,12 @@
 import 'package:altshue/app/constants/asset_path.dart';
 import 'package:altshue/app/constants/colors.dart';
+import 'package:altshue/app/modules/friends/controllers/friends_controller.dart';
 import 'package:altshue/app/modules/friends/models/friend.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-class FriendListItem extends StatelessWidget {
+class FriendListItem extends GetView<FriendsController> {
   const FriendListItem({
     Key? key,
     required this.dataFriend,
@@ -40,7 +41,7 @@ class FriendListItem extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: Get.width / 2.6,
-                    child: Text(dataFriend.Fullname.toString(),
+                    child: Text(dataFriend.FriendFullname.toString(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -86,7 +87,7 @@ class FriendListItem extends StatelessWidget {
                         width: 7,
                       ),
                       Text(
-                        dataFriend.MemberLevel,
+                        dataFriend.FriendLevel,
                         style: TextStyle(
                             color: Palette.doveGray,
                             fontSize: 12,
@@ -101,15 +102,20 @@ class FriendListItem extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 5.0),
                 child: Column(
                   children: [
-                    Icon(
-                      Icons.favorite,
-                      color: Palette.valencia,
+                    InkWell(
+                      onTap: () => controller.friendFollow(
+                          followedMemberId: dataFriend.UniqueId,
+                          isFollowed: false),
+                      child: Icon(
+                        Icons.favorite,
+                        color: Palette.valencia,
+                      ),
                     ),
                     SizedBox(
                       height: 2.5,
                     ),
                     Text(
-                      '50',
+                      dataFriend.FriendFollowerCount,
                       style: TextStyle(
                           color: Palette.valencia,
                           fontSize: 12,

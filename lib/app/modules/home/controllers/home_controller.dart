@@ -79,16 +79,16 @@ class HomeController extends GetxController {
 
   //bluetooth
   //alat 1
-  // final String SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
-  // final String CHARACTERISTIC_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
+  final String SERVICE_UUID = "4fafc201-1fb5-459e-8fcc-c5c9c331914b";
+  final String CHARACTERISTIC_UUID = "beb5483e-36e1-4688-b7f5-ea07361b26a8";
 
 //battery alat 1
-  // final String BATTERY_UUID = "0000180f-0000-1000-8000-00805f9b34fb";
-  // final String LEVEL_UUID = "00002a19-0000-1000-8000-00805f9b34fb";
+  final String BATTERY_UUID = "0000180f-0000-1000-8000-00805f9b34fb";
+  final String LEVEL_UUID = "00002a19-0000-1000-8000-00805f9b34fb";
 
   //alat 2
-  final String SERVICE_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
-  final String CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
+  // final String SERVICE_UUID = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
+  // final String CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
   final isConnected = false.obs;
 
   void changeConnected(BluetoothDevice device) async {
@@ -119,20 +119,29 @@ class HomeController extends GetxController {
 
     List<BluetoothService> services = await device.discoverServices();
 
+    // for (int i = 0; i < services.length; i++) {
+    //   print('uuid service is ${services[i].uuid.toString()}');
+    //   for (int j = 0; j < services[i].characteristics.length; j++) {
+    //     print(
+    //         'uuid characteristic level is ${services[i].characteristics[j].uuid.toString()}');
+    //   }
+    // }
+
     for (var service in services) {
-      print('uuid is ${service.uuid.toString()}');
-
-      // if (service.uuid.toString() == BATTERY_UUID) {
-      //   for (BluetoothCharacteristic characteristic
-      //       in service.characteristics) {
-      //     if (characteristic.uuid.toString() == LEVEL_UUID) {
-      //       print("FOUND LEVEL ${characteristic.value}");
-      //       await characteristic.setNotifyValue(!characteristic.isNotifying);
-      //       // batteryPercent.value = characteristic.value;
-
-      //     }
-      //   }
-      // }
+      if (service.uuid.toString() == BATTERY_UUID) {
+        for (BluetoothCharacteristic characteristic
+            in service.characteristics) {
+          if (characteristic.uuid.toString() == LEVEL_UUID) {
+            await characteristic.setNotifyValue(true);
+            characteristic.value.listen((value) {
+              print('battery is :: ${utf8.decode(value)}');
+              if (utf8.decode(value).isNotEmpty) {
+                // batteryPercent.value = int.parse(utf8.decode(value));
+              }
+            });
+          }
+        }
+      }
       if (service.uuid.toString() == SERVICE_UUID) {
         for (var characteristic in service.characteristics) {
           print('uuid is ${characteristic.uuid.toString()}');
@@ -146,14 +155,14 @@ class HomeController extends GetxController {
               // final dataStepNew = newValue.split('#')[0].split('@')[1];
               if (value.isNotEmpty) {
                 //battery alat 2
-                batteryPercent.value =
-                    int.parse(newValue.split('#')[1].split('!')[0]);
+                // batteryPercent.value =
+                //     int.parse(newValue.split('#')[1].split('!')[0]);
 
                 //alat 1
-                // final step = int.parse(newValue);
+                final step = int.parse(newValue);
 
                 // alat 2
-                final step = int.parse(newValue.split('#')[0].split('@')[1]);
+                // final step = int.parse(newValue.split('#')[0].split('@')[1]);
 
                 if ((step == 1 || step == 0) && stepDefault == 0) {
                   steps.value = step;
